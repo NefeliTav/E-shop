@@ -3,7 +3,7 @@ body {
     font-family: "Times New Roman", Times, serif;
 }
 
-hr { 
+hr {
     display: block;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
@@ -11,7 +11,7 @@ hr {
     margin-right: auto;
     border-width: 1px;
     width:90%
-  } 
+  }
 
 .footer {
     text-align: center;
@@ -34,25 +34,25 @@ hr {
 
 .search-box{
     position:absolute;
-    top:17%;
-    left:93%;
+    top:9%;
+    left:85%;
     transform:translate(-50%,-50%);
     background:#07051a;
     height:40px;
     border-radius:40px;
     padding:10px;
-   
+
 }
 .search-box:hover > .txt{
     width:190px;
     padding:0 20px;
     transition: all 0.5s;
-  
+
 
 }
 .search-box:hover > .btn{
     display:none;
-   
+
 }
 .btn{
     float:right;
@@ -63,11 +63,12 @@ hr {
     align-items:center;
     transition:0.4s;
     cursor:pointer;
-   
+
 }
 .btn > i{
     font-size:20px;
-   
+    border-radius: :50px;
+
 }
 
 .txt {
@@ -84,8 +85,8 @@ hr {
 
 #cart {
     position:absolute;
-    top: 2%;
-    left: 85%;
+    top: 4%;
+    left: 73%;
     width:40px;
     height:40px;
     font-size: 23px;
@@ -96,8 +97,8 @@ hr {
 }
 #login {
     position:absolute;
-    top: 5%;
-    left: 85%;
+    top: 7%;
+    left: 73%;
     width:40px;
     height:40px;
     font-size: 23px;
@@ -108,8 +109,8 @@ hr {
 
 #signup {
     position:absolute;
-    top: 8%;
-    left: 85%;
+    top: 9%;
+    left: 73%;
     width:40px;
     height:40px;
     font-size: 23px;
