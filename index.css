@@ -1,7 +1,9 @@
 
 body {
     font-family: "Times New Roman", Times, serif;
+  
 }
+
 
 hr {
     display: block;
@@ -34,8 +36,8 @@ hr {
 
 .search-box{
     position:absolute;
-    top:9%;
-    left:85%;
+    top:50%;
+    left:50%;
     transform:translate(-50%,-50%);
     background:#07051a;
     height:40px;
@@ -67,7 +69,7 @@ hr {
 }
 .btn > i{
     font-size:20px;
-    border-radius: :50px;
+    border-radius:50px;
 
 }
 
@@ -85,8 +87,8 @@ hr {
 
 #cart {
     position:absolute;
-    top: 4%;
-    left: 73%;
+    top: 6%;
+    left: 82%;
     width:40px;
     height:40px;
     font-size: 23px;
@@ -97,7 +99,7 @@ hr {
 }
 #login {
     position:absolute;
-    top: 7%;
+    top: 5%;
     left: 73%;
     width:40px;
     height:40px;
@@ -109,7 +111,7 @@ hr {
 
 #signup {
     position:absolute;
-    top: 9%;
+    top: 8%;
     left: 73%;
     width:40px;
     height:40px;
