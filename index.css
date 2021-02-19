@@ -34,7 +34,7 @@ hr {
 
 .search-box{
     position:absolute;
-    top:15%;
+    top:17%;
     left:93%;
     transform:translate(-50%,-50%);
     background:#07051a;
@@ -66,11 +66,11 @@ hr {
    
 }
 .btn > i{
-    font-size:30px;
+    font-size:20px;
    
 }
 
-.txt{
+.txt {
     border:none;
     background:none;
     outline:none;
@@ -80,4 +80,40 @@ hr {
     font-size:20px;
     transition:0.4s;
     width:0px;
+}
+
+#cart {
+    position:absolute;
+    top: 2%;
+    left: 85%;
+    width:40px;
+    height:40px;
+    font-size: 23px;
+    padding: 0;
+    border: none;
+    background: none;
+
+}
+#login {
+    position:absolute;
+    top: 5%;
+    left: 85%;
+    width:40px;
+    height:40px;
+    font-size: 23px;
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+#signup {
+    position:absolute;
+    top: 8%;
+    left: 85%;
+    width:40px;
+    height:40px;
+    font-size: 23px;
+    padding: 0;
+    border: none;
+    background: none;
 }
