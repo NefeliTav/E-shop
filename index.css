@@ -36,7 +36,7 @@ hr {
 
 .search-box{
     position:absolute;
-    top:50%;
+    top:20%;
     left:50%;
     transform:translate(-50%,-50%);
     background:#07051a;
@@ -49,8 +49,6 @@ hr {
     width:190px;
     padding:0 20px;
     transition: all 0.5s;
-
-
 }
 .search-box:hover > .btn{
     display:none;
@@ -87,11 +85,11 @@ hr {
 
 #cart {
     position:absolute;
-    top: 6%;
-    left: 82%;
+    top: 5%;
+    left: 85%;
     width:40px;
     height:40px;
-    font-size: 23px;
+    font-size: 18px;
     padding: 0;
     border: none;
     background: none;
@@ -99,24 +97,46 @@ hr {
 }
 #login {
     position:absolute;
+    top: 10%;
+    left: 85.5%;
+    width:40px;
+    height:40px;
+    font-size: 18px;
+    padding: 0;
+    background: none;
+    border-color:black;
+    cursor: pointer;
+    border-radius:50px;
+
+}
+#heart {
+    position:absolute;
     top: 5%;
-    left: 73%;
+    left: 87%;
     width:40px;
     height:40px;
     font-size: 23px;
     padding: 0;
     border: none;
     background: none;
+
 }
 
-#signup {
-    position:absolute;
-    top: 8%;
-    left: 73%;
-    width:40px;
-    height:40px;
-    font-size: 23px;
-    padding: 0;
-    border: none;
-    background: none;
-}
+@media only screen and (max-width: 600px) {
+    #login {
+        top: 10%;
+        left: 80%;
+    
+    }
+    #heart {
+        top: 5%;
+        left: 85.5%;
+
+    }
+    #cart {
+        top: 5%;
+        left: 78.7%;
+    }
+  }
+
+
