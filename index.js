@@ -1,12 +1,8 @@
+//modal pop up
 window.onload = function () {
 
-    // Get the modal
     var modal = document.getElementById("myModal");
-
-    // Get the button that opens the modal
     var btn = document.getElementById("login");
-
-    // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
 
     // When the user clicks the button, open the modal 
@@ -26,7 +22,6 @@ window.onload = function () {
         }
     }
 
-
     var btn2 = document.getElementById("signup");
 
     //when the user clicks on "make account"-> close modal and open new one 
@@ -45,13 +40,10 @@ window.onload = function () {
         }
     }
 
-
 };
 
-
-
 //show password
-function myFunction(id1, id2) {
+function show_password(id1, id2) {
     var x = document.getElementById(id1);
 
     if (x.type === "password") {
@@ -106,12 +98,22 @@ function checkPasswordStrength(password) {
 }
 
 //check if passwords match
-var check = function () {
+var check_match = function () {
     if (document.getElementById('myInput1').value !==
         document.getElementById('myInput2').value) {
         document.getElementById('message').style.color = 'red';
         document.getElementById('message').innerHTML = 'not matching';
     } else {
         document.getElementById('message').innerHTML = '';
+    }
+}
+
+//hide hamburger
+function show_hamburger() {
+    var x = document.getElementById("topnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
     }
 }

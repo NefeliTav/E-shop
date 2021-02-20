@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>E-Shop</title> <!-- should change into a button -->
+    <title>E-Shop</title> <!-- should change into an image -->
     <meta charset="utf-8">
     <!-- responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,25 +26,14 @@
 <body>
     <div class="header">
         <h1 class="logo">E-Shop</h1>
-        <div class="topnav">
+        <div class="topnav" id="topnav">
             <a class="active" href="#home">Home</a>
             <a href="#news">Products</a>
             <a href="#contact">About</a>
             <a href="#about">Introduction to Photography</a>
-            <a href="javascript:void(0);" class="icon" onclick="myFunction13()">
+            <a href="#" class="icon" onclick="show_hamburger()">
                 <i class="fa fa-bars"></i>
             </a>
-            <script>
-                function myFunction13() {
-                    return;
-                    var x = document.getElementById("myTopnav");
-                    if (x.className === "topnav") {
-                        x.className += " responsive";
-                    } else {
-                        x.className = "topnav";
-                    }
-                }
-            </script>
         </div>
         <div class="search-box">
             <form>
@@ -71,14 +60,14 @@
                 <span class="close">&times;</span>
                 <h1 style="font-size:30px;text-align:center;">Log in</h1>
                 <hr>
-                <div class="form-popup" id="myForm">
+                <div class="form-popup">
                     <form action="/action_page.php" class="form-container">
                         <label for="email" style="font-weight:normal;font-size:20px;">Email</label>
-                        <input type="text" id="form" placeholder="Enter Email" name="email" required>
+                        <input type="text" placeholder="Enter Email" name="email" required>
                         <br>
                         <label for="psw" style="font-weight:normal;font-size:20px;">Password </label>
                         <input style="width:20px;height:20px;margin-left: 15em;padding: 0 7em 2em 0;" type="checkbox"
-                            onclick="myFunction('myInput')">
+                            onclick="show_password('myInput')">
                         Show Password
 
                         <input type="password" id="myInput" placeholder="Enter Password" name="psw" required>
@@ -100,31 +89,30 @@
                 <span id="close" class="close">&times;</span>
                 <h1 style="font-size:30px;text-align:center;">Sign up</h1>
                 <hr>
-                <div class="form-popup" id="myForm2">
+                <div class="form-popup">
                     <form action="/action_page.php" id="form-container2" class="form-container">
 
                         <label for="name" style="font-weight:normal;font-size:20px;">First Name</label>
                         <label for="last name" style="margin-left:41%;font-weight:normal;font-size:20px;">Last
                             Name</label>
                         <br>
-                        <input type="text" id="col1" placeholder="Enter first name" name="name" required>
-                        <input type="text" id="col2" style="margin-left:20%;" placeholder="Enter last name"
-                            name="last name" required>
+                        <input type="text" placeholder="Enter first name" name="name" required>
+                        <input type="text" style="margin-left:20%;" placeholder="Enter last name" name="last name"
+                            required>
                         <br>
                         <label for="email" style="font-weight:normal;font-size:20px;">Email</label>
                         <label for="tel" style="margin-left:48%;font-weight:normal;font-size:20px;">Phone number</label>
                         <br>
-                        <input type="email" id="col1" placeholder="e.g. papadopoulos@gmail.com" name="email" required>
-                        <input type="tel" id="col2" style="margin-left:20%;" placeholder="e.g.6940234783" name="phone"
-                            required>
+                        <input type="email" placeholder="e.g. papadopoulos@gmail.com" name="email" required>
+                        <input type="tel" style="margin-left:20%;" placeholder="e.g.6940234783" name="phone" required>
                         <br>
                         <label for="address" style="font-weight:normal;font-size:20px;">Address</label>
                         <label for="postcode"
                             style="margin-left:45%;font-weight:normal;font-size:20px;">Postcode</label>
                         <br>
-                        <input type="text" id="col1" placeholder="Enter Addess" name="address" required>
-                        <input type="text" id="col2" style="margin-left:20%;" placeholder="Enter Postcode"
-                            name="postcode" required>
+                        <input type="text" placeholder="Enter Addess" name="address" required>
+                        <input type="text" style="margin-left:20%;" placeholder="Enter Postcode" name="postcode"
+                            required>
                         <br>
                         <div class="password-field">
                             <label for="psw" style="font-weight:normal;font-size:20px;">Password</label>
@@ -133,13 +121,13 @@
                             <input id="myInput1" class="password-field" type="password" placeholder="Enter Password"
                                 name="password" required />
                             <input type="password" style="margin-left:20%;" id="myInput2" placeholder="Confirm Password"
-                                onkeyup='check();' name="password" required>
+                                onkeyup='check_match();' name="password" required>
                         </div>
                         <span id='message'></span>
 
                         <input type="checkbox"
                             style="margin-left: 60%;padding: 0 7em 2em 0;font-size:10px;width:15px;height:15px;"
-                            onclick="myFunction('myInput1', 'myInput2')">
+                            onclick="show_password('myInput1', 'myInput2')">
                         Show Password
                         <br>
                         <input type="checkbox" style="font-size:20px;width:20px;height:20px;" required> I have read and
@@ -155,25 +143,20 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="side">
-        </div>
-        <div class="main">
-        </div>
-    </div>
+
     <br> <!-- temporary : should change -->
     <br> <!-- temporary : should change -->
     <br> <!-- temporary : should change -->
 
 
     <!-- Carousel -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div id="carousel" class="carousel slide" data-ride="carousel">
 
         <!-- Indicators -->
         <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel" data-slide-to="1"></li>
+            <li data-target="#carousel" data-slide-to="2"></li>
         </ol>
 
         <!-- Wrapper for slides -->
@@ -204,11 +187,11 @@
         </div>
 
         <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <a class="left carousel-control" href="#carousel" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left"></span>
             <span class="sr-only">Previous</span>
         </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <a class="right carousel-control" href="#carousel" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right"></span>
             <span class="sr-only">Next</span>
         </a>
