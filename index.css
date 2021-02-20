@@ -1,7 +1,5 @@
-
 body {
-    font-family: "Times New Roman", Times, serif;
-  
+    font-family: "Times New Roman", Times, serif; 
 }
 
 
@@ -97,12 +95,12 @@ hr {
 }
 #login {
     position:absolute;
-    top: 10%;
+    top: 15%;
     left: 85.5%;
     width:40px;
     height:40px;
     font-size: 18px;
-    padding: 0;
+    padding: 10px;
     background: none;
     border-color:black;
     cursor: pointer;
@@ -122,21 +120,174 @@ hr {
 
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1300px) {
     #login {
-        top: 10%;
         left: 80%;
-    
     }
     #heart {
-        top: 5%;
         left: 85.5%;
-
     }
     #cart {
-        top: 5%;
         left: 78.7%;
     }
   }
 
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 25%;
+    height: 45%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 7px 0 22px 0;
+    border: none;
+    background: #f1f1f1; 
+    border-radius: 50px;
+    
+  }
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+/* Set a style for the submit/login button */
+.form-container .btn {
+    background-color: #010716;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    margin-bottom:50px;
+    opacity: 0.8;
+    border-radius: 30px;
+
+  }
+
+
+  
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover {
+    opacity: 1;
+  }
+
+ 
+#modal-content2 {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    height: 80%;
+  }
+
+#form-container2 input[type=text], #form-container2 input[type=password], #form-container2 input[type=email] , #form-container2 input[type=tel]{
+    width: 37%;
+    padding: 15px;
+    margin: 7px 0 22px 0;
+    border: none;
+    background: #f1f1f1; 
+    border-radius: 50px;
+    align-items: center;
+  }
+
+  #form-container2 .btn {
+    background-color: #010716;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 19%;
+    margin-bottom:50px;
+    margin-right:50px;
+    opacity: 0.8;
+    border-radius: 30px;
+
+  }
+
+  #form-container2 .btn:hover {
+    opacity: 1;
+  }
+
+/* password strength meter */      
+
+  .password-field:after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 0;
+    margin-top: 3px;
+  }
+
+  .password-field.level0:after {
+    width: 25%;
+    background: red;
+  }
+
+  .password-field.level1:after {
+    width: 50%;
+    background: orange;
+  }
+
+  .password-field.level2:after {
+    width: 75%;
+    background: gold;
+  }
+
+  .password-field.level3:after {
+    width: 100%;
+    background: green;
+  }
+
+  @media only screen and (max-width: 1300px) {
+    .modal-content {
+      width: 80%;
+      height: 55%;
+    }
+    #modal-content2 {
+      width: 99%;
+      height: 90%;
+    }
+  }
 
