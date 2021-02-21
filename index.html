@@ -31,7 +31,7 @@
             <a href="#news">Products</a>
             <a href="#contact">About</a>
             <a href="#about">Introduction to Photography</a>
-            <a href="#" class="icon" onclick="show_hamburger()">
+            <a href="#" class="icon" onclick="openSideNav();return false;">
                 <i class="fa fa-bars"></i>
             </a>
         </div>
@@ -148,7 +148,21 @@
     <br> <!-- temporary : should change -->
     <br> <!-- temporary : should change -->
 
+<!-- The overlay -->
+<div id="myNav" class="overlay">
 
+    <!-- Button to close the overlay navigation -->
+    <a href="javascript:void(0)" class="closebtn" onclick="closeSideNav()">&times;</a>
+  
+    <!-- Overlay content -->
+    <div class="overlay-content">
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">About</a>
+      <a href="#">Introduction to Photography</a>
+    </div>
+  
+  </div>
     <!-- Carousel -->
     <div id="carousel" class="carousel slide" data-ride="carousel">
 
@@ -211,6 +225,7 @@
 
 
     </div>
+
 
 </body>
 

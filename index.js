@@ -117,3 +117,10 @@ function show_hamburger() {
         x.className = "topnav";
     }
 }
+function openSideNav() {
+    document.getElementById("myNav").style.width = "100%";
+  }
+  
+  function closeSideNav() {
+    document.getElementById("myNav").style.width = "0%";
+  } 
