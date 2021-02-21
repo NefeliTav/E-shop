@@ -18,6 +18,10 @@
     <!-- search bar -->
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="http://code.jquery.com/jquery-1.5.js"></script>
     <!-- js functions -->
     <script type="text/javascript" src="index.js"></script>
 
@@ -127,6 +131,7 @@
                         </div>
                         <span id='message'></span>
 
+
                         <input type="checkbox"
                             style="margin-left: 60%;padding: 0 7em 2em 0;font-size:10px;width:15px;height:15px;"
                             onclick="show_password('myInput1', 'myInput2')">
@@ -224,7 +229,7 @@
     <div>
         <!-- Products -->
 
-        <div class="container" id="products">
+        <div class="container" id="products" name="products">
             <h1 class="xlarge-font">Products</h1>
             <p><span style="font-size:36px">Take photos like a pro.</span> You should buy this app because lorem
                 ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -234,7 +239,7 @@
 
         <!-- About -->
 
-        <div class="container" id="about" style="background-color:#f1f1f1">
+        <div class="container" id="about" name="about" style="background-color:#f1f1f1">
             <div class="row">
                 <div class="column-33">
                     <img src="/w3images/app5.jpg" alt="App" width="335" height="471">
@@ -254,62 +259,113 @@
 
         <!-- Photography -->
 
-        <div class="container" id="photography">
+        <div class="container" name="photography" id="photography">
             <div class="row">
                 <div class="column-66">
-                    <h1 class="xlarge-font">Introduction to Photography</h1>
-                    <h1 class="large-font" style="color:MediumSeaGreen;"><b>Why buy it?</b></h1>
-                    <p><span style="font-size:36px">Take photos like a pro.</span> You should buy this app because lorem
-                        ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                        eu
-                        fugiat nulla pariatur.</p>
-                    <button class="button">Download Application</button>
+                    <h1 class="xlarge-font">Photography for beginners</h1>
+                    <p style="font-size:20px;"><b>Watch this tutorial to get a taste of photography.</b></p>
+                    <p style="font-size:18px;"><q><i>There is one thing the photo must contain – the humanity of the
+                                moment.
+                            </i></q> – Robert Frank</p>
                 </div>
-                <div class="column-33">
-                    <img src="/w3images/img_app.jpg" width="335" height="471">
+                <div class=" column-33">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" width="600" height="450"
+                            src="https://www.youtube.com/embed/z_3ZyAX_3gY" frameborder="0" allowfullscreen
+                            ng-show="showvideo"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Contact -->
 
-        <div class="container" id="contact" style="background-color:#f1f1f1">
+        <div class="container" name=contact id="contact" style="background-color:#f1f1f1">
+            <h1 class="xlarge-font" style="text-align: center;">Contact Us</h1><br>
             <div class="row">
                 <div class="column-33">
-                    <img src="/w3images/app5.jpg" alt="App" width="335" height="471">
+                    <p><span style="font-size:22px">We are here to answer your questions.</span></p>
+                    <br><br>
+                    <label for="email" style="font-size:18px;font-weight:normal;">Email:</label><br>
+                    <input
+                        style="
+                        border:none;text-align:center;font-size:18px;border-radius:30px;width:270px;height:40px;outline:none;"
+                        type="text" id="email" name="email"><br><br>
+                    <form action="/action_page.php">
+                        <label for="textarea" style="font-size:18px;font-weight:normal;">Ask us
+                            anything:</label><br>
+                        <textarea
+                            style="font-size:24px;border-radius:30px;border:none;width:400px;height:300px;outline:none;"
+                            id="field" onkeyup="countChar(this)"></textarea>
+                        <div id="charNum"></div>
+                        <span id='message2'></span>
+                        <br>
+                        <input type="checkbox" id="checkbox" name="checkbox" value="screen">
+                        <label for="checkbox" style="font-weight:normal;font-size:17px;">Subscribe to our
+                            Newsletter</label>
+                        <br>
+                        <div class="text-xs-center">
+                            <div class="g-recaptcha" data-sitekey="6Ldo_GEaAAAAADm7ImOnO_tvTP_JXFilpAr_CgZq"
+                                data-callback="verifyRecaptchaCallback"
+                                data-expired-callback="expiredRecaptchaCallback">
+                                <!--Use this secret key for communication between your site and reCAPTCHA.
+  6Ldo_GEaAAAAAJwIPRXfVpVvLl0ez03FSfLPGHHB -->
+                            </div>
+                        </div>
+                        <input type="submit" value="Send message"
+                            style="color:white;background-color:#010716;margin-top:15px;font-size:18px;border-radius:30px;width:270px;height:40px;outline:none;">
+
+
+                    </form>
                 </div>
                 <div class="column-66">
-                    <h1 class="xlarge-font">Contact</h1>
-                    <h1 class="large-font" style="color:red;"><b>Pixels, who?</b></h1>
-                    <p><span style="font-size:24px">A revolution in resolution.</span> Sharp and clear photos with the
-                        world's best photo engine, incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquipex ea commodo consequat. Duis aute
-                        irure
-                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                    <button class="button" style="background-color:red">Read More</button>
+                    <p><span style="font-size:22px">Where to find us:</span></p>
+                    <br><br>
+                    <ul id="menu-centered" style="font-size:18px;">
+                        <li><span>Solonos 12 ,Kolonaki</span></li>
+                        <li><span>Chelidonous 50 ,Kifisia</span></li>
+                        <li><span>Venetias 8 ,Mykonos</span></li>
+                    </ul>
+                    <i class="fas fa-shopping-bag"></i>
+                    <p style="font-size:22px">Opening hours:</p><br>
+
+                    <ul id="menu-centered" style="font-size:18px;">
+                        <li><span>Monday : 9am - 5pm</span></li>
+                        <li><span>Tuesday :9am - 5pm</span></li>
+                        <li><span>Wednesday :9am - 5pm</span></li>
+                        <li><span>Thursday :9am - 5pm</span></li>
+                        <li><span>Friday :9am - 5pm</span></li>
+                        <li><span>Saturday : Closed</span></li>
+                        <li><span>Sunday : Closed</span></li>
+                    </ul>
+                    <br>
+                    <p style="font-size:22px">For more info:</p><br>
+
+                    <i style="font-size:24px;background: none;" class="fa">&#xf095;</i><a style="font-size:22px"
+                        href="https://api.whatsapp.com/send?phone=302102536985">+30 210 253 6985</a><br>
+                    <i style="font-size:24px;background: none;" class="fa">&#xf0e0;</i>
+                    <a style="font-size:22px" href="mailto: abc@example.com">gn@gmail.com</a>
                 </div>
+
             </div>
         </div>
-    </div>
 
 
-    <hr> <!-- thematic break -->
-    <div class=" footer">
-        <a href="https://www.facebook.com/" title="facebook" class="fa fa-facebook"></a>
-        <a href="https://twitter.com/" title="twitter" class="fa fa-twitter"></a>
-        <a href="https://www.instagram.com/" title="instagram" class="fa fa-instagram"></a>
-        <br>
-        <a href="" style="color:black">Privacy Policy</a>
-        |
-        <a href="" style="color:black">Terms of Use</a>
-        <br>
-        <br>
-        <p style="font-size:15px;">&copy; 2021 G&N , All rights reserved</p>
+        <hr> <!-- thematic break -->
+        <div class=" footer">
+            <a href="https://www.facebook.com/" title="facebook" class="fa fa-facebook"></a>
+            <a href="https://twitter.com/" title="twitter" class="fa fa-twitter"></a>
+            <a href="https://www.instagram.com/" title="instagram" class="fa fa-instagram"></a>
+            <br>
+            <a href="" style="color:black">Privacy Policy</a>
+            |
+            <a href="" style="color:black">Terms of Use</a>
+            <br>
+            <br>
+            <p style="font-size:15px;">&copy; 2021 G&N , All rights reserved</p>
 
 
-    </div>
+        </div>
 
 
 </body>

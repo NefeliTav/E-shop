@@ -12,17 +12,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="index.js"></script>
+    <div w3-include-html="index.html"></div>
 </head>
 
 <body>
     <div class="header">
         <h1 class="logo">E-Shop</h1>
         <div class="topnav" id="topnav">
-            <a class="active" href="#home">Home</a>
-            <a href="#news">Products</a>
-            <a href="#contact">About</a>
-            <a href="#about">Introduction to Photography</a>
-            <a href="#" class="icon" onclick="show_hamburger()">
+            <a class="active" href="./index.html">Home</a>
+            <a href="./index.html#products">Products</a>
+            <a href="./index.html#about">About</a>
+            <a href="./index.html#photography">Introduction to Photography</a>
+            <a href="./index.html#contact">Contact</a>
+
+            <a href="#" class="icon" onclick="openSideNav();return false;">
                 <i class="fa fa-bars"></i>
             </a>
         </div>
@@ -136,6 +139,24 @@
     <br>
     <br>
     <br>
+
+    <!-- The overlay -->
+    <div id="myNav" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeSideNav()">&times;</a>
+
+        <!-- Overlay content -->
+        <div class="overlay-content">
+            <a href="#home" onclick=" closeSideNav()">Home</a>
+            <a href=" #products" onclick="closeSideNav()">Products</a>
+            <a href="#about" onclick="closeSideNav()">About</a>
+            <a href="#photography" onclick="closeSideNav()">Introduction to Photography</a>
+            <a href="#contact" onclick="closeSideNav()">Contact</a>
+
+        </div>
+
+    </div>
 
     <hr> <!-- thematic break -->
     <div class=" footer">

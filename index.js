@@ -124,4 +124,14 @@ function openSideNav() {
 function closeSideNav() {
     document.getElementById("myNav").style.width = "0%";
 }
+function countChar(val) {
+    var len = val.value.length;
+    if (len > 200) {
+        document.getElementById('charNum').style.color = 'red';
+        document.getElementById('message2').innerHTML = 'you have exceeded the character limit';
+        document.getElementById('message2').style.color = 'red';
+    }
+    $('#charNum').text(200 - len);
+
+};
 
