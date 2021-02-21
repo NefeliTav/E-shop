@@ -135,3 +135,12 @@ function countChar(val) {
 
 };
 
+//shop card
+
+$('.buy').click(function () {
+    $('.bottom').addClass("clicked");
+});
+
+$('.remove').click(function () {
+    $('.bottom').removeClass("clicked");
+});
