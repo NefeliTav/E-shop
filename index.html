@@ -27,10 +27,12 @@
     <div class="header">
         <h1 class="logo">E-Shop</h1>
         <div class="topnav" id="topnav">
-            <a class="active" href="#home">Home</a>
-            <a href="#news">Products</a>
-            <a href="#contact">About</a>
-            <a href="#about">Introduction to Photography</a>
+            <a class="active" href="">Home</a>
+            <a href="#products">Products</a>
+            <a href="#about">About</a>
+            <a href="#photography">Introduction to Photography</a>
+            <a href="#contact">Contact</a>
+
             <a href="#" class="icon" onclick="openSideNav();return false;">
                 <i class="fa fa-bars"></i>
             </a>
@@ -148,21 +150,23 @@
     <br> <!-- temporary : should change -->
     <br> <!-- temporary : should change -->
 
-<!-- The overlay -->
-<div id="myNav" class="overlay">
+    <!-- The overlay -->
+    <div id="myNav" class="overlay">
 
-    <!-- Button to close the overlay navigation -->
-    <a href="javascript:void(0)" class="closebtn" onclick="closeSideNav()">&times;</a>
-  
-    <!-- Overlay content -->
-    <div class="overlay-content">
-      <a href="#">Home</a>
-      <a href="#">Products</a>
-      <a href="#">About</a>
-      <a href="#">Introduction to Photography</a>
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeSideNav()">&times;</a>
+
+        <!-- Overlay content -->
+        <div class="overlay-content">
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">About</a>
+            <a href="#">Introduction to Photography</a>
+            <a href="#">Contact</a>
+
+        </div>
+
     </div>
-  
-  </div>
     <!-- Carousel -->
     <div id="carousel" class="carousel slide" data-ride="carousel">
 
@@ -210,6 +214,87 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+    <br>
+    <br>
+
+    <hr>
+
+    <!-- Containers -->
+
+    <div>
+        <!-- Products -->
+
+        <div class="container" id="products">
+            <h1 class="xlarge-font">Products</h1>
+            <p><span style="font-size:36px">Take photos like a pro.</span> You should buy this app because lorem
+                ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo consequat.</p>
+        </div>
+
+        <!-- About -->
+
+        <div class="container" id="about" style="background-color:#f1f1f1">
+            <div class="row">
+                <div class="column-33">
+                    <img src="/w3images/app5.jpg" alt="App" width="335" height="471">
+                </div>
+                <div class="column-66">
+                    <h1 class="xlarge-font">About</h1>
+                    <h1 class="large-font" style="color:red;"><b>Pixels, who?</b></h1>
+                    <p><span style="font-size:24px">A revolution in resolution.</span> Sharp and clear photos with the
+                        world's best photo engine, incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquipex ea commodo consequat. Duis aute
+                        irure
+                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <button class="button" style="background-color:red">Read More</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photography -->
+
+        <div class="container" id="photography">
+            <div class="row">
+                <div class="column-66">
+                    <h1 class="xlarge-font">Introduction to Photography</h1>
+                    <h1 class="large-font" style="color:MediumSeaGreen;"><b>Why buy it?</b></h1>
+                    <p><span style="font-size:36px">Take photos like a pro.</span> You should buy this app because lorem
+                        ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                        eu
+                        fugiat nulla pariatur.</p>
+                    <button class="button">Download Application</button>
+                </div>
+                <div class="column-33">
+                    <img src="/w3images/img_app.jpg" width="335" height="471">
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact -->
+
+        <div class="container" id="contact" style="background-color:#f1f1f1">
+            <div class="row">
+                <div class="column-33">
+                    <img src="/w3images/app5.jpg" alt="App" width="335" height="471">
+                </div>
+                <div class="column-66">
+                    <h1 class="xlarge-font">Contact</h1>
+                    <h1 class="large-font" style="color:red;"><b>Pixels, who?</b></h1>
+                    <p><span style="font-size:24px">A revolution in resolution.</span> Sharp and clear photos with the
+                        world's best photo engine, incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquipex ea commodo consequat. Duis aute
+                        irure
+                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <button class="button" style="background-color:red">Read More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <hr> <!-- thematic break -->
     <div class=" footer">
         <a href="https://www.facebook.com/" title="facebook" class="fa fa-facebook"></a>

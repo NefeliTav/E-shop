@@ -108,7 +108,7 @@ var check_match = function () {
     }
 }
 
-//hide hamburger
+//show hamburger
 function show_hamburger() {
     var x = document.getElementById("topnav");
     if (x.className === "topnav") {
@@ -119,8 +119,8 @@ function show_hamburger() {
 }
 function openSideNav() {
     document.getElementById("myNav").style.width = "100%";
-  }
-  
-  function closeSideNav() {
+}
+
+function closeSideNav() {
     document.getElementById("myNav").style.width = "0%";
-  } 
+}
