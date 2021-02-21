@@ -124,3 +124,4 @@ function openSideNav() {
 function closeSideNav() {
     document.getElementById("myNav").style.width = "0%";
 }
+
