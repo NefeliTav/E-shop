@@ -134,3 +134,13 @@ function countChar(val) {
     $('#charNum').text(200 - len);
 
 };
+
+//shop card
+
+$('.buy').click(function () {
+    $('.bottom').addClass("clicked");
+});
+
+$('.remove').click(function () {
+    $('.bottom').removeClass("clicked");
+});
