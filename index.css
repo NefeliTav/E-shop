@@ -469,10 +469,6 @@ hr {
   }
 }
 
-.container {
-  padding: 50px;
-
-}
 
 .row:after {
   content: "";
