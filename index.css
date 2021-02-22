@@ -1,10 +1,10 @@
 body {
-  font-family: "Times New Roman", Times, serif;
+    font-family: "Times New Roman", Times, serif; 
 }
 
 .logo {
   text-align: left;
-  font-size: 35px;
+  font-size:35px;
 }
 
 
@@ -59,13 +59,13 @@ hr {
   height: 40px;
   /*padding: 0 20px;*/
   transition: all 0.5s;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left:10px;
+  padding-right:10px;
   border-bottom: 1px solid lightgray;
 }
 
 .search-box .btn {
-  transform: translate(0, -50%);
+transform: translate(0, -50%);
 }
 
 .search-box:hover .btn {
@@ -114,14 +114,14 @@ hr {
 }
 
 #login {
-  width: 40px;
-  height: 40px;
-  font-size: 18px;
-  padding: 10px;
-  background: none;
-  border-color: black;
-  cursor: pointer;
-  border-radius: 50px;
+    width:40px;
+    height:40px;
+    font-size: 18px;
+    padding: 10px;
+    background: none;
+    border-color:black;
+    cursor: pointer;
+    border-radius:50px;
 
 }
 
@@ -195,239 +195,205 @@ hr {
   -moz-transition: opacity .15s ease-in-out;
   -webkit-transition: opacity .15s ease-in-out;
 }
-
-.carousel-indicators {
+.carousel-indicators{
   z-index: 1;
 }
-
 .item.next .carousel-caption {
   opacity: 0;
 }
 
 /* modal pop up */
 .modal {
-  display: none;
-  /* Hidden by default */
-  position: fixed;
-  /* Stay in place */
-  z-index: 1;
-  /* Sit on top */
-  padding-top: 100px;
-  /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%;
-  /* Full width */
-  height: 100%;
-  /* Full height */
-  overflow: auto;
-  /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0);
-  /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4);
-  /* Black w/ opacity */
-}
-
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 25%;
-  height: 55%;
-}
-
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-
-.form-container input[type=text],
-.form-container input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 7px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
-  border-radius: 50px;
-
-}
-
-.form-container input[type=text]:focus,
-.form-container input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-.form-container .btn {
-  background-color: #010716;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 20%;
-  margin-bottom: 50px;
-  opacity: 0.8;
-  border-radius: 30px;
-  float: right;
-
-}
-
-.form-container .btn:hover {
-  opacity: 1;
-}
-
-
-#modal-content2 {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 30%;
-  height: 80%;
-}
-
-#form-container2 input[type=text],
-#form-container2 input[type=password],
-#form-container2 input[type=email],
-#form-container2 input[type=tel] {
-  width: 37%;
-  padding: 15px;
-  margin: 7px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
-  border-radius: 50px;
-  align-items: center;
-}
-
-#form-container2 .btn {
-  background-color: #010716;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 19%;
-  margin-bottom: 50px;
-  margin-right: 50px;
-  opacity: 0.8;
-  border-radius: 30px;
-
-}
-
-#form-container2 .btn:hover {
-  opacity: 1;
-}
-
-/* password strength meter */
-
-.password-field:after {
-  content: '';
-  display: block;
-  height: 3px;
-  width: 0;
-  margin-top: 3px;
-}
-
-.password-field.level0:after {
-  width: 25%;
-  background: red;
-}
-
-.password-field.level1:after {
-  width: 50%;
-  background: orange;
-}
-
-.password-field.level2:after {
-  width: 75%;
-  background: gold;
-}
-
-.password-field.level3:after {
-  width: 100%;
-  background: green;
-}
-
-@media only screen and (max-width: 600px) {
-  #login {
-    left: 80%;
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   }
-
-  #heart {
-    left: 85.5%;
-  }
-
-  #cart {
-    left: 78.7%;
-  }
-
+  
   .modal-content {
-    width: 80%;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 25%;
     height: 55%;
   }
-
-  #modal-content2 {
-    width: 99%;
-    height: 90%;
+  
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
   }
 
-  #carousel {
-    margin-left: 0;
-    margin-right: 0;
+
+.form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 7px 0 22px 0;
+    border: none;
+    background: #f1f1f1; 
+    border-radius: 50px;
+    
   }
 
-  .topnav a {
-    display: none;
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+.form-container .btn {
+    background-color: #010716;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    margin-bottom:50px;
+    opacity: 0.8;
+    border-radius: 30px;
+    float:right;
+
+  }
+  
+  .form-container .btn:hover {
+    opacity: 1;
   }
 
-  .topnav a.icon {
-    position: absolute;
+ 
+#modal-content2 {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    height: 80%;
+  }
+
+#form-container2 input[type=text], #form-container2 input[type=password], #form-container2 input[type=email] , #form-container2 input[type=tel]{
+    width: 37%;
+    padding: 15px;
+    margin: 7px 0 22px 0;
+    border: none;
+    background: #f1f1f1; 
+    border-radius: 50px;
+    align-items: center;
+  }
+
+  #form-container2 .btn {
+    background-color: #010716;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 19%;
+    margin-bottom:50px;
+    margin-right:50px;
+    opacity: 0.8;
+    border-radius: 30px;
+
+  }
+
+  #form-container2 .btn:hover {
+    opacity: 1;
+  }
+
+/* password strength meter */      
+
+  .password-field:after {
+    content: '';
     display: block;
+    height: 3px;
+    width: 0;
+    margin-top: 3px;
   }
-}
 
-/* The Overlay (background) */
+  .password-field.level0:after {
+    width: 25%;
+    background: red;
+  }
+
+  .password-field.level1:after {
+    width: 50%;
+    background: orange;
+  }
+
+  .password-field.level2:after {
+    width: 75%;
+    background: gold;
+  }
+
+  .password-field.level3:after {
+    width: 100%;
+    background: green;
+  }
+
+  @media only screen and (max-width: 600px) {
+    #login {
+      left: 80%;
+    }
+    #heart {
+      left: 85.5%;
+    }
+    #cart {
+      left: 78.7%;
+    }
+    .modal-content {
+      width: 80%;
+      height: 55%;
+    }
+    #modal-content2 {
+      width: 99%;
+      height: 90%;
+    }
+    #carousel {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .topnav a {
+      display: none;
+    }
+    .topnav a.icon {
+      position: absolute;
+      display: block;
+    }
+  }
+   /* The Overlay (background) */
 .overlay {
-  /* Height & width depends on how you want to reveal the overlay (see JS below) */
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */   
   height: 100%;
   width: 0;
-  position: fixed;
-  /* Stay in place */
-  z-index: 2;
-  /* Sit on top */
+  position: fixed; /* Stay in place */
+  z-index: 2; /* Sit on top */
   left: 0;
   top: 0;
-  background-color: rgb(0, 0, 0);
-  /* Black fallback color */
-  background-color: rgba(0, 0, 0, 0.9);
-  /* Black w/opacity */
-  overflow-x: hidden;
-  /* Disable horizontal scroll */
-  transition: 0.5s;
-  /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+  background-color: rgb(0,0,0); /* Black fallback color */
+  background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }
 
 /* Position the content inside the overlay */
 .overlay-content {
   position: relative;
-  top: 25%;
-  /* 25% from the top */
-  width: 100%;
-  /* 100% width */
-  text-align: center;
-  /* Centered text/links */
-  margin-top: 30px;
-  /* 30px top margin to avoid conflict with the close button on smaller screens */
+  top: 25%; /* 25% from the top */
+  width: 100%; /* 100% width */
+  text-align: center; /* Centered text/links */
+  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
 }
 
 /* The navigation links inside the overlay */
@@ -436,15 +402,12 @@ hr {
   text-decoration: none;
   font-size: 36px;
   color: #818181;
-  display: block;
-  /* Display block instead of inline */
-  transition: 0.3s;
-  /* Transition effects on hover (color) */
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
 }
 
 /* When you mouse over the navigation links, change their color */
-.overlay a:hover,
-.overlay a:focus {
+.overlay a:hover, .overlay a:focus {
   color: #f1f1f1;
 }
 
@@ -458,20 +421,16 @@ hr {
 
 /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
 @media screen and (max-height: 450px) {
-  .overlay a {
-    font-size: 20px
-  }
-
+  .overlay a {font-size: 20px}
   .overlay .closebtn {
     font-size: 40px;
     top: 15px;
     right: 35px;
   }
-}
+} 
 
 .container {
-  padding: 50px;
-
+  padding: 64px;
 }
 
 .row:after {
@@ -488,14 +447,8 @@ hr {
 
 .column-33 {
   float: left;
-  position: relative;
-  right: -5%;
   width: 57%;
   padding: 20px;
-}
-
-.medium-font {
-  font-size: 35px;
 }
 
 .large-font {
@@ -514,35 +467,31 @@ img {
 }
 
 @media screen and (max-width: 600px) {
-
   .column-66,
   .column-33 {
     width: 100%;
     text-align: center;
   }
-
   img {
     margin: auto;
   }
 
   iframe {
-    width: 90%;
-    height: 90%;
+    width:90%;
+    height:90%;
   }
-
   .text-xs-center {
     text-align: center;
-  }
+}
 
-  .g-recaptcha {
+.g-recaptcha {
     display: inline-block;
-  }
-
-  ul {
-    list-style-type: none;
-    display: table;
-    margin: 0 auto;
-  }
+}
+ul {
+  list-style-type: none;
+  display: table;
+  margin: 0 auto;
+}
 
 }
 
@@ -550,101 +499,19 @@ img {
 .phone-class {
   position: relative;
   display: inline-block;
-}
+ }
 
-.phone-class::before {
-  display: inline-block;
-  font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  content: " \f095";
-  position: absolute;
-  left: 100%;
-  margin-left: 12px;
-}
-
-@media screen and (max-width: 640px) {
-  .grid-container {
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-gap: 60px;
-    background-color: transparent;
-    padding: 20px;
-    grid-auto-rows: 1fr;
-
+ .phone-class::before {
+     display: inline-block;
+     font-style: normal;
+     font-variant: normal;
+     text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+     font-family: "Font Awesome 5 Free";
+     font-weight: 900;
+     content: " \f095";
+     position: absolute;
+     left: 100%;
+     margin-left: 12px;
   }
-
-  .categoryText {
-    position: relative;
-    top: -200%;
-  }
-
-  .categoryTitle {
-    font-size: 35px;
-  }
-
-  .categoryDescription {
-    font-size: 20px;
-  }
-}
-
-@media screen and (min-width: 640px) {
-  .grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-gap: 30px;
-    background-color: transparent;
-    padding: 10px;
-    grid-auto-rows: 1fr;
-
-  }
-
-  .categoryText {
-    position: relative;
-    top: -40%;
-  }
-
-  .categoryTitle {
-    font-size: 35px;
-  }
-
-  .categoryDescription {
-    font-size: 20px;
-  }
-
-}
-
-.grid-container>div {
-  max-height: 100;
-  background-color: transparent;
-  text-align: center;
-  padding: 20px 0;
-  font-size: 30px;
-}
-
-.productLink {
-  color: #000;
-}
-
-.productLink:hover {
-  color: black;
-}
-
-.productButton {
-  align-self: center;
-}
-
-.buttonAB {
-  background-color: #f44336;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-
-}
+ 
