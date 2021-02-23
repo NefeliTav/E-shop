@@ -134,3 +134,4 @@ function countChar(val) {
     $('#charNum').text(200 - len);
 
 };
+

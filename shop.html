@@ -16,6 +16,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.5.js"></script>
     <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="shop.js"></script>
+
     <div w3-include-html="index.html"></div>
 </head>
 
@@ -161,61 +163,208 @@
         </div>
 
     </div>
+    <div class="row">
+        <div class="side">
+            <h2 style="text-align: center;">Choose filters</h2>
+            <h4 style="text-align: center;">Brands</h4>
 
-    <div>
-        <div class="card" style="top: 35%;left: 35%;">
-            <nav>
-                <h3 style="text-align:center;">Camera Canon Powershot SX530 HS</h3>
-            </nav>
-            <div class="zoom">
-                <img style=" display: block;margin-left: auto;margin-right: auto;" height="200" width="200" alt="camera"
-                    src="./images/camera.png">
+            <div class="vertical-menu">
+
+                <form action="/action_page.php">
+                    <input type="checkbox" onclick='window.location.assign("/Demo/sense/show/4")' />
+                    <label style="font-size:17px;" for="vehicle1"> Canon</label><br>
+                    <input type="checkbox" onclick='window.location.assign("/Demo/sense/show/4")' />
+                    <label style="font-size:17px;" for="vehicle2"> Nikon</label><br>
+                    <input type="checkbox" onclick='window.location.assign("/Demo/sense/show/4")' />
+                    <label style="font-size:17px;" for="vehicle3"> Sony</label><br>
+                    <input type="checkbox" onclick='window.location.assign("/Demo/sense/show/4")' />
+                    <label style="font-size:17px;" for="vehicle2"> Fujifilm</label><br>
+                    <input type="checkbox" onclick='window.location.assign("/Demo/sense/show/4")' />
+                    <label style="font-size:17px;" for="vehicle3"> Leica</label><br>
+                    <input type="checkbox" onclick='window.location.assign("/Demo/sense/show/4")' />
+                    <label style="font-size:17px;" for="vehicle3"> Panasonic</label><br><br>
+                </form>
             </div>
-            <div class="description">
-                <h4>Megapixels :</h4>
-                <h4>Optical Zoom :</h4>
-                <h4>Digital Zoom :</h4>
-                <h4>Screen :</h4>
-                <h4>Weight :</h4>
-                <button style="border-radius: 70px;">Add to Cart</button>
-                <button style="border-radius: 70px;">Wishlist</button>
+            <h4 style="text-align: center;">Megapixels</h4>
+
+            <div class="vertical-menu">
+
+                <form action="/action_page.php">
+                    <input type="checkbox" onclick='window.location.assign("/Demo/sense/show/4")' />
+                    <label style="font-size:17px;" for="vehicle1"> -13 MP</label><br>
+                    <input type="checkbox" onclick='window.location.assign("/Demo/sense/show/4")' />
+                    <label style="font-size:17px;" for="vehicle1"> 14-19 MP</label><br>
+                    <input type="checkbox" onclick='window.location.assign("/Demo/sense/show/4")' />
+                    <label style="font-size:17px;" for="vehicle2"> 16 MP</label><br>
+                    <input type="checkbox" onclick='window.location.assign("/Demo/sense/show/4")' />
+                    <label style="font-size:17px;" for="vehicle3"> 20+ MP</label><br>
+
+                </form>
             </div>
+
+            <h4 style="text-align: center;">Optical Zoom</h4>
+            <div class="vertical-menu">
+                <form action="/action_page.php">
+                    <input type="checkbox" onclick='window.location.assign("/Demo/sense/show/4")' />
+                    <label style="font-size:17px;" for="vehicle1"> 0 - 10 x</label><br>
+                    <input type="checkbox" onclick='window.location.assign("/Demo/sense/show/4")' />
+                    <label style="font-size:17px;" for="vehicle2"> 11 - 30 x</label><br>
+                    <input type="checkbox" onclick='window.location.assign("/Demo/sense/show/4")' />
+                    <label style="font-size:17px;" for="vehicle3"> 31 - 50 x</label><br>
+                    <input type="checkbox" onclick='window.location.assign("/Demo/sense/show/4")' />
+                    <label style="font-size:17px;" for="vehicle3"> 51 - 70 x</label><br>
+                </form>
+            </div>
+            <h4 style="text-align: center;">Digital Zoom</h4>
+            <div class="vertical-menu">
+                <form action="/action_page.php">
+                    <input type="checkbox" onclick='window.location.assign("/Demo/sense/show/4")' />
+                    <label style="font-size:17px;" for="vehicle1"> 0 - 10 x</label><br>
+                    <input type="checkbox" onclick='window.location.assign("/Demo/sense/show/4")' />
+                    <label style="font-size:17px;" for="vehicle2"> 11 - 30 x</label><br>
+                    <input type="checkbox" onclick='window.location.assign("/Demo/sense/show/4")' />
+                    <label style="font-size:17px;" for="vehicle3"> 31 - 50 x</label><br>
+                    <input type="checkbox" onclick='window.location.assign("/Demo/sense/show/4")' />
+                    <label style="font-size:17px;" for="vehicle3"> 51 - 70 x</label><br>
+                </form>
+            </div>
+            <h4 style="text-align: center;">Screen</h4>
+            <div class="vertical-menu">
+                <form action="/action_page.php">
+                    <input type="checkbox" onclick='window.location.assign("/Demo/sense/show/4")' />
+                    <label style="font-size:17px;" for="vehicle1"> 1'' - 1.9''</label><br>
+                    <input type="checkbox" onclick='window.location.assign("/Demo/sense/show/4")' />
+                    <label style="font-size:17px;" for="vehicle2"> 2'' - 2.9''</label><br>
+                    <input type="checkbox" onclick='window.location.assign("/Demo/sense/show/4")' />
+                    <label style="font-size:17px;" for="vehicle3"> 3'' - 3.9''</label><br>
+
+                </form>
+            </div>
+            <h4 style="text-align: center;">Color</h4>
+            <div class="menu" style="text-align: center;">
+
+                <form action="/action_page.php">
+                    <button style="font-size: 0;" class="button">Green</button>
+                    <button style="font-size: 0;" class="button button2">Blue</button>
+                    <button style="font-size: 0;" class="button button3">Red</button>
+                    <button style="font-size: 0;" class="button button4">Gray</button>
+                    <button style="font-size: 0;" class="button button5">Black</button>
+                    <button style="font-size: 0;" class="button button6">Grey</button>
+                </form>
+            </div>
+            <h4 style="text-align: center; ">Price ($)</h4>
+
+            <form method="post">
+                <div class="slidecontainer" style="width:300px;text-align: center;margin:auto;">
+                    <input type="range" min="1" max="1000" value="500" onchange="detectChange(this.value)">
+            </form>
+            <div class="range">
+                <output style="color:black;font-size:17px" id="output" name="result"></output>
+            </div>
+            <button style="margin:30px;border-radius:30px;background-color: rgb(0, 0, 48);color:white;">Apply
+                Filters</button>
         </div>
-        <div class="card" style="top: 35%;left: 68%;">
-            <nav>
-                <h3 style="text-align:center;">Compact Nikon A1000 </h3>
-            </nav>
-            <div class="zoom">
-                <img style=" display: block;margin-left: auto;margin-right: auto;" height="200" width="200" alt="camera"
-                    src="./images/camera2.png">
+    </div>
+
+    <div class="main">
+        <div class="row">
+            <div class="column-33">
+                <div class="card" style="top: 35%;left: 35%;">
+                    <nav>
+                        <h3 style="text-align:center;">Camera Canon Powershot SX530 HS</h3>
+                    </nav>
+                    <div class="zoom">
+                        <img style=" display: block;margin-left: auto;margin-right: auto;" height="200" width="200"
+                            alt="camera" src="./images/camera.png">
+                    </div>
+                    <div class="description">
+                        <h4>Megapixels :</h4>
+                        <h4>Optical Zoom :</h4>
+                        <h4>Digital Zoom :</h4>
+                        <h4>Screen :</h4>
+                        <h4>Color :</h4>
+                        <button style="border-radius: 70px;">Add to Cart</button>
+                        <button style="border-radius: 70px;">Wishlist</button>
+                    </div>
+                </div>
+                <div class="card" style="top: 35%;left: 35%;">
+                    <nav>
+                        <h3 style="text-align:center;">Camera Canon Powershot SX530 HS</h3>
+                    </nav>
+                    <div class="zoom">
+                        <img style=" display: block;margin-left: auto;margin-right: auto;" height="200" width="200"
+                            alt="camera" src="./images/camera.png">
+                    </div>
+                    <div class="description">
+                        <h4>Megapixels :</h4>
+                        <h4>Optical Zoom :</h4>
+                        <h4>Digital Zoom :</h4>
+                        <h4>Screen :</h4>
+                        <h4>Color :</h4>
+                        <button style="border-radius: 70px;">Add to Cart</button>
+                        <button style="border-radius: 70px;">Wishlist</button>
+                    </div>
+                </div>
             </div>
-            <div class="description">
-                <h4>Megapixels :</h4>
-                <h4>Optical Zoom :</h4>
-                <h4>Digital Zoom :</h4>
-                <h4>Screen :</h4>
-                <h4>Weight :</h4>
-                <button style="border-radius: 70px;">Add to Cart</button>
-                <button style="border-radius: 70px;">Wishlist</button>
+            <div class="column-66">
+                <div class="card" style="top: 35%;left: 68%;">
+                    <nav>
+                        <h3 style="text-align:center;">Compact Nikon A1000 </h3>
+                    </nav>
+                    <div class="zoom">
+                        <img style=" display: block;margin-left: auto;margin-right: auto;" height="200" width="200"
+                            alt="camera" src="./images/camera2.png">
+                    </div>
+                    <div class="description">
+                        <h4>Megapixels :</h4>
+                        <h4>Optical Zoom :</h4>
+                        <h4>Digital Zoom :</h4>
+                        <h4>Screen :</h4>
+                        <h4>Color :</h4>
+                        <button style="border-radius: 70px;">Add to Cart</button>
+                        <button style="border-radius: 70px;">Wishlist</button>
+                    </div>
+                </div>
+                <div class="card" style="top: 35%;left: 68%;">
+                    <nav>
+                        <h3 style="text-align:center;">Compact Nikon A1000 </h3>
+                    </nav>
+                    <div class="zoom">
+                        <img style=" display: block;margin-left: auto;margin-right: auto;" height="200" width="200"
+                            alt="camera" src="./images/camera2.png">
+                    </div>
+                    <div class="description">
+                        <h4>Megapixels :</h4>
+                        <h4>Optical Zoom :</h4>
+                        <h4>Digital Zoom :</h4>
+                        <h4>Screen :</h4>
+                        <h4>Color :</h4>
+                        <button style="border-radius: 70px;">Add to Cart</button>
+                        <button style="border-radius: 70px;">Wishlist</button>
+                    </div>
+                </div>
             </div>
+
+        </div>
+        <hr> <!-- thematic break -->
+        <div class=" footer">
+            <a href="https://www.facebook.com/" title="facebook" class="fa fa-facebook"></a>
+            <a href="https://twitter.com/" title="twitter" class="fa fa-twitter"></a>
+            <a href="https://www.instagram.com/" title="instagram" class="fa fa-instagram"></a>
+            <br>
+            <a href="" style="color:black">Privacy Policy</a>
+            |
+            <a href="" style="color:black">Terms of Use</a>
+            <br>
+            <br>
+            <p style="font-size:15px;">&copy; 2021 G&N , All rights reserved</p>
+
+
         </div>
 
     </div>
-    <hr> <!-- thematic break -->
-    <div class=" footer">
-        <a href="https://www.facebook.com/" title="facebook" class="fa fa-facebook"></a>
-        <a href="https://twitter.com/" title="twitter" class="fa fa-twitter"></a>
-        <a href="https://www.instagram.com/" title="instagram" class="fa fa-instagram"></a>
-        <br>
-        <a href="" style="color:black">Privacy Policy</a>
-        |
-        <a href="" style="color:black">Terms of Use</a>
-        <br>
-        <br>
-        <p style="font-size:15px;">&copy; 2021 G&N , All rights reserved</p>
-
-
     </div>
+
 
 </body>
 
