@@ -1,12 +1,20 @@
 body {
     font-family: "Times New Roman", Times, serif;
 }
-
-.logo {
-    text-align: left;
-    font-size: 35px;
+@media screen and (min-width: 900px) {
+    .logo {
+        position: relative;
+        top:30px;
+        left:5%;
+        width: 20vw;
+    }
 }
-
+@media screen and (max-width: 900px) {
+    .logo {
+        float: left;
+        width: 160px;
+    }
+}
 hr {
     display: block;
     margin-top: 0.5em;
@@ -353,7 +361,7 @@ hr {
     background: green;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width:760px) {
     #login {
         left: 80%;
     }
@@ -387,6 +395,7 @@ hr {
 
     .topnav a.icon {
         position: absolute;
+        top:7vw;
         display: block;
     }
 }
@@ -666,6 +675,7 @@ img {
     .tab {
         position: relative;
         left: 10%;
+        top:50px;
         right: 10%;
         width: 80vw;
         overflow: hidden;
@@ -729,7 +739,9 @@ table.profileTable tr:nth-child(even) {
     .tabcontent {
         display: none;
         position: relative;
+        overflow: hidden;
         left: 10%;
+        top:50px;
         padding: 6px 12px;
         -webkit-animation: fadeEffect 0.5s;
         animation: fadeEffect 0.5s;
@@ -754,6 +766,8 @@ table.profileTable tr:nth-child(even) {
     .tabcontent {
         display: none;
         position: relative;
+        overflow: hidden;
+        top:25px;
         padding: 6px 12px;
         -webkit-animation: fadeEffect 0.5s;
         animation: fadeEffect 0.5s;
@@ -806,15 +820,23 @@ textarea {
 .formProfile input[type=submit]:hover {
     background-color: #45a049;
 }
-
+@media screen and (min-width: 600px) {
 .containerProfile {
     position: relative;
-    margin-right: 75%;
+    width:500px;
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
 }
-
+@media screen and (max-width: 600px) {
+    .containerProfile {
+        position: relative;
+        width:auto;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+}
 .col-25Profile {
     float: left;
     width: 25%;
