@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -80,10 +83,10 @@
                             onclick="show_password('myInput')">
                         Show Password
 
-                        <input type="password" id="myInput" placeholder="Enter Password" name="psw" required>
+                        <input type="password" id="myInput" placeholder="Enter Password" name="password" required>
                         <br>
 
-                        <button type="submit" class="btn">Login</button>
+                        <button name="submit" type="submit" class="btn">Login</button>
 
                         <p>Don’t have an account?<br><a style="color:black;" href="##" title="signup"
                                 id="signup"><u>Create
@@ -102,19 +105,19 @@
                 <div class="form-popup">
                     <form action="./signup.php"  method="post" id="form-container2" class="form-container">
 
-                        <label for="name" style="font-weight:normal;font-size:20px;">First Name</label>
-                        <label for="last name" style="margin-left:41%;font-weight:normal;font-size:20px;">Last
+                        <label for="firstname" style="font-weight:normal;font-size:20px;">First Name</label>
+                        <label for="lastname" style="margin-left:41%;font-weight:normal;font-size:20px;">Last
                             Name</label>
                         <br>
-                        <input type="text" placeholder="Enter first name" name="name" required>
-                        <input type="text" style="margin-left:20%;" placeholder="Enter last name" name="last name"
+                        <input type="text" placeholder="Enter first name" name="firstname" required>
+                        <input type="text" style="margin-left:20%;" placeholder="Enter last name" name="lastname"
                             required>
                         <br>
                         <label for="email" style="font-weight:normal;font-size:20px;">Email</label>
                         <label for="tel" style="margin-left:48%;font-weight:normal;font-size:20px;">Phone number</label>
                         <br>
                         <input type="email" placeholder="e.g. papadopoulos@gmail.com" name="email" required>
-                        <input type="tel" style="margin-left:20%;" placeholder="e.g.6940234783" name="phone" required>
+                        <input type="tel" style="margin-left:20%;" placeholder="e.g.6940234783" name="tel" required>
                         <br>
                         <label for="address" style="font-weight:normal;font-size:20px;">Address</label>
                         <label for="postcode"
@@ -125,13 +128,13 @@
                             required>
                         <br>
                         <div class="password-field">
-                            <label for="psw" style="font-weight:normal;font-size:20px;">Password</label>
-                            <label for="psw" style="margin-left:44%;font-weight:normal;font-size:20px;">Confirm</label>
+                            <label for="password" style="font-weight:normal;font-size:20px;">Password</label>
+                            <label for="password" style="margin-left:44%;font-weight:normal;font-size:20px;">Confirm</label>
                             <br>
                             <input id="myInput1" class="password-field" type="password" placeholder="Enter Password"
                                 name="password" required />
                             <input type="password" style="margin-left:20%;" id="myInput2" placeholder="Confirm Password"
-                                onkeyup='check_match();' name="password" required>
+                                onkeyup='check_match();' name="password2" required>
                         </div>
                         <span id='message'></span>
 
@@ -146,7 +149,7 @@
                         Terms &
                         Conditions
                         <br>
-                        <button style="padding:10px;" type="submit" class="btn">Sign up</button><br>
+                        <button style="padding:10px;" type="submit" name="submit2" class="btn">Sign up</button><br>
 
                     </form>
                 </div>
@@ -328,21 +331,19 @@
                     <div class="column-33">
                         <p><span style="font-size:22px">We are here to answer your questions.</span></p>
                         <br><br>
-                        <label for="email" style="font-size:18px;font-weight:normal;">Email:</label><br>
-                        <input
-                            style="
-                        border:none;text-align:center;font-size:18px;border-radius:30px;width:270px;height:40px;outline:none;"
-                            type="text" id="email" name="email"><br><br>
-                        <form action="/action_page.php">
+                        <form action="contact.php" method="post">
+                            <label for="email" style="font-size:18px;font-weight:normal;">Email:</label><br>
+                            <input style="border:none;text-align:center;font-size:18px;border-radius:30px;width:270px;height:40px;outline:none;"
+                            type="email" id="email" name="email" required><br><br>
                             <label for="textarea" style="font-size:18px;font-weight:normal;">Ask us
                                 anything:</label><br>
-                            <textarea
+                            <textarea name="text"
                                 style="padding:1rem;font-size:24px;border-radius:30px;border:none;width:280px;height:300px;outline:none;"
-                                id="field" onkeyup="countChar(this)"></textarea>
+                                id="field" onkeyup="countChar(this)" required></textarea>
                             <div id="charNum"></div>
                             <span id='message2'></span>
                             <br>
-                            <input type="checkbox" id="checkbox" name="checkbox" value="screen">
+                            <input type="checkbox" id="checkbox" name="checkbox">
                             <label for="checkbox" style="font-weight:normal;font-size:17px;">Subscribe to our
                                 Newsletter</label>
                             <br>
@@ -350,14 +351,9 @@
                                 <div class="g-recaptcha" data-sitekey="6Ldo_GEaAAAAADm7ImOnO_tvTP_JXFilpAr_CgZq"
                                     data-callback="verifyRecaptchaCallback"
                                     data-expired-callback="expiredRecaptchaCallback">
-                                    <!--Use this secret key for communication between your site and reCAPTCHA.
-  6Ldo_GEaAAAAAJwIPRXfVpVvLl0ez03FSfLPGHHB -->
                                 </div>
                             </div>
-                            <input type="submit" value="Send message"
-                                style="color:white;background-color:#010c27;margin-top:15px;font-size:18px;border-radius:30px;width:270px;height:40px;outline:none;">
-
-
+                            <button class="btn" type="submit" name="submit3" style="color:white;background-color:#010c27;margin-top:15px;font-size:18px;border-radius:30px;width:270px;height:40px;outline:none;">Send message</button>
                         </form>
                     </div>
                     <div class="column-66">
