@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>E-Shop</title> <!-- should change into an image -->
+    <title>E-Shop</title>
     <meta charset="utf-8">
     <!-- responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,7 +70,8 @@
                 <h1 style="font-size:30px;text-align:center;">Log in</h1>
                 <hr>
                 <div class="form-popup">
-                    <form action="/action_page.php" class="form-container">
+                    
+                    <form action="./login.php" method="post" class="form-container">
                         <label for="email" style="font-weight:normal;font-size:20px;">Email</label>
                         <input type="text" placeholder="Enter Email" name="email" required>
                         <br>
@@ -99,7 +100,7 @@
                 <h1 style="font-size:30px;text-align:center;">Sign up</h1>
                 <hr>
                 <div class="form-popup">
-                    <form action="/action_page.php" id="form-container2" class="form-container">
+                    <form action="./signup.php"  method="post" id="form-container2" class="form-container">
 
                         <label for="name" style="font-weight:normal;font-size:20px;">First Name</label>
                         <label for="last name" style="margin-left:41%;font-weight:normal;font-size:20px;">Last
@@ -154,9 +155,9 @@
     </div>
 
 
-    <br> <!-- temporary : should change -->
-    <br> <!-- temporary : should change -->
-    <br> <!-- temporary : should change -->
+    <br>
+    <br>
+    <br>
 
     <!-- The overlay -->
     <div id="myNav" class="overlay">
@@ -336,7 +337,7 @@
                             <label for="textarea" style="font-size:18px;font-weight:normal;">Ask us
                                 anything:</label><br>
                             <textarea
-                                style="padding:1rem;font-size:24px;border-radius:30px;border:none;width:400px;height:300px;outline:none;"
+                                style="padding:1rem;font-size:24px;border-radius:30px;border:none;width:280px;height:300px;outline:none;"
                                 id="field" onkeyup="countChar(this)"></textarea>
                             <div id="charNum"></div>
                             <span id='message2'></span>
@@ -367,7 +368,6 @@
                             <li><span>Chelidonous 50 ,Kifisia</span></li>
                             <li><span>Venetias 8 ,Mykonos</span></li>
                         </ul>
-                        <i class="fas fa-shopping-bag"></i>
                         <p style="font-size:22px">Opening hours:</p><br>
 
                         <ul id="menu-centered" style="font-size:18px;">
