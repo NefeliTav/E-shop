@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,7 +73,7 @@
                 <h1 style="font-size:30px;text-align:center;">Log in</h1>
                 <hr>
                 <div class="form-popup">
-
+                    
                     <form action="./login.php" method="post" class="form-container">
                         <label for="email" style="font-weight:normal;font-size:20px;">Email</label>
                         <input type="text" placeholder="Enter Email" name="email" required>
@@ -100,7 +103,7 @@
                 <h1 style="font-size:30px;text-align:center;">Sign up</h1>
                 <hr>
                 <div class="form-popup">
-                    <form action="./signup.php" method="post" id="form-container2" class="form-container">
+                    <form action="./signup.php"  method="post" id="form-container2" class="form-container">
 
                         <label for="firstname" style="font-weight:normal;font-size:20px;">First Name</label>
                         <label for="lastname" style="margin-left:41%;font-weight:normal;font-size:20px;">Last
@@ -126,8 +129,7 @@
                         <br>
                         <div class="password-field">
                             <label for="password" style="font-weight:normal;font-size:20px;">Password</label>
-                            <label for="password"
-                                style="margin-left:44%;font-weight:normal;font-size:20px;">Confirm</label>
+                            <label for="password" style="margin-left:44%;font-weight:normal;font-size:20px;">Confirm</label>
                             <br>
                             <input id="myInput1" class="password-field" type="password" placeholder="Enter Password"
                                 name="password" required />
@@ -331,9 +333,8 @@
                         <br><br>
                         <form action="contact.php" method="post">
                             <label for="email" style="font-size:18px;font-weight:normal;">Email:</label><br>
-                            <input
-                                style="border:none;text-align:center;font-size:18px;border-radius:30px;width:270px;height:40px;outline:none;"
-                                type="email" id="email" name="email" required><br><br>
+                            <input style="border:none;text-align:center;font-size:18px;border-radius:30px;width:270px;height:40px;outline:none;"
+                            type="email" id="email" name="email" required><br><br>
                             <label for="textarea" style="font-size:18px;font-weight:normal;">Ask us
                                 anything:</label><br>
                             <textarea name="text"
@@ -354,9 +355,7 @@
                                 </div>
                             </div>
                             -->
-                            <button class="btn" type="submit" name="submit3"
-                                style="color:white;background-color:#010c27;margin-top:15px;font-size:18px;border-radius:30px;width:270px;height:40px;outline:none;">Send
-                                message</button>
+                            <button class="btn" type="submit" name="submit3" style="color:white;background-color:#010c27;margin-top:15px;font-size:18px;border-radius:30px;width:270px;height:40px;outline:none;">Send message</button>
                         </form>
                     </div>
                     <div class="column-66">
