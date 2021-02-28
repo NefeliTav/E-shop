@@ -1,20 +1,25 @@
 body {
     font-family: "Times New Roman", Times, serif;
 }
+
 @media screen and (min-width: 900px) {
     .logo {
+        z-index: 1;
         position: relative;
-        top:30px;
-        left:5%;
-        width: 20vw;
+        top: 25px;
+        left: 3%;
+        width: 16vw;
     }
 }
+
 @media screen and (max-width: 900px) {
     .logo {
+        z-index: 1;
         float: left;
-        width: 160px;
+        width: 140px;
     }
 }
+
 hr {
     display: block;
     margin-top: 0.5em;
@@ -395,7 +400,7 @@ hr {
 
     .topnav a.icon {
         position: absolute;
-        top:7vw;
+        top: 7vw;
         display: block;
     }
 }
@@ -675,7 +680,7 @@ img {
     .tab {
         position: relative;
         left: 10%;
-        top:50px;
+        top: 50px;
         right: 10%;
         width: 80vw;
         overflow: hidden;
@@ -741,7 +746,7 @@ table.profileTable tr:nth-child(even) {
         position: relative;
         overflow: hidden;
         left: 10%;
-        top:50px;
+        top: 50px;
         padding: 6px 12px;
         -webkit-animation: fadeEffect 0.5s;
         animation: fadeEffect 0.5s;
@@ -767,7 +772,7 @@ table.profileTable tr:nth-child(even) {
         display: none;
         position: relative;
         overflow: hidden;
-        top:25px;
+        top: 25px;
         padding: 6px 12px;
         -webkit-animation: fadeEffect 0.5s;
         animation: fadeEffect 0.5s;
@@ -787,12 +792,40 @@ table.profileTable tr:nth-child(even) {
         border-bottom: 1px solid #ddd;
     }
 }
+
 /*Profile Form*/
 * {
+    font-size: 18px;
     box-sizing: border-box;
 }
 
+.formProfile ::placeholder {
+    color: black;
+    opacity: 1;
+    /* Firefox */
+}
+
 .formProfile input[type=text],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.formProfile input[type=email],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.formProfile input[type=date],
 select,
 textarea {
     width: 100%;
@@ -820,49 +853,69 @@ textarea {
 .formProfile input[type=submit]:hover {
     background-color: #45a049;
 }
-@media screen and (min-width: 600px) {
-.containerProfile {
-    position: relative;
-    width:500px;
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
+
+.formProfile a {
+    font-size: 20px;
+    color: #000;
+
 }
-@media screen and (max-width: 600px) {
+
+@media screen and (min-width: 600px) {
     .containerProfile {
         position: relative;
-        width:auto;
+        width: 600px;
         border-radius: 5px;
         background-color: #f2f2f2;
         padding: 20px;
     }
-}
-.col-25Profile {
-    float: left;
-    width: 25%;
-    margin-top: 6px;
-}
 
-.col-75Profile {
-    float: left;
-    width: 75%;
-    margin-top: 6px;
-}
-
-/* Clear floats after the columns */
-.rowProfile:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-
-    .col-25Profile,
-    .col-75Profile,
-    input[type=submit] {
-        width: 100%;
-        margin-top: 0;
+    @media screen and (max-width: 600px) {
+        .containerProfile {
+            position: relative;
+            width: auto;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
     }
+
+    .col-25Profile {
+        float: left;
+        width: 25%;
+        margin-top: 6px;
+    }
+
+    .col-75Profile {
+        float: left;
+        width: 75%;
+        margin-top: 6px;
+    }
+
+    /* Clear floats after the columns */
+    .rowProfile:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+
+        .col-25Profile,
+        .col-75Profile,
+        input[type=submit] {
+            width: 100%;
+            margin-top: 0;
+        }
+    }
+}
+
+.callendarBirth label {
+    display: block;
+    font: 1em 'Fira Sans', sans-serif;
+}
+
+.callendarBirth input,
+label {
+    margin: .4rem 0;
 }
