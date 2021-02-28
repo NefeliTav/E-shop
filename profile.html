@@ -15,6 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!-- link to css -->
     <link rel="stylesheet" type="text/css" href="profile.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
     <!-- social media icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- search bar -->
@@ -27,18 +28,20 @@
 
     <!-- js functions -->
     <script type="text/javascript" src="profile.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+
 
 </head>
 
 <body>
     <div class="header">
-        <img src="./images/logo.jpg" class="logo">
+        <a href="./index.html"><img src="./images/logo.jpg" class="logo"></a>
         <div class="topnav" id="topnav">
-            <a class="active" href="">Home</a>
-            <a href="#products">Products</a>
-            <a href="#about">About</a>
-            <a href="#photography">Introduction to Photography</a>
-            <a href="#contact">Contact</a>
+            <a class="active" href="./index.html">Home</a>
+            <a href="./index.html#products">Products</a>
+            <a href="./index.html#about">About</a>
+            <a href="./index.html#photography">Introduction to Photography</a>
+            <a href="./index.html#contact">Contact</a>
 
             <a href="#" class="icon" onclick="openSideNav();return false;">
                 <i class="fa fa-bars"></i>
@@ -152,7 +155,7 @@
             </div>
         </div>
     </div>
-    <div class="tab">
+    <div class="tab" style="margin-top:30px;">
         <button class="tablinks active" onclick="openCity(event, 'Personal Information')">Personal Information</button>
         <button class="tablinks" onclick="openCity(event, 'Orders')">Orders</button>
         <button class="tablinks" onclick="openCity(event, 'Reviews')">Reviews</button>
@@ -160,7 +163,7 @@
     <!--Profile Menu Bar-->
     <div style="display: block" id="Personal Information" class="tabcontent">
         <h3>Personal Information</h3>
-        <p style="font-size:18px; margin-right: 60px;">Here you can update your personal Information, review
+        <p style="font-size:18px; margin-right: 60px;">Here you can update your personal information, review
             our privacy policy and more.</p>
         <div class="containerProfile">
             <form class="formProfile" action="/action_page.php">
@@ -169,7 +172,7 @@
                         <label for="fname">First Name</label>
                     </div>
                     <div class="col-75Profile">
-                        <input type="text" id="fname" name="firstname" placeholder="FIRST_NAME">
+                        <input type="text" id="fname" name="firstname" placeholder="Enter first name">
                     </div>
                 </div>
                 <div class="rowProfile">
@@ -177,7 +180,7 @@
                         <label for="lname">Last Name</label>
                     </div>
                     <div class="col-75Profile">
-                        <input type="text" id="lname" name="lastname" placeholder="LAST_NAME">
+                        <input type="text" id="lname" name="lastname" placeholder="Enter last name">
                     </div>
                 </div>
                 <div class="rowProfile">
@@ -185,7 +188,7 @@
                         <label for="lname">Address</label>
                     </div>
                     <div class="col-75Profile">
-                        <input type="text" id="address" name="address" placeholder="ADDRESS_1">
+                        <input type="text" id="address" name="address" placeholder="Enter address">
                     </div>
                 </div>
                 <div class="rowProfile">
@@ -194,22 +197,15 @@
                     </div>
                     <div class="col-75Profile">
                         <input type="date" id="start" name="trip-start" value="2002-01-01" min="1900-01-01"
-                            max="2002-01-01"> </div>
+                            max="2002-01-01">
+                    </div>
                 </div>
                 <div class="rowProfile">
                     <div class="col-25Profile">
                         <label for="email">Email Address</label>
                     </div>
                     <div class="col-75Profile">
-                        <input type="email" id="email" name="email" placeholder="examplemail@email.com">
-                    </div>
-                </div>
-                <div class="rowProfile">
-                    <div class="col-25Profile">
-                        <label for="lname">Address</label>
-                    </div>
-                    <div class="col-75Profile">
-                        <input type="text" id="address" name="address" placeholder="ADDRESS_1">
+                        <input type="email" id="email" name="email" placeholder="example@email.com">
                     </div>
                 </div>
                 <div class="rowProfile">
@@ -229,9 +225,10 @@
                         <label for="terms">Terms and Conditions</label>
                     </div>
                     <div style="padding-top: 20px; padding-bottom: 15px;" class="col-75Profile">
-                        <a  href="#"> I have read and accept the Terms and Conditions</a>
-                        <input type="checkbox" id="terms" name="terms" value="I have read and accept the Terms and Conditions">
-                        
+                        <a href="#"> I have read and accept the Terms and Conditions</a>
+                        <input type="checkbox" id="terms" name="terms"
+                            value="I have read and accept the Terms and Conditions">
+
                     </div>
                 </div>
                 <div class="rowProfile">
@@ -339,12 +336,11 @@
 
     <!-- Overlay content -->
     <div class="overlay-content">
-        <a href="#home" onclick=" closeSideNav()">Home</a>
-        <a href=" #products" onclick="closeSideNav()">Products</a>
-        <a href="#about" onclick="closeSideNav()">About</a>
-        <a href="#photography" onclick="closeSideNav()">Introduction to Photography</a>
-        <a href="#contact" onclick="closeSideNav()">Contact</a>
-
+        <a href="./index.html#home" onclick=" closeSideNav()">Home</a>
+        <a href=" ./index.html#products" onclick="closeSideNav()">Products</a>
+        <a href="./index.html#about" onclick="closeSideNav()">About</a>
+        <a href="./index.html#photography" onclick="closeSideNav()">Introduction to Photography</a>
+        <a href="./index.html#contact" onclick="closeSideNav()">Contact</a>
     </div>
 
 </div>
