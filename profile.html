@@ -210,6 +210,22 @@
                 </div>
                 <div class="rowProfile">
                     <div class="col-25Profile">
+                        <label for="lname">Post Code</label>
+                    </div>
+                    <div class="col-75Profile">
+                        <input type="text" id="formPostcode" name="formPostcode" placeholder="postcode_1">
+                    </div>
+                </div>
+                <div class="rowProfile">
+                    <div class="col-25Profile">
+                        <label for="lname">Phone Number</label>
+                    </div>
+                    <div class="col-75Profile">
+                        <input type="text" id="formPhone" name="formPhone" placeholder="2109839560">
+                    </div>
+                </div>
+                <div class="rowProfile">
+                    <div class="col-25Profile">
                         <label for="country">Country</label>
                     </div>
                     <div class="col-75Profile">
@@ -224,10 +240,25 @@
                     <div class="col-25Profile">
                         <label for="terms">Terms and Conditions</label>
                     </div>
-                    <div style="padding-top: 20px; padding-bottom: 15px;" class="col-75Profile">
-                        <a href="#"> I have read and accept the Terms and Conditions</a>
-                        <input type="checkbox" id="terms" name="terms"
-                            value="I have read and accept the Terms and Conditions">
+                    <div style="padding-top: 0px; padding-bottom: 10px;" class="col-75Profile">
+                        <label class="checkboxContainer" for="terms">
+                            <a href="./documents/terms-and-conditions.pdf" target="_blank" rel="noopener noreferrer"> I have read and accept the Terms and Conditions</a>
+                            <input type="checkbox" id="terms" name="terms">
+                            <span class="checkmark"></span>
+                        </label>
+
+                    </div>
+                </div>
+                <div class="rowProfile">
+                    <div class="col-25Profile">
+                        <label for="newsletter">Newsletter</label>
+                    </div>
+                    <div style="padding-top: 0px; padding-bottom: 10px;" class="col-75Profile">
+                        <label class="checkboxContainer" for="newsletter">
+                            <p> I want to be notified regarding new offers and sales.</p>
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <span class="checkmark"></span>
+                        </label>
 
                     </div>
                 </div>
