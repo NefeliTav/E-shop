@@ -61,7 +61,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`firstname`, `lastname`, `email`, `tel`, `addr`, `postcode`, `psw`) VALUES
-('Nefeli', 'Tavoulari', 'example@yahoo.gr', '6949402623', 'Megalou Alexandrou 165', '13676', '123456');
+('Nefeli', 'Tavoulari', 'example@yahoo.gr', '6942302343', 'Pavlou Mela 2', '12486', '123456');
 
 --
 -- Indexes for dumped tables

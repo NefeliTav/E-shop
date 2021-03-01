@@ -2,10 +2,32 @@ body {
     font-family: "Times New Roman", Times, serif;
 }
 
-.logo {
-    text-align: left;
-    font-size: 35px;
+
+@media screen and (min-width: 900px) {
+    .logo {
+        z-index: 1;
+        position: relative;
+        top: 25px;
+        left: 3%;
+        width: 16vw;
+        margin-left:30px;
+
+    }
 }
+
+@media screen and (max-width: 900px) {
+    .logo {
+        width: 140px;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .logo {
+        margin-left:30px;
+    }
+}
+
 
 hr {
     display: block;
