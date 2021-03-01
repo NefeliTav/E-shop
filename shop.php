@@ -181,9 +181,11 @@
         Filters</button>
     
     <div id="sort" style="width: 400px;">
-        <p style=" font-size:18px;">Sort by</p>
-        <input type="radio" name="price"> Increasing Price<br>
-        <input type="radio" name="price"> Decreasing Price
+        <form action="sort.php" method="post">
+            <p style=" font-size:18px;">Sort by</p>
+            <input type="radio" name="price" value="inc"> Increasing Price<br>
+            <input type="radio" name="price" value="dec"> Decreasing Price
+        </form>
     </div>
 
 
