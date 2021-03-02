@@ -1,11 +1,11 @@
 <?php
     require_once 'connect.php';
-    $query = "";
+    $query = $result = "";
 
     if(isset($_POST['price']))
 	{
         $price = $_POST['price'];
-        if ($answer == "asc") 
+        if ($price == "asc") 
         {
             $query = "SELECT * FROM products ORDER BY price ASC";
         }
@@ -18,6 +18,7 @@
         {
             while($row = mysqli_fetch_array($result)) 
             {
+                /*
                 echo $row['id'];
                 echo $row['name'];
                 echo $row['brand'];
@@ -26,9 +27,8 @@
                 echo $row['digital'];
                 echo $row['screen'];
                 echo $row['color'];
+                */
                 echo $row['price']; 
-                echo "\n";
-
             }
 			header('Location: shop.php');
             mysqli_close($conn); 

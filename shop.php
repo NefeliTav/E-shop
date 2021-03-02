@@ -180,11 +180,11 @@
         onclick="closeFilters()">Close
         Filters</button>
     
-    <div id="sort" style="width: 400px;">
-        <form action="sort.php" method="post">
+    <div style="width: 400px;">
+        <form id="sort" action="sort.php" method="post">
             <p style=" font-size:18px;">Sort by</p>
-            <input type="radio" name="price" value="inc"> Increasing Price<br>
-            <input type="radio" name="price" value="dec"> Decreasing Price
+            <input type="radio" name="price" value="asc" onclick="submit()"> Increasing Price<br>
+            <input type="radio" name="price" value="dec" onclick="submit()"> Decreasing Price
         </form>
     </div>
 
@@ -259,7 +259,7 @@
 
             </div>
             <h4 style="text-align: center;">Color</h4>
-            <div class="menu" style="text-align: center;">
+            <div class="vertical-menu" >
                     <input type="checkbox"  name="green"/>
                     <label style="font-size:17px;color:green;" > Green</label><br>
                     <input type="checkbox" name="blue"/>
@@ -267,7 +267,7 @@
                     <input type="checkbox"  name="red"/>
                     <label style="font-size:17px;color:red;" >Red</label><br>
                     <input type="checkbox"  name="white"/>
-                    <label style="font-size:17px;color:white;" > White</label><br>
+                    <label style="font-size:17px;color:rgb(200, 200, 200);" > White</label><br>
                     <input type="checkbox" name="black"/>
                     <label style="font-size:17px;color:black;" > Black</label><br>
                     <input type="checkbox"  name="grey"/>
@@ -277,7 +277,7 @@
             <h4 style="text-align: center; ">Price ($)</h4>
 
                 <div class="slidecontainer" style="width:300px;text-align: center;margin:auto;">
-                    <input name="price" type="range" min="1" max="1000" value="500" onchange="detectChange(this.value)">
+                    <input name="price" type="range" min="1" max="3000" value="500" onchange="detectChange(this.value)">
             <div class="range">
                 <output style="color:black;font-size:17px" id="output" name="result"></output>
             </div>

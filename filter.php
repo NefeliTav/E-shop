@@ -3,7 +3,7 @@
     $query = $price = $red = $white = $blue = $green = $grey = $black = $canon = $nikon = $sony = "";
     $fujifilm = $leica = $panasonic = $mp1 = $mp2 = $mp3 = $mp4 = $optical1 = $optical2 = "";
     $optical3 = $optical4 = $digital1 = $digital2 = $digital3 = $digital4 = $screen1 = $screen2 = $screen3 = "";
-
+    $query2 = $query3 = $query4 = $query5 = $query6 = "";
     if(isset($_POST['apply']))
 	{
 
@@ -40,7 +40,7 @@
         if(isset($_POST['screen2'])) $screen2 = "SELECT * FROM products WHERE screen >= 2 AND screen <= 2.9";
         if(isset($_POST['screen3'])) $screen3 = "SELECT * FROM products WHERE screen >= 3 AND screen <= 3.9";
 
-        if(isset($_POST['price'])) $price = "SELECT * FROM products WHERE price < '".$_POST["price"]."'";
+        if(isset($_POST['price'])) $price = "SELECT * FROM products WHERE price <= '".$_POST["price"]."'";
 
         if ($green)
         {
@@ -81,161 +81,199 @@
             else
                 $query = "$grey";
         }
+        /*--------------------------------------------------------*/
         if ($mp1)
         {
-            if($query)
-                $query = "$mp1 UNION ALL $query";
-            else
-                $query = "$mp1";
+            $query2 = "$mp1";
         }
         if ($mp2)
         {
-            if($query)
-                $query = "$mp2 UNION ALL $query";
+            if($query2)
+                $query2 = "$mp2 UNION ALL $query2";
             else
-                $query = "$mp2";
+                $query2 = "$mp2";
         }
         if ($mp3)
         {
-            if($query)
-                $query = "$mp3 UNION ALL $query";
+            if($query2)
+                $query2 = "$mp3 UNION ALL $query2";
             else
-                $query = "$mp3";
+                $query2 = "$mp3";
         }
         if ($mp4)
         {
-            if($query)
-                $query = "$mp4 UNION ALL $query";
+            if($query2)
+                $query2 = "$mp4 UNION ALL $query2";
             else
-                $query = "$mp4";
+                $query2 = "$mp4";
         }
+        /*--------------------------------------------------------*/
+
         if ($optical1)
         {
-            if($query)
-                $query = "$optical1 UNION ALL $query";
-            else
-                $query = "$optical1";
+            $query3 = "$optical1";
         }
         if ($optical2)
         {
-            if($query)
-                $query = "$optical2 UNION ALL $query";
+            if($query3)
+                $query3 = "$optical2 UNION ALL $query3";
             else
-                $query = "$optical2";
+                $query3 = "$optical2";
         }
         if ($optical3)
         {
-            if($query)
-                $query = "$optical3 UNION ALL $query";
+            if($query3)
+                $query3 = "$optical3 UNION ALL $query3";
             else
-                $query = "$optical3";
+                $query3 = "$optical3";
         }
         if ($optical4)
         {
-            if($query)
-                $query = "$optical4 UNION ALL $query";
+            if($query3)
+                $query3 = "$optical4 UNION ALL $query3";
             else
-                $query = "$optical4";
+                $query3 = "$optical4";
         }
+        /*--------------------------------------------------------*/
+
         if ($digital1)
         {
-            if($query)
-                $query = "$digital1 UNION ALL $query";
-            else
-                $query = "$digital1";
+            $query4 = "$digital1";
         }
         if ($digital2)
         {
-            if($query)
-                $query = "$digital2 UNION ALL $query";
+            if($query4)
+                $query4 = "$digital2 UNION ALL $query4";
             else
-                $query = "$digital2";
+                $query4 = "$digital2";
         }
         if ($digital3)
         {
-            if($query)
-                $query = "$digital3 UNION ALL $query";
+            if($query4)
+                $query4 = "$digital3 UNION ALL $query4";
             else
-                $query = "$digital3";
+                $query4 = "$digital3";
         }
         if ($digital4)
         {
-            if($query)
-                $query = "$digital4 UNION ALL $query";
+            if($query4)
+                $query4 = "$digital4 UNION ALL $query4";
             else
-                $query = "$digital4";
+                $query4 = "$digital4";
         }
+        /*--------------------------------------------------------*/
+
         if ($screen1)
         {
-            if($query)
-                $query = "$screen1 UNION ALL $query";
-            else
-                $query = "$screen1";
+            $query5 = "$screen1";
         }
         if ($screen2)
         {
-            if($query)
-                $query = "$screen2 UNION ALL $query";
+            if($query5)
+                $query5 = "$screen2 UNION ALL $query5";
             else
-                $query = "$screen2";
+                $query5 = "$screen2";
         }
         if ($screen3)
         {
-            if($query)
-                $query = "$screen3 UNION ALL $query";
+            if($query5)
+                $query5 = "$screen3 UNION ALL $query5";
             else
-                $query = "$screen3";
+                $query5 = "$screen3";
         }
+        /*--------------------------------------------------------*/
+
         if ($canon)
         {
-            if($query)
-                $query = "$canon UNION ALL $query";
-            else
-                $query = "$canon";
+            $query6 = "$canon";
         }
         if ($nikon)
         {
-            if($query)
-                $query = "$nikon UNION ALL $query";
+            if($query6)
+                $query6 = "$nikon UNION ALL $query6";
             else
-                $query = "$nikon";
+                $query6 = "$nikon";
         }
         if ($sony)
         {
-            if($query)
-                $query = "$sony UNION ALL $query";
+            if($query6)
+                $query6 = "$sony UNION ALL $query6";
             else
-                $query = "$sony";
+                $query6 = "$sony";
         }
         if ($fujifilm)
         {
-            if($query)
-                $query = "$fujifilm UNION ALL $query";
+            if($query6)
+                $query6 = "$fujifilm UNION ALL $query6";
             else
-                $query = "$fujifilm";
+                $query6 = "$fujifilm";
         }
         if ($leica)
         {
-            if($query)
-                $query = "$leica UNION ALL $query";
+            if($query6)
+                $query6 = "$leica UNION ALL $query6";
             else
-                $query = "$leica";
+                $query6 = "$leica";
         }
         if ($panasonic)
         {
-            if($query)
-                $query = "$panasonic UNION ALL $query";
+            if($query6)
+                $query6 = "$panasonic UNION ALL $query6";
             else
-                $query = "$panasonic";
+                $query6 = "$panasonic";
         }
+        /*--------------------------------------------------------*/
+
         if ($price)
         {
             if($query)
-                $query = "$price UNION ALL $query";
+                $query = 
+                "SELECT DISTINCT first.id,first.name,first.brand,first.mp,first.optical,first.digital,first.screen,first.color,first.price 
+                FROM ($price) as first 
+                INNER JOIN ($query) as second 
+                    ON (first.color = second.color)
+                ";
             else
                 $query = "$price";
         }
-        $array = array();
+        if ($query2)
+        {
+            $query = "SELECT DISTINCT first.id,first.name,first.brand,first.mp,first.optical,first.digital,first.screen,first.color,first.price 
+            FROM ($query) as first 
+            INNER JOIN ($query2) as second 
+                ON (first.mp = second.mp)";
+        }
+        if ($query3)
+        {
+            $query = "SELECT DISTINCT first.id,first.name,first.brand,first.mp,first.optical,first.digital,first.screen,first.color,first.price 
+            FROM ($query) as first 
+            INNER JOIN ($query3) as second 
+                ON (first.optical = second.optical)";
+        }
+
+        if ($query4)
+        {
+            $query = "SELECT DISTINCT first.id,first.name,first.brand,first.mp,first.optical,first.digital,first.screen,first.color,first.price 
+            FROM ($query) as first 
+            INNER JOIN ($query4) as second 
+                ON (first.digital = second.digital)";
+        }
+        if ($query5)
+        {
+            $query = "SELECT DISTINCT first.id,first.name,first.brand,first.mp,first.optical,first.digital,first.screen,first.color,first.price 
+            FROM ($query) as first 
+            INNER JOIN ($query5) as second 
+                ON (first.screen = second.screen)";
+        }
+        if ($query6)
+        {
+            $query = "SELECT DISTINCT first.id,first.name,first.brand,first.mp,first.optical,first.digital,first.screen,first.color,first.price 
+            FROM ($query) as first 
+            INNER JOIN ($query6) as second 
+                ON (first.brand = second.brand)"; 
+        }
+
+
         $result = mysqli_query($conn,$query);
         if ($result)
         {
@@ -250,11 +288,8 @@
                 echo $row['screen'];
                 echo $row['color'];
                 echo $row['price']; 
-                echo "\n";
-                //$array[] = $row;
-
+                echo "<br> ";
             }
-            //print_r($array);
             mysqli_close($conn); 
         }
         else
@@ -262,8 +297,6 @@
             echo 'Failed';
             mysqli_close($conn);
         }
-		
     }
-
 ?>
 
