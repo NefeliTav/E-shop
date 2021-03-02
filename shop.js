@@ -4,17 +4,6 @@ function detectChange(value) {
 }
 
 
-/* filter
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-*/
-
 function openFilters() {
   $('.side').css('display', 'block');
   $('#filters').css('display', 'none');

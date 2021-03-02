@@ -1,4 +1,4 @@
-function openCity(evt, cityName) {
+function Tab(evt, tab) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
@@ -8,7 +8,7 @@ function openCity(evt, cityName) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
-  document.getElementById(cityName).style.display = "block";
+  document.getElementById(tab).style.display = "block";
   evt.currentTarget.className += " active";
 }
 //modal pop up
@@ -20,37 +20,37 @@ window.onload = function () {
 
   // When the user clicks the button, open the modal 
   btn.onclick = function () {
-      modal.style.display = "block";
+    modal.style.display = "block";
   }
 
   // When the user clicks on <span> (x), close the modal
   span.onclick = function () {
-      modal.style.display = "none";
+    modal.style.display = "none";
   }
 
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function (event) {
-      if (event.target == modal) {
-          modal.style.display = "none";
-      }
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
   }
 
   var btn2 = document.getElementById("signup");
 
   //when the user clicks on "make account"-> close modal and open new one 
   btn2.onclick = function () {
-      modal.style.display = "none";
-      var modal2 = document.getElementById("myModal2");
-      modal2.style.display = "block";
-      var span2 = document.getElementById("close");
-      span2.onclick = function () {
-          modal2.style.display = "none";
+    modal.style.display = "none";
+    var modal2 = document.getElementById("myModal2");
+    modal2.style.display = "block";
+    var span2 = document.getElementById("close");
+    span2.onclick = function () {
+      modal2.style.display = "none";
+    }
+    window.onclick = function (event) {
+      if (event.target == modal2) {
+        modal2.style.display = "none";
       }
-      window.onclick = function (event) {
-          if (event.target == modal2) {
-              modal2.style.display = "none";
-          }
-      }
+    }
   }
 
 };
@@ -60,32 +60,32 @@ function show_password(id1, id2) {
   var x = document.getElementById(id1);
 
   if (x.type === "password") {
-      x.type = "text";
+    x.type = "text";
   } else {
-      x.type = "password";
+    x.type = "password";
   }
 
   if (id2 !== undefined) {
-      var y = document.getElementById(id2);
-      if (y.type === "password") {
-          y.type = "text";
-      } else {
-          y.type = "password";
-      }
+    var y = document.getElementById(id2);
+    if (y.type === "password") {
+      y.type = "text";
+    } else {
+      y.type = "password";
+    }
   }
 }
 
 //password strength
 $(document).ready(function () {
   $('.password-field input').keyup(function () {
-      var strength = checkPasswordStrength($(this).val());
-      var $outputTarget = $(this).parent('.password-field');
+    var strength = checkPasswordStrength($(this).val());
+    var $outputTarget = $(this).parent('.password-field');
 
-      $outputTarget.removeClass(function (index, css) {
-          return (css.match(/\level\S+/g) || []).join(' ');
-      });
+    $outputTarget.removeClass(function (index, css) {
+      return (css.match(/\level\S+/g) || []).join(' ');
+    });
 
-      $outputTarget.addClass('level' + strength);
+    $outputTarget.addClass('level' + strength);
   });
 });
 
@@ -94,17 +94,17 @@ function checkPasswordStrength(password) {
 
   // If password is 6 characters or longer
   if (password.length >= 6) {
-      strength += 1;
+    strength += 1;
   }
 
   // If password contains both lower and uppercase characters, increase strength value.
   if (password.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/)) {
-      strength += 1;
+    strength += 1;
   }
 
   // If it has numbers and characters, increase strength value.
   if (password.match(/([a-zA-Z])/) && password.match(/([0-9])/)) {
-      strength += 1;
+    strength += 1;
   }
 
   return strength;
@@ -113,11 +113,11 @@ function checkPasswordStrength(password) {
 //check if passwords match
 var check_match = function () {
   if (document.getElementById('myInput1').value !==
-      document.getElementById('myInput2').value) {
-      document.getElementById('message').style.color = 'red';
-      document.getElementById('message').innerHTML = 'not matching';
+    document.getElementById('myInput2').value) {
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'not matching';
   } else {
-      document.getElementById('message').innerHTML = '';
+    document.getElementById('message').innerHTML = '';
   }
 }
 
@@ -125,9 +125,9 @@ var check_match = function () {
 function show_hamburger() {
   var x = document.getElementById("topnav");
   if (x.className === "topnav") {
-      x.className += " responsive";
+    x.className += " responsive";
   } else {
-      x.className = "topnav";
+    x.className = "topnav";
   }
 }
 function openSideNav() {
@@ -140,9 +140,9 @@ function closeSideNav() {
 function countChar(val) {
   var len = val.value.length;
   if (len > 200) {
-      document.getElementById('charNum').style.color = 'red';
-      document.getElementById('message2').innerHTML = 'you have exceeded the character limit';
-      document.getElementById('message2').style.color = 'red';
+    document.getElementById('charNum').style.color = 'red';
+    document.getElementById('message2').innerHTML = 'you have exceeded the character limit';
+    document.getElementById('message2').style.color = 'red';
   }
   $('#charNum').text(200 - len);
 
