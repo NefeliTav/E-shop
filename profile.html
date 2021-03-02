@@ -73,7 +73,8 @@
                 <h1 style="font-size:30px;text-align:center;">Log in</h1>
                 <hr>
                 <div class="form-popup">
-                    <form action="/action_page.php" class="form-container">
+
+                    <form action="./login.php" method="post" class="form-container">
                         <label for="email" style="font-weight:normal;font-size:20px;">Email</label>
                         <input type="text" placeholder="Enter Email" name="email" required>
                         <br>
@@ -82,10 +83,10 @@
                             onclick="show_password('myInput')">
                         Show Password
 
-                        <input type="password" id="myInput" placeholder="Enter Password" name="psw" required>
+                        <input type="password" id="myInput" placeholder="Enter Password" name="password" required>
                         <br>
 
-                        <button type="submit" class="btn">Login</button>
+                        <button name="submit" type="submit" class="btn">Login</button>
 
                         <p>Don’t have an account?<br><a style="color:black;" href="##" title="signup"
                                 id="signup"><u>Create
@@ -102,21 +103,21 @@
                 <h1 style="font-size:30px;text-align:center;">Sign up</h1>
                 <hr>
                 <div class="form-popup">
-                    <form action="/action_page.php" id="form-container2" class="form-container">
+                    <form action="./signup.php" method="post" id="form-container2" class="form-container">
 
-                        <label for="name" style="font-weight:normal;font-size:20px;">First Name</label>
-                        <label for="last name" style="margin-left:41%;font-weight:normal;font-size:20px;">Last
+                        <label for="firstname" style="font-weight:normal;font-size:20px;">First Name</label>
+                        <label for="lastname" style="margin-left:41%;font-weight:normal;font-size:20px;">Last
                             Name</label>
                         <br>
-                        <input type="text" placeholder="Enter first name" name="name" required>
-                        <input type="text" style="margin-left:20%;" placeholder="Enter last name" name="last name"
+                        <input type="text" placeholder="Enter first name" name="firstname" required>
+                        <input type="text" style="margin-left:20%;" placeholder="Enter last name" name="lastname"
                             required>
                         <br>
                         <label for="email" style="font-weight:normal;font-size:20px;">Email</label>
                         <label for="tel" style="margin-left:48%;font-weight:normal;font-size:20px;">Phone number</label>
                         <br>
                         <input type="email" placeholder="e.g. papadopoulos@gmail.com" name="email" required>
-                        <input type="tel" style="margin-left:20%;" placeholder="e.g.6940234783" name="phone" required>
+                        <input type="tel" style="margin-left:20%;" placeholder="e.g.6940234783" name="tel" required>
                         <br>
                         <label for="address" style="font-weight:normal;font-size:20px;">Address</label>
                         <label for="postcode"
@@ -127,13 +128,14 @@
                             required>
                         <br>
                         <div class="password-field">
-                            <label for="psw" style="font-weight:normal;font-size:20px;">Password</label>
-                            <label for="psw" style="margin-left:44%;font-weight:normal;font-size:20px;">Confirm</label>
+                            <label for="password" style="font-weight:normal;font-size:20px;">Password</label>
+                            <label for="password"
+                                style="margin-left:44%;font-weight:normal;font-size:20px;">Confirm</label>
                             <br>
                             <input id="myInput1" class="password-field" type="password" placeholder="Enter Password"
                                 name="password" required />
                             <input type="password" style="margin-left:20%;" id="myInput2" placeholder="Confirm Password"
-                                onkeyup='check_match();' name="password" required>
+                                onkeyup='check_match();' name="password2" required>
                         </div>
                         <span id='message'></span>
 
@@ -148,7 +150,7 @@
                         Terms &
                         Conditions
                         <br>
-                        <button style="padding:10px;" type="submit" class="btn">Sign up</button><br>
+                        <button style="padding:10px;" type="submit" name="submit2" class="btn">Sign up</button><br>
 
                     </form>
                 </div>
@@ -156,9 +158,9 @@
         </div>
     </div>
     <div class="tab" style="margin-top:30px;">
-        <button class="tablinks active" onclick="openCity(event, 'Personal Information')">Personal Information</button>
-        <button class="tablinks" onclick="openCity(event, 'Orders')">Orders</button>
-        <button class="tablinks" onclick="openCity(event, 'Reviews')">Reviews</button>
+        <button class="tablinks active" onclick="Tab(event, 'Personal Information')">Personal Information</button>
+        <button class="tablinks" onclick="Tab(event, 'Orders')">Orders</button>
+        <button class="tablinks" onclick="Tab(event, 'Reviews')">Reviews</button>
     </div>
     <!--Profile Menu Bar-->
     <div style="display: block" id="Personal Information" class="tabcontent">
@@ -242,7 +244,8 @@
                     </div>
                     <div style="padding-top: 0px; padding-bottom: 10px;" class="col-75Profile">
                         <label class="checkboxContainer" for="terms">
-                            <a href="./documents/terms-and-conditions.pdf" target="_blank" rel="noopener noreferrer"> I have read and accept the Terms and Conditions</a>
+                            <a href="./documents/terms-and-conditions.pdf" target="_blank" rel="noopener noreferrer"> I
+                                have read and accept the Terms and Conditions</a>
                             <input type="checkbox" id="terms" name="terms">
                             <span class="checkmark"></span>
                         </label>
