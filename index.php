@@ -35,7 +35,7 @@
 
 <body>
     <div class="header">
-    <a href="./index.html"><img src="./images/logo.jpg" class="logo"></a>
+    <a href="./index.php"><img src="./images/logo.jpg" class="logo"></a>
         <div class="topnav" id="topnav">
             <a class="active" href="">Home</a>
             <a href="#products">Products</a>
@@ -297,7 +297,7 @@
                             bussiness has evolved and prospered, spreading to many locations across Greece in the
                             proccess. Find more about our shop locations, schedule
                             and contact information bellow. </p>
-                        <a href="shop.html"><button class="buttonAB">Shop</button></a>
+                        <a href="shop.php"><button class="buttonAB">Shop</button></a>
                     </div>
                 </div>
             </div>

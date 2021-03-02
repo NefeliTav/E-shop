@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,13 +38,13 @@
 
 <body>
     <div class="header">
-        <a href="./index.html"><img src="./images/logo.jpg" class="logo"></a>
+        <a href="./index.php"><img src="./images/logo.jpg" class="logo"></a>
         <div class="topnav" id="topnav">
-            <a class="active" href="./index.html">Home</a>
-            <a href="./index.html#products">Products</a>
-            <a href="./index.html#about">About</a>
-            <a href="./index.html#photography">Introduction to Photography</a>
-            <a href="./index.html#contact">Contact</a>
+            <a class="active" href="./index.php">Home</a>
+            <a href="./index.php#products">Products</a>
+            <a href="./index.php#about">About</a>
+            <a href="./index.php#photography">Introduction to Photography</a>
+            <a href="./index.php#contact">Contact</a>
 
             <a href="#" class="icon" onclick="openSideNav();return false;">
                 <i class="fa fa-bars"></i>
@@ -273,128 +276,121 @@
             </form>
         </div>
 
-</body>
-
-</html>
-</div>
-
-<div id="Orders" class="tabcontent">
-    <h3>Orders</h3>
-    <p style="font-size:18px; margin-right: 60px;">Here you can review information regarding your pending
-        and completed orders.</p>
-    <table class="profileTable">
-        <tr>
-            <th>Product</th>
-            <th>Product Code</th>
-            <th>Price</th>
-            <th>Amount</th>
-            <th>Date Ordered</th>
-            <th>Status</th>
-        </tr>
-        <tr>
-            <td>CAMERA_NAME</td>
-            <td>#123456789</td>
-            <td>200$</td>
-            <td>1</td>
-            <td>26/2/2021</td>
-            <td>Delivered</td>
-        </tr>
-        <tr>
-            <td>CAMERA_NAME2</td>
-            <td>#987654321</td>
-            <td>300$</td>
-            <td>10</td>
-            <td>05/2/2021</td>
-            <td>Out for delivery</td>
-        </tr>
-        <tr>
-            <td>CAMERA_NAME3</td>
-            <td>#111111111</td>
-            <td>400$</td>
-            <td>10</td>
-            <td>06/2/2021</td>
-            <td>Out for delivery</td>
-        </tr>
-    </table>
-</div>
-
-<div id="Reviews" class="tabcontent">
-    <h3>Reviews</h3>
-    <p style="font-size:18px; margin-right: 60px;">Here you can view, delete and modify the reviews you
-        have submited for the products you own.</p>
-    <table class="profileTable">
-        <tr>
-            <th>Product</th>
-            <th>Product Code</th>
-            <th>Date Ordered</th>
-            <th>Date Delivered</th>
-            <th>Review Score</th>
-            <th>Review Text</th>
-        </tr>
-        <tr>
-            <td>CAMERA_NAME</td>
-            <td>#123456789</td>
-            <td>26/2/2021</td>
-            <td>27/2/2021</td>
-            <td>1/5</td>
-            <td>Very Bad Camera :(</td>
-        </tr>
-        <tr>
-            <td>CAMERA_NAME2</td>
-            <td>#987654321</td>
-            <td>26/2/2021</td>
-            <td>27/2/2021</td>
-            <td>5/5</td>
-            <td>Very Good Camera :D</td>
-        </tr>
-        <tr>
-            <td>CAMERA_NAME3</td>
-            <td>#11111111</td>
-            <td>25/2/2021</td>
-            <td>26/2/2021</td>
-            <td>3/5</td>
-            <td>Kinda Good Camera :|</td>
-        </tr>
-    </table>
-</div>
-
-<br> <!-- temporary : should change -->
-<br> <!-- temporary : should change -->
-<br> <!-- temporary : should change -->
-
-<!-- The overlay -->
-<div id="myNav" class="overlay">
-
-    <!-- Button to close the overlay navigation -->
-    <a href="javascript:void(0)" class="closebtn" onclick="closeSideNav()">&times;</a>
-
-    <!-- Overlay content -->
-    <div class="overlay-content">
-        <a href="./index.html#home" onclick=" closeSideNav()">Home</a>
-        <a href=" ./index.html#products" onclick="closeSideNav()">Products</a>
-        <a href="./index.html#about" onclick="closeSideNav()">About</a>
-        <a href="./index.html#photography" onclick="closeSideNav()">Introduction to Photography</a>
-        <a href="./index.html#contact" onclick="closeSideNav()">Contact</a>
     </div>
 
-</div>
+    <div id="Orders" class="tabcontent">
+        <h3>Orders</h3>
+        <p style="font-size:18px; margin-right: 60px;">Here you can review information regarding your pending
+            and completed orders.</p>
+        <table class="profileTable">
+            <tr>
+                <th>Product</th>
+                <th>Product Code</th>
+                <th>Price</th>
+                <th>Amount</th>
+                <th>Date Ordered</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>CAMERA_NAME</td>
+                <td>#123456789</td>
+                <td>200$</td>
+                <td>1</td>
+                <td>26/2/2021</td>
+                <td>Delivered</td>
+            </tr>
+            <tr>
+                <td>CAMERA_NAME2</td>
+                <td>#987654321</td>
+                <td>300$</td>
+                <td>10</td>
+                <td>05/2/2021</td>
+                <td>Out for delivery</td>
+            </tr>
+            <tr>
+                <td>CAMERA_NAME3</td>
+                <td>#111111111</td>
+                <td>400$</td>
+                <td>10</td>
+                <td>06/2/2021</td>
+                <td>Out for delivery</td>
+            </tr>
+        </table>
+    </div>
 
-<hr> <!-- thematic break -->
-<div class=" footer">
-    <a href="https://www.facebook.com/" title="facebook" class="fa fa-facebook"></a>
-    <a href="https://twitter.com/" title="twitter" class="fa fa-twitter"></a>
-    <a href="https://www.instagram.com/" title="instagram" class="fa fa-instagram"></a>
-    <br>
-    <a href="" style="color:black">Privacy Policy</a>
-    |
-    <a href="" style="color:black">Terms of Use</a>
-    <br>
-    <br>
-    <p style="font-size:15px;">&copy; 2021 G&N , All rights reserved</p>
+    <div id="Reviews" class="tabcontent">
+        <h3>Reviews</h3>
+        <p style="font-size:18px; margin-right: 60px;">Here you can view, delete and modify the reviews you
+            have submited for the products you own.</p>
+        <table class="profileTable">
+            <tr>
+                <th>Product</th>
+                <th>Product Code</th>
+                <th>Date Ordered</th>
+                <th>Date Delivered</th>
+                <th>Review Score</th>
+                <th>Review Text</th>
+            </tr>
+            <tr>
+                <td>CAMERA_NAME</td>
+                <td>#123456789</td>
+                <td>26/2/2021</td>
+                <td>27/2/2021</td>
+                <td>1/5</td>
+                <td>Very Bad Camera :(</td>
+            </tr>
+            <tr>
+                <td>CAMERA_NAME2</td>
+                <td>#987654321</td>
+                <td>26/2/2021</td>
+                <td>27/2/2021</td>
+                <td>5/5</td>
+                <td>Very Good Camera :D</td>
+            </tr>
+            <tr>
+                <td>CAMERA_NAME3</td>
+                <td>#11111111</td>
+                <td>25/2/2021</td>
+                <td>26/2/2021</td>
+                <td>3/5</td>
+                <td>Kinda Good Camera :|</td>
+            </tr>
+        </table>
+    </div>
 
+    <br> <!-- temporary : should change -->
+    <br> <!-- temporary : should change -->
+    <br> <!-- temporary : should change -->
 
-</div>
+    <!-- The overlay -->
+    <div id="myNav" class="overlay">
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeSideNav()">&times;</a>
 
+        <!-- Overlay content -->
+        <div class="overlay-content">
+            <a href="./index.php#home" onclick=" closeSideNav()">Home</a>
+            <a href=" ./index.php#products" onclick="closeSideNav()">Products</a>
+            <a href="./index.php#about" onclick="closeSideNav()">About</a>
+            <a href="./index.php#photography" onclick="closeSideNav()">Introduction to Photography</a>
+            <a href="./index.php#contact" onclick="closeSideNav()">Contact</a>
+        </div>
+
+    </div>
+
+    <hr> <!-- thematic break -->
+    <div class=" footer">
+        <a href="https://www.facebook.com/" title="facebook" class="fa fa-facebook"></a>
+        <a href="https://twitter.com/" title="twitter" class="fa fa-twitter"></a>
+        <a href="https://www.instagram.com/" title="instagram" class="fa fa-instagram"></a>
+        <br>
+        <a href="" style="color:black">Privacy Policy</a>
+        |
+        <a href="" style="color:black">Terms of Use</a>
+        <br>
+        <br>
+        <p style="font-size:15px;">&copy; 2021 G&N , All rights reserved</p>
+    </div>
 
 </body>
 

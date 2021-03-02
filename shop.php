@@ -1,7 +1,8 @@
+
 <?php
     session_start();
+    require_once 'connect.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,18 +23,17 @@
     <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript" src="shop.js"></script>
 
-    <div w3-include-html="index.html"></div>
 </head>
 
 <body>
     <div class="header">
-        <a href="./index.html"><img src="./images/logo.jpg" class="logo"></a>
+        <a href="./index.php"><img src="./images/logo.jpg" class="logo"></a>
         <div class="topnav" id="topnav">
-            <a class="active" href="">Home</a>
-            <a href="#products">Products</a>
-            <a href="#about">About</a>
-            <a href="#photography">Introduction to Photography</a>
-            <a href="#contact">Contact</a>
+            <a class="active" href="./index.php">Home</a>
+            <a href="./index.php#products">Products</a>
+            <a href="./index.php#about">About</a>
+            <a href="./index.php#photography">Introduction to Photography</a>
+            <a href="./index.php#contact">Contact</a>
 
             <a href="#" class="icon" onclick="openSideNav();return false;">
                 <i class="fa fa-bars"></i>
@@ -161,11 +161,11 @@
 
         <!-- Overlay content -->
         <div class="overlay-content">
-            <a href="./index.html#home" onclick=" closeSideNav()">Home</a>
-            <a href=" ./index.html#products" onclick="closeSideNav()">Products</a>
-            <a href="./index.html#about" onclick="closeSideNav()">About</a>
-            <a href="./index.html#photography" onclick="closeSideNav()">Introduction to Photography</a>
-            <a href="./index.html#contact" onclick="closeSideNav()">Contact</a>
+            <a href="./index.php#home" onclick=" closeSideNav()">Home</a>
+            <a href=" ./index.php#products" onclick="closeSideNav()">Products</a>
+            <a href="./index.php#about" onclick="closeSideNav()">About</a>
+            <a href="./index.php#photography" onclick="closeSideNav()">Introduction to Photography</a>
+            <a href="./index.php#contact" onclick="closeSideNav()">Contact</a>
 
         </div>
 
@@ -179,15 +179,15 @@
         style="margin:30px;border-radius:30px;outline:none;background-color: rgb(0, 0, 48);color:white;"
         onclick="closeFilters()">Close
         Filters</button>
-    
-    <div id="sort" style="width: 400px;">
-        <form action="sort.php" method="post">
+    <!--
+    <div style="width: 400px;">
+        <form id="sort" action="sort.php" method="post">
             <p style=" font-size:18px;">Sort by</p>
-            <input type="radio" name="price" value="inc"> Increasing Price<br>
-            <input type="radio" name="price" value="dec"> Decreasing Price
+            <input type="radio" name="price" value="asc" onclick="submit()"> Increasing Price<br>
+            <input type="radio" name="price" value="dec" onclick="submit()"> Decreasing Price
         </form>
     </div>
-
+    -->
 
     <div class="row">
 
@@ -259,7 +259,7 @@
 
             </div>
             <h4 style="text-align: center;">Color</h4>
-            <div class="menu" style="text-align: center;">
+            <div class="vertical-menu" >
                     <input type="checkbox"  name="green"/>
                     <label style="font-size:17px;color:green;" > Green</label><br>
                     <input type="checkbox" name="blue"/>
@@ -267,7 +267,7 @@
                     <input type="checkbox"  name="red"/>
                     <label style="font-size:17px;color:red;" >Red</label><br>
                     <input type="checkbox"  name="white"/>
-                    <label style="font-size:17px;color:white;" > White</label><br>
+                    <label style="font-size:17px;color:rgb(200, 200, 200);" > White</label><br>
                     <input type="checkbox" name="black"/>
                     <label style="font-size:17px;color:black;" > Black</label><br>
                     <input type="checkbox"  name="grey"/>
@@ -277,7 +277,7 @@
             <h4 style="text-align: center; ">Price ($)</h4>
 
                 <div class="slidecontainer" style="width:300px;text-align: center;margin:auto;">
-                    <input name="price" type="range" min="1" max="1000" value="500" onchange="detectChange(this.value)">
+                    <input name="price" type="range" min="1" max="3000" value="500" onchange="detectChange(this.value)">
             <div class="range">
                 <output style="color:black;font-size:17px" id="output" name="result"></output>
             </div>
@@ -288,180 +288,37 @@
     </div>
 
     <div class="main">
-
-
-
         <div class="row">
-            <div class="column">
-                <div class="card">
-                    <nav>
-                        <h3 style="text-align:center;">Camera Canon Powershot SX530 HS</h3>
-                    </nav>
-                    <div class="zoom">
-                        <img style=" display: block;margin-left: auto;margin-right: auto;" height="200" width="200"
-                            alt="camera" src="./images/camera.png">
-                    </div>
-                    <div class="description">
-                        <h4>Megapixels :</h4>
-                        <h4>Optical Zoom :</h4>
-                        <h4>Digital Zoom :</h4>
-                        <h4>Screen :</h4>
-                        <h4>Color :</h4>
-                        <button style="border-radius: 70px;">Add to Cart</button>
-                        <button style="border-radius: 70px;">Wishlist</button>
-                    </div>
-                </div>
-                <div class="card">
-                    <nav>
-                        <h3 style="text-align:center;">Compact Waterproof Leica X-U (Typ 113)</h3>
-                    </nav>
-                    <div class="zoom">
-                        <img style=" display: block;margin-left: auto;margin-right: auto;" height="200" width="200"
-                            alt="camera" src="./images/camera3.jpg">
-                    </div>
-                    <div class="description">
-                        <h4>Megapixels :</h4>
-                        <h4>Optical Zoom :</h4>
-                        <h4>Digital Zoom :</h4>
-                        <h4>Screen :</h4>
-                        <h4>Color :</h4>
-                        <button style="border-radius: 70px;">Add to Cart</button>
-                        <button style="border-radius: 70px;">Wishlist</button>
-                    </div>
-                </div>
-                <div class="card">
-                    <nav>
-                        <h3 style="text-align:center;">Compact Nikon Coolpix W150</h3>
-                    </nav>
-                    <div class="zoom">
-                        <img style=" display: block;margin-left: auto;margin-right: auto;" height="200" width="200"
-                            alt="camera" src="./images/camera5.png">
-                    </div>
-                    <div class="description">
-                        <h4>Megapixels :</h4>
-                        <h4>Optical Zoom :</h4>
-                        <h4>Digital Zoom :</h4>
-                        <h4>Screen :</h4>
-                        <h4>Color :</h4>
-                        <button style="border-radius: 70px;">Add to Cart</button>
-                        <button style="border-radius: 70px;">Wishlist</button>
-                    </div>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    <nav>
-                        <h3 style="text-align:center;">Compact Nikon A1000 </h3>
-                    </nav>
-                    <div class="zoom">
-                        <img style=" display: block;margin-left: auto;margin-right: auto;" height="200" width="200"
-                            alt="camera" src="./images/camera2.png">
-                    </div>
-                    <div class="description">
-                        <h4>Megapixels :</h4>
-                        <h4>Optical Zoom :</h4>
-                        <h4>Digital Zoom :</h4>
-                        <h4>Screen :</h4>
-                        <h4>Color :</h4>
-                        <button style="border-radius: 70px;">Add to Cart</button>
-                        <button style="border-radius: 70px;">Wishlist</button>
-                    </div>
-                </div>
-                <div class="card">
-                    <nav>
-                        <h3 style="text-align:center;">Compact Nikon Coolpix W150</h3>
-                    </nav>
-                    <div class="zoom">
-                        <img style=" display: block;margin-left: auto;margin-right: auto;" height="200" width="200"
-                            alt="camera" src="./images/camera9.png">
-                    </div>
-                    <div class="description">
-                        <h4>Megapixels :</h4>
-                        <h4>Optical Zoom :</h4>
-                        <h4>Digital Zoom :</h4>
-                        <h4>Screen :</h4>
-                        <h4>Color :</h4>
-                        <button style="border-radius: 70px;">Add to Cart</button>
-                        <button style="border-radius: 70px;">Wishlist</button>
-                    </div>
-                </div>
-                <div class="card">
-                    <nav>
-                        <h3 style="text-align:center;">Compact Nikon Coolpix A900</h3>
-                    </nav>
-                    <div class="zoom">
-                        <img style=" display: block;margin-left: auto;margin-right: auto;" height="200" width="200"
-                            alt="camera" src="./images/camera7.jpg">
-                    </div>
-                    <div class="description">
-                        <h4>Megapixels :</h4>
-                        <h4>Optical Zoom :</h4>
-                        <h4>Digital Zoom :</h4>
-                        <h4>Screen :</h4>
-                        <h4>Color :</h4>
-                        <button style="border-radius: 70px;">Add to Cart</button>
-                        <button style="border-radius: 70px;">Wishlist</button>
-                    </div>
-                </div>
+            <?php
+                $query = "SELECT * FROM products";
+                $result = mysqli_query($conn,$query);
+                while($row = mysqli_fetch_array($result)) 
+                {?>
+                    <div class="column">
+                        <div class="card" id="<?php echo $row['id'];?>">
+                            <nav>
+                                <div class="game-title" style="font-size:22px;text-align:center;"><?php echo $row['name'];?></div>
+                            </nav>
+                            <div class="zoom">
+                                <img style=" display: block;margin-left: auto;margin-right: auto;" height="200" width="200"
+                                    alt="camera" src=<?php  echo $row['image']; ?>>
+                            </div>
+                            <div class="description">
+                                <h4>Megapixels :<b> <?php echo $row['mp'].'MP';?></b></h4>
+                                <h4>Optical Zoom :<b><?php echo $row['optical'].'x';?></b></h4>
+                                <h4>Digital Zoom :<b><?php echo $row['digital'].'x';?></b></h4>
+                                <h4>Screen : <b><?php echo $row['screen'].'"';?></b></h4>
+                                <h4>Color : <b><?php echo $row['color'];?></b></h4>
+                                <h4>Price : <b><?php echo $row['price'].'$';?></b></h4>
 
-            </div>
-            <div class="column">
-                <div class="card">
-                    <nav>
-                        <h3 style="text-align:center;">Compact Nikon Coolpix W150 </h3>
-                    </nav>
-                    <div class="zoom">
-                        <img style=" display: block;margin-left: auto;margin-right: auto;" height="200" width="200"
-                            alt="camera" src="./images/camera8.jpg">
-                    </div>
-                    <div class="description">
-                        <h4>Megapixels :</h4>
-                        <h4>Optical Zoom :</h4>
-                        <h4>Digital Zoom :</h4>
-                        <h4>Screen :</h4>
-                        <h4>Color :</h4>
-                        <button style="border-radius: 70px;">Add to Cart</button>
-                        <button style="border-radius: 70px;">Wishlist</button>
-                    </div>
-                </div>
-                <div class="card">
-                    <nav>
-                        <h3 style="text-align:center;">Compact Camera Canon PowerShot G3X </h3>
-                    </nav>
-                    <div class="zoom">
-                        <img style=" display: block;margin-left: auto;margin-right: auto;" height="200" width="200"
-                            alt="camera" src="./images/camera4.jpg">
-                    </div>
-                    <div class="description">
-                        <h4>Megapixels :</h4>
-                        <h4>Optical Zoom :</h4>
-                        <h4>Digital Zoom :</h4>
-                        <h4>Screen :</h4>
-                        <h4>Color :</h4>
-                        <button style="border-radius: 70px;">Add to Cart</button>
-                        <button style="border-radius: 70px;">Wishlist</button>
-                    </div>
-                </div>
-                <div class="card">
-                    <nav>
-                        <h3 style="text-align:center;">Compact Sony Cyber-shot DSC W800</h3>
-                    </nav>
-                    <div class="zoom">
-                        <img style=" display: block;margin-left: auto;margin-right: auto;" height="200" width="200"
-                            alt="camera" src="./images/camera6.png">
-                    </div>
-                    <div class="description">
-                        <h4>Megapixels :</h4>
-                        <h4>Optical Zoom :</h4>
-                        <h4>Digital Zoom :</h4>
-                        <h4>Screen :</h4>
-                        <h4>Color :</h4>
-                        <button style="border-radius: 70px;">Add to Cart</button>
-                        <button style="border-radius: 70px;">Wishlist</button>
-                    </div>
-                </div>
-
-            </div>
+                                <button style="border-radius: 70px;">Add to Cart</button>
+                                <button style="border-radius: 70px;">Wishlist</button>
+                            </div>
+                        </div> 
+                    </div>        
+            <?php }
+                mysqli_close($conn); 
+            ?>
         </div>
 
     </div>
