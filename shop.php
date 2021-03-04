@@ -315,7 +315,7 @@
                                 <button style="border-radius: 70px;">Wishlist</button>
                             </div>
                         </div> 
-                    </div>        
+                    </div>   
             <?php }
                 mysqli_close($conn); 
             ?>

@@ -7,20 +7,15 @@
 <head>
     <title>E-Shop</title>
     <meta charset="utf-8">
-    <!-- responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
-    <!-- bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.5.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <!-- link to css -->
     <link rel="stylesheet" type="text/css" href="index.css">
-    <!-- social media icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- search bar -->
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -28,7 +23,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
 
-    <!-- js functions -->
     <script type="text/javascript" src="index.js"></script>
 
 </head>
@@ -54,9 +48,13 @@
             </form>
         </div>
 
-        <a href="#" role="button" title="login" id="login" style="color:black;font-size:20px;width:75px"
+        <a href="#" role="button" title="login" id="login" style="color:black;font-size:20px;width:75px;height:45px;"
             class="btn btn-success btn-lg">
             log in
+        </a>
+        <a href="#" role="button" title="profile" id="profile" style="color:black;font-size:20px;padding-bottom:3.5rem;width:75px"
+            class="btn btn-success btn-lg">
+            profile
         </a>
         <a href="" id="cart" title="shopping cart" class="btn btn-success btn-lg">
             <span class="glyphicon glyphicon-shopping-cart" style="color:black;"></span>
@@ -75,6 +73,22 @@
                 <div class="form-popup">
 
                     <form action="./login.php" method="post" class="form-container">
+                        
+                            <?php 
+                                if (isset($_SESSION['failure']) && !empty($_SESSION['failure'])) { ?>
+                                    <div class="failure" style="margin-bottom: 10px;font-size: 18px;color: red;"><?php echo $_SESSION['failure']; ?></div>
+                            <?php}
+                                else
+                                {?>
+                                    <script>
+                                        document.getElementById("login").style.display = "none";
+                                        document.getElementById("profile").style.display = "block";
+                                    </script>
+                            <?php
+                                unset($_SESSION['failure']);
+                                }
+                        ?>
+                        
                         <label for="email" style="font-weight:normal;font-size:20px;">Email</label>
                         <input type="text" placeholder="Enter Email" name="email" required>
                         <br>
