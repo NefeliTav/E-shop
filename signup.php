@@ -47,10 +47,11 @@
 		}
 		
 		//echo $firstname,$lastname,$email,$tel,$address,$postcode,$password;
+        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
 		echo $nameErr,$lastnameErr,$emailErr,$telErr,$postcodeErr,$passwordErr;
 
-		$query = "INSERT INTO users (firstname, lastname, email, tel, addr, postcode, psw) VALUES ('$firstname', '$lastname', '$email', '$tel', '$address', '$postcode', '$password')";
+		$query = "INSERT INTO users (firstname, lastname, email, tel, addr, postcode, psw) VALUES ('$firstname', '$lastname', '$email', '$tel', '$address', '$postcode', '$passwordHash')";
 		$result = mysqli_query($conn,$query);
         if ($result)
         {

@@ -6,17 +6,13 @@
     {
         $email = ($_POST['email']);
         $password = ($_POST['password']);
+        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
     
-        $result = mysqli_query($conn,"SELECT * FROM users WHERE email='$email' and psw='$password'");
+        $result = mysqli_query($conn,"SELECT * FROM users WHERE email='$email' and psw='$passwordHash'");
     
         if ($result)
         {
             $arr = $result->fetch_array();
-            if(empty($arr[0]))
-            {
-                echo 'Wrong Username or Password!';
-                exit();
-            }
             $_SESSION['firstname']=$arr[0];
             $_SESSION['lastname']=$arr[1];
             $_SESSION['email']=$arr[2];
@@ -27,6 +23,10 @@
             header('Location: index.php');
             mysqli_close($conn);
 
+        }
+        else
+        {
+            $_SESSION['failure'] = 'Wrong username or password.';
         }
     }
    
