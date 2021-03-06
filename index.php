@@ -12,6 +12,7 @@
     
         if ($result)
         {
+
             if(password_verify($password,$passwordHash)) 
             {
                 $arr = $result->fetch_array();
@@ -31,6 +32,8 @@
         else
         {
             $_SESSION['failure'] = 'Wrong username or password.';
+            header('Location: shop.php');
+
         }
     }
 
@@ -88,14 +91,18 @@
 		$result = mysqli_query($conn,$query);
         if ($result)
         {
-            header('Location: index.php');
-			mysqli_close($conn);
+            /*$_SESSION['id']=$arr[0];*/
+            $_SESSION['firstname']=$firstname;
+            $_SESSION['lastname']=$lastname;
+            $_SESSION['email']=$email;
+            $_SESSION['tel']=$tel;
+            $_SESSION['address']=$address;
+            $_SESSION['postcode']=$postcode;
+            $_SESSION['password']=$password;
         }
 		else
 		{
-			echo 'Failed';
-			header('Location: index.php');
-			mysqli_close($conn);
+            $_SESSION['failure'] = 'Wrong username or password.';
 		}
 		
     }
@@ -140,7 +147,6 @@
             <a class="active" href="">Home</a>
             <a href="#products">Products</a>
             <a href="#about">About</a>
-            <a href="#photography">Introduction to Photography</a>
             <a href="#contact">Contact</a>
 
             <a href="#" class="icon" onclick="openSideNav();return false;">
@@ -181,7 +187,7 @@
                     <form action="" method="post" class="form-container">
                         
                             <?php 
-                                if (isset($_SESSION['failure']) && !empty($_SESSION['failure'])) { ?>
+                                if (isset($_SESSION['failure']) && !empty($_SESSION['failure'])) {?>
                                     <div class="failure" style="margin-bottom: 10px;font-size: 18px;color: red;"><?php echo $_SESSION['failure']; ?></div>
                             <?php}
                                 else
@@ -224,7 +230,7 @@
                 <h1 style="font-size:30px;text-align:center;">Sign up</h1>
                 <hr>
                 <div class="form-popup">
-                    <form action="#" method="post" id="form-container2" class="form-container">
+                    <form action="" method="post" id="form-container2" class="form-container">
 
                         <label for="firstname" style="font-weight:normal;font-size:20px;">First Name</label>
                         <label for="lastname" style="margin-left:41%;font-weight:normal;font-size:20px;">Last
@@ -295,7 +301,6 @@
             <a href="#home" onclick=" closeSideNav()">Home</a>
             <a href=" #products" onclick="closeSideNav()">Products</a>
             <a href="#about" onclick="closeSideNav()">About</a>
-            <a href="#photography" onclick="closeSideNav()">Introduction to Photography</a>
             <a href="#contact" onclick="closeSideNav()">Contact</a>
 
         </div>
@@ -358,84 +363,67 @@
     <div>
         <!-- Products -->
 
-        <div class="container" id="products">
+        <div class="container" id="products" >
             <h1 class="xlarge-font">Products</h1>
             <h2 style="font-size:35px">Take photos like a pro </h2>
             <p><span style="font-size:25px">From the experienced professional to the aspiring hobbyist, our curated
                     selection of cameras offers something for everyone</span> </p>
             <br>
 
-            <div class="grid-container">
-                <div class="productButton" id="catalog"><a class="productLink" href="#"><img src="./images/catalog.png"
+            <div class="grid-container" >
+                <div class="productButton" id="catalog"><a class="productLink" href="./shop.php"><img src="./images/catalog.png"
                             alt="catalog" width="180" height="180"></a>
                 </div>
-                <div class="productButton"><a class="productLink" href="#"><img src="./images/photo1.png" alt="hobbyist"
+                <div class="productButton" id="hob"><a class="productLink" href="#"><img src="./images/photo1.png" alt="hobbyist"
                             width="335" height="471"></a>
                 </div>
-                <div class="productButton"><a class="productLink" href="#"><img src="./images/photo2.png" alt="advanced"
+                <div class="productButton" id="adv"><a class="productLink" href="#"><img src="./images/photo2.png" alt="advanced"
                             width="300" height="471"></a>
                 </div>
                 <div class="productButton" id="prof"><a class="productLink" href="#"><img src="./images/photo3.png"
                             alt="professional" width="335" height="471"></a>
                 </div>
 
-                <div class="categoryText">
-                    <h3 style="padding:20px;" id="prod" class="categoryTitle">Catalog</h3>
+                <div class="categoryText" style="height:160px;padding-top:20px;">
+                    <h3  id="prod" class="categoryTitle">Catalog</h3>
                     <p class="categoryDescription">Browse all of our products.</p>
-
                 </div>
-                <div class="categoryText">
-                    <h3 style="padding:20px;" id="prod2" class="categoryTitle">Hobbyist</h3>
+                <div class="categoryText" style="height:160px;padding-top:20px;">
+                    <h3  id="prod" class="categoryTitle">Hobbyist</h3>
                     <p class="categoryDescription">Looking to get into Photography? Then these cameras are perfect for
                         you!</p>
-
                 </div>
-                <div class="categoryText">
-                    <h3 style="padding:20px;" id="prod" class="categoryTitle">Advanced</h3>
+                <div class="categoryText" style="height:160px;padding-top:20px;">
+                    <h3  id="prod" class="categoryTitle">Advanced</h3>
                     <p class="categoryDescription">The perfect tools for a seasoned photographer looking to up his game.
                     </p>
 
                 </div>
-                <div class="categoryText">
-                    <h3 style="padding:20px;" id="prod" class="categoryTitle">Professional</h3>
+                <div class="categoryText" style="height:160px;padding-top:20px;">
+                    <h3  id="prod" class="categoryTitle">Professional</h3>
                     <p class="categoryDescription">These cameras will take your work to the next level.</p>
 
                 </div>
 
             </div>
+        </div>
 
-            <!-- About -->
+                <!-- About -->
 
-            <div class="container" id="about" name="about">
+            <div class="container" name="about" id="about" style="margin-top: 100px;margin-bottom: 100px;">
                 <div class="row">
-                    <div class="column-33">
-                        <img src="./images/fadeAbout.png" alt="camera" width="55%">
-                    </div>
-                    <div class="column-66">
+                    <div class="column-33" style="padding-left:10px !important;padding-top:0px">
                         <h1 class="xlarge-font">About</h1>
-                        <h1 class="medium-font" style="color:#010c27;"><b>A lifetime of photography</b></h1>
+                        <h1 class="medium-font" style="color:#010c27;">A lifetime of photography</h1>
                         <p style="font-size:18px;">In 1919, a small photography bussines operated out of Smyrna. Over a
                             hundread years later, that same
                             bussiness has evolved and prospered, spreading to many locations across Greece in the
                             proccess. Find more about our shop locations, schedule
-                            and contact information bellow. </p>
-                        <a href="shop.php"><button class="buttonAB">Shop</button></a>
+                            and contact information bellow.</p>
+                            <p style="font-size:20px;"><b>Watch this tutorial to get a taste of photography.</b></p>
+                        
                     </div>
-                </div>
-            </div>
-
-            <!-- Photography -->
-
-            <div class="container" name="photography" id="photography" style="margin-top: 100px;margin-bottom: 100px;">
-                <div class="row">
-                    <div class="column-33">
-                        <h1 class="xlarge-font">Photography for beginners</h1>
-                        <p style="font-size:20px;"><b>Watch this tutorial to get a taste of photography.</b></p>
-                        <p style="font-size:18px;"><q><i>There is one thing the photo must contain – the humanity of the
-                                    moment.
-                                </i></q> – Robert Frank</p>
-                    </div>
-                    <div class=" column-66">
+                    <div class=" column-66" id="video" >
                         <div class="embed-responsive embed-responsive-16by9">
                             <iframe class="embed-responsive-item" width="600" height="450"
                                 src="https://www.youtube.com/embed/z_3ZyAX_3gY" frameborder="0" allowfullscreen
@@ -445,12 +433,15 @@
                 </div>
             </div>
 
+
+
+
             <!-- Contact -->
 
-            <div class="container" name=contact id="contact" style="width:80%" >
+            <div class="container" name=contact id="contact"  >
                 <h1 class="xlarge-font" style="text-align: center;">Contact Us</h1><br>
                 <div class="row">
-                    <div class="column-33">
+                    <div class="column-33" id="column-cnt">
                         <p><span style="font-size:22px;">We are here to answer your questions.</span></p>
                         <br><br>
                         <form action="contact.php" method="post">

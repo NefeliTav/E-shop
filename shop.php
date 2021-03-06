@@ -316,7 +316,6 @@
             <a class="active" href="./index.php">Home</a>
             <a href="./index.php#products">Products</a>
             <a href="./index.php#about">About</a>
-            <a href="./index.php#photography">Introduction to Photography</a>
             <a href="./index.php#contact">Contact</a>
 
             <a href="#" class="icon" onclick="openSideNav();return false;">
@@ -448,7 +447,6 @@
             <a href="./index.php#home" onclick=" closeSideNav()">Home</a>
             <a href=" ./index.php#products" onclick="closeSideNav()">Products</a>
             <a href="./index.php#about" onclick="closeSideNav()">About</a>
-            <a href="./index.php#photography" onclick="closeSideNav()">Introduction to Photography</a>
             <a href="./index.php#contact" onclick="closeSideNav()">Contact</a>
 
         </div>
