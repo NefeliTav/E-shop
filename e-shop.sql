@@ -63,4 +63,13 @@ INSERT INTO `products` (`id`, `name`, `brand`, `mp`, `optical`, `digital`, `scre
 ('6', 'Compact Camera Canon PowerShot G3X', 'canon', 20.2, 25, 0, 3, 'black', 749.5, './images/camera4.png'),
 ('7', 'Compact Nikon Coolpix A900', 'nikon', 20.3, 35, 4, 3, 'grey', 278.5, './images/camera7.png'),
 ('8', 'Compact Sony Cyber-shot DSC W800', 'sony', 20.1, 5, 10, 2.7, 'grey', 105, './images/camera6.png');
+('9', 'Compact Camera Canon PowerShot G5X Mark II ', 'canon', 20.1, 5, 4, 3, 'black', 929, './images/camera18.png');
+('10', 'Compact Nikon Coolpix B600', 'nikon', 16, 60, 0, 3, 'black', 299, './images/camera10.png');
+('11', 'Compact Camera Canon PowerShot G7X II - Vlogging kit', 'canon', 20.1, 4.2, 0, 3, 'black', 574, './images/camera11.png');
+('12', 'Sony Cyber-shot DSC-RX100', 'sony', 20.2, 3.6, 0, 3, 'black', 349, './images/camera12.png');
+('13', 'Sony Cyber-shot DSC-HX60', 'sony', 20.4, 30, 120, 3, 'black', 279, './images/camera13.png');
+('14', 'Compact Sony DSC - HX80B', 'sony', 20.1, 30, 120, 3, 'black', 349, './images/camera14.png');
+('15', 'Compact Camera Canon PowerShot G7X II ', 'canon', 20.1, 4.2, 0, 3, 'black', 529, './images/camera15.png');
+('16', 'Panasonic Lumix Waterpoof DC-FT7EG', 'panasonic', 20.4, 4.6, 6.4, 3, 'red', 299.48, './images/camera16.png');
+('17', 'Nikon Coolpix P1000', 'nikon', 16, 125, 250, 3.2, 'black', 990, './images/camera17.png');
 

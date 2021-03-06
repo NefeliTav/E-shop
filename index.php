@@ -4,6 +4,7 @@
 
     if(isset($_POST['submit']))
     {
+        $_SESSION['failure'] ="";
         $email = ($_POST['email']);
         $password = ($_POST['password']);
         $passwordHash = password_hash($password, PASSWORD_BCRYPT);
@@ -27,12 +28,15 @@
                     $_SESSION['postcode']=$arr[5];
                     $_SESSION['password']=$arr[6];
                 }
+                else
+                {
+                    $_SESSION['failure'] = 'Wrong username or password.';
+                }
             } 
         }
         else
         {
             $_SESSION['failure'] = 'Wrong username or password.';
-            header('Location: shop.php');
 
         }
     }
@@ -100,10 +104,7 @@
             $_SESSION['postcode']=$postcode;
             $_SESSION['password']=$password;
         }
-		else
-		{
-            $_SESSION['failure'] = 'Wrong username or password.';
-		}
+
 		
     }
 	function test_input($data) 
@@ -164,7 +165,7 @@
             class="btn btn-success btn-lg">
             log in
         </a>
-        <a href="#" role="button" title="profile" id="profile" style="color:black;font-size:20px;padding-bottom:3.5rem;width:75px"
+        <a href="./profile.php" role="button" title="profile" id="profile" style="color:black;font-size:20px;padding-bottom:3.5rem;width:75px"
             class="btn btn-success btn-lg">
             profile
         </a>
@@ -175,7 +176,7 @@
             <span style="font-size:18px;background: none;" class="fa">&#xf004;</span>
         </a>
 
-        <div id="myModal" class="modal">
+        <div id="myModal"  class="modal">
 
             <!-- Modal content -->
             <div class="modal-content">
@@ -187,11 +188,11 @@
                     <form action="" method="post" class="form-container">
                         
                             <?php 
-                                if (isset($_SESSION['failure']) && !empty($_SESSION['failure'])) {?>
+                                if (isset($_SESSION['failure']) && ($_SESSION['failure']!="")) {?>
                                     <div class="failure" style="margin-bottom: 10px;font-size: 18px;color: red;"><?php echo $_SESSION['failure']; ?></div>
-                            <?php}
+                            <?php }
                                 else
-                                {?>
+                                { ?>
                                     <script>
                                         document.getElementById("login").style.display = "none";
                                         document.getElementById("profile").style.display = "block";
@@ -499,7 +500,7 @@
                         <i style="font-size:24px;background: none;" class="fa">&#xf095;</i><a style="font-size:22px"
                             href="https://api.whatsapp.com/send?phone=302102536985">+30 210 253 6985</a><br>
                         <i style="font-size:24px;background: none;" class="fa">&#xf0e0;</i>
-                        <a style="font-size:22px" href="mailto: abc@example.com">gn@gmail.com</a>
+                        <a style="font-size:22px" href="mailto: abc@example.com">e-shop@gmail.com</a>
                     </div>
 
                 </div>

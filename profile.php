@@ -36,7 +36,6 @@
             <a class="active" href="./index.php">Home</a>
             <a href="./index.php#products">Products</a>
             <a href="./index.php#about">About</a>
-            <a href="./index.php#photography">Introduction to Photography</a>
             <a href="./index.php#contact">Contact</a>
 
             <a href="#" class="icon" onclick="openSideNav();return false;">
@@ -271,7 +270,7 @@
 
     </div>
 
-    <div id="Orders" class="tabcontent">
+    <div id="Orders" class="tabcontent" style="align-items:center;">
         <h3>Orders</h3>
         <p style="font-size:18px; margin-right: 60px;">Here you can review information regarding your pending
             and completed orders.</p>
@@ -311,7 +310,7 @@
         </table>
     </div>
 
-    <div id="Reviews" class="tabcontent">
+    <div id="Reviews" class="tabcontent" style="align-items:center;">
         <h3>Reviews</h3>
         <p style="font-size:18px; margin-right: 60px;">Here you can view, delete and modify the reviews you
             have submited for the products you own.</p>
@@ -365,7 +364,6 @@
             <a href="./index.php#home" onclick=" closeSideNav()">Home</a>
             <a href=" ./index.php#products" onclick="closeSideNav()">Products</a>
             <a href="./index.php#about" onclick="closeSideNav()">About</a>
-            <a href="./index.php#photography" onclick="closeSideNav()">Introduction to Photography</a>
             <a href="./index.php#contact" onclick="closeSideNav()">Contact</a>
         </div>
 
