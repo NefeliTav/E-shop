@@ -491,14 +491,13 @@ hr {
 
 .column-66 {
   float: left;
-  width: 45%;
+  width: 50%;
   padding: 20px;
 }
 
 .column-33 {
   float: left;
-  position: relative;
-  width: 55%;
+  width: 50%;
   padding: 20px;
 }
 
