@@ -6,31 +6,106 @@
     {
         $email = ($_POST['email']);
         $password = ($_POST['password']);
-        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+        $passwordHash = password_hash($password, PASSWORD_BCRYPT);
     
-        $result = mysqli_query($conn,"SELECT * FROM users WHERE email='$email' and psw='$passwordHash'");
+        $result = mysqli_query($conn,"SELECT * FROM users WHERE email='$email'");
     
         if ($result)
         {
-            $arr = $result->fetch_array();
-            if ($arr)
+            if(password_verify($password,$passwordHash)) 
             {
-                $_SESSION['firstname']=$arr[0];
-                $_SESSION['lastname']=$arr[1];
-                $_SESSION['email']=$arr[2];
-                $_SESSION['tel']=$arr[3];
-                $_SESSION['address']=$arr[4];
-                $_SESSION['postcode']=$arr[5];
-                $_SESSION['password']=$arr[6];
-            }
-            
-
+                $arr = $result->fetch_array();
+                if ($arr)
+                {
+                    /*$_SESSION['id']=$arr[0];*/
+                    $_SESSION['firstname']=$arr[0];
+                    $_SESSION['lastname']=$arr[1];
+                    $_SESSION['email']=$arr[2];
+                    $_SESSION['tel']=$arr[3];
+                    $_SESSION['address']=$arr[4];
+                    $_SESSION['postcode']=$arr[5];
+                    $_SESSION['password']=$arr[6];
+                }
+            } 
         }
         else
         {
             $_SESSION['failure'] = 'Wrong username or password.';
         }
     }
+
+    $nameErr = $lastnameErr = $emailErr = $telErr = $postcodeErr = $passwordErr = "";
+
+    if(isset($_POST['submit2']))
+	{
+		
+		$firstname = test_input($_POST["firstname"]);
+		if (!preg_match("/^[a-zA-Z-' ]*$/",$firstname)) 
+		{
+			$nameErr = "Only letters and white space allowed\n";
+		}
+		
+		$lastname = test_input($_POST["lastname"]);
+		if (!preg_match("/^[a-zA-Z-' ]*$/",$lastname)) 
+		{
+			$lastnameErr = "Only letters and white space allowed\n";
+		}
+		
+		$email = test_input($_POST["email"]);
+		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
+		{
+			$emailErr = "Invalid email format\n";
+		}
+		
+		$tel = test_input($_POST["tel"]);
+		if (!preg_match("/^[0-9]{9,11}$/", $tel)) 
+		{
+			$telErr = "Invalid phone format\n";
+		}
+		
+		$address = test_input($_POST["address"]);
+		
+		$postcode = test_input($_POST["postcode"]);
+		if (!preg_match("/^[0-9]{5,10}$/", $postcode)) 
+		{
+			$postcodeErr = "Invalid postcode format\n";
+		}
+		
+		$password = test_input($_POST["password"]);
+		$password2 = test_input($_POST["password2"]);
+		
+		if ($password != $password2) 
+		{
+			$passwordErr = "The two passwords do not match\n";
+		}
+		
+		//echo $firstname,$lastname,$email,$tel,$address,$postcode,$password;
+        $passwordHash = password_hash($password, PASSWORD_BCRYPT);
+
+		echo $nameErr,$lastnameErr,$emailErr,$telErr,$postcodeErr,$passwordErr;
+
+		$query = "INSERT INTO users (firstname, lastname, email, tel, addr, postcode, psw) VALUES ('$firstname', '$lastname', '$email', '$tel', '$address', '$postcode', '$passwordHash')";
+		$result = mysqli_query($conn,$query);
+        if ($result)
+        {
+            header('Location: index.php');
+			mysqli_close($conn);
+        }
+		else
+		{
+			echo 'Failed';
+			header('Location: index.php');
+			mysqli_close($conn);
+		}
+		
+    }
+	function test_input($data) 
+	{
+		$data = trim($data);
+		$data = stripslashes($data);
+		$data = htmlspecialchars($data);
+		return $data;
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -149,7 +224,7 @@
                 <h1 style="font-size:30px;text-align:center;">Sign up</h1>
                 <hr>
                 <div class="form-popup">
-                    <form action="./signup.php" method="post" id="form-container2" class="form-container">
+                    <form action="#" method="post" id="form-container2" class="form-container">
 
                         <label for="firstname" style="font-weight:normal;font-size:20px;">First Name</label>
                         <label for="lastname" style="margin-left:41%;font-weight:normal;font-size:20px;">Last
@@ -169,7 +244,7 @@
                         <label for="postcode"
                             style="margin-left:45%;font-weight:normal;font-size:20px;">Postcode</label>
                         <br>
-                        <input type="text" placeholder="Enter Addess" name="address" required>
+                        <input type="text" placeholder="Enter Address" name="address" required>
                         <input type="text" style="margin-left:20%;" placeholder="Enter Postcode" name="postcode"
                             required>
                         <br>
@@ -331,7 +406,7 @@
 
             <!-- About -->
 
-            <div class="container" id="about" name="about" style="background-color:#f1f1f1">
+            <div class="container" id="about" name="about">
                 <div class="row">
                     <div class="column-33">
                         <img src="./images/fadeAbout.png" alt="camera" width="55%">
@@ -372,7 +447,7 @@
 
             <!-- Contact -->
 
-            <div class="container" name=contact id="contact" style="background-color:#f1f1f1">
+            <div class="container" name=contact id="contact" style="width:80%" >
                 <h1 class="xlarge-font" style="text-align: center;">Contact Us</h1><br>
                 <div class="row">
                     <div class="column-33">
@@ -381,12 +456,12 @@
                         <form action="contact.php" method="post">
                             <label for="email" style="font-size:18px;font-weight:normal;">Email:</label><br>
                             <input
-                                style="border:none;text-align:center;font-size:18px;border-radius:30px;width:270px;height:40px;outline:none;"
+                                style="background-color:#f1f1f1;border:none;text-align:center;font-size:18px;border-radius:30px;width:270px;height:40px;outline:none;"
                                 type="email" id="email" name="email" required><br><br>
                             <label for="textarea" style="font-size:18px;font-weight:normal;">Ask us
                                 anything:</label><br>
-                            <textarea name="text"
-                                style="padding:1rem;font-size:24px;border-radius:30px;border:none;width:280px;height:300px;outline:none;"
+                            <textarea name="text" 
+                                style="background-color:#f1f1f1;padding:1rem;font-size:24px;border-radius:30px;border:none;width:280px;height:300px;outline:none;"
                                 id="field" onkeyup="countChar(this)" required></textarea>
                             <div id="charNum"></div>
                             <span id='message2'></span>
@@ -410,7 +485,7 @@
                     </div>
                     <div class="column-66">
                         <p><span style="font-size:22px">Where to find us:</span></p>
-                        <br><br>
+                        <br>
                         <ul id="menu-centered" style="font-size:18px;">
                             <li><span>Solonos 12 ,Kolonaki</span></li>
                             <li><span>Chelidonous 50 ,Kifisia</span></li>

@@ -399,7 +399,7 @@
                         <label for="postcode"
                             style="margin-left:45%;font-weight:normal;font-size:20px;">Postcode</label>
                         <br>
-                        <input type="text" placeholder="Enter Addess" name="address" required>
+                        <input type="text" placeholder="Enter Address" name="address" required>
                         <input type="text" style="margin-left:20%;" placeholder="Enter Postcode" name="postcode"
                             required>
                         <br>

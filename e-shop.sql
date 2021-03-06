@@ -17,18 +17,20 @@ INSERT INTO `messages` (`email`, `text`, `newsletter`) VALUES
 
 
 CREATE TABLE `users` (
+/*  `id` varchar(10) NOT NULL,*/
   `firstname` varchar(20) NOT NULL,
   `lastname` varchar(20) NOT NULL,
   `email` varchar(20) NOT NULL,
   `tel` varchar(10) NOT NULL,
   `addr` varchar(30) NOT NULL,
   `postcode` varchar(10) NOT NULL,
-  `psw` varchar(50) NOT NULL
+  `psw` varchar(70) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`email`,`psw`);
+/*  ADD PRIMARY KEY (`id`);*/
+  ADD PRIMARY KEY (`email`,`psw`); 
 COMMIT;
 
 
@@ -62,5 +64,3 @@ INSERT INTO `products` (`id`, `name`, `brand`, `mp`, `optical`, `digital`, `scre
 ('7', 'Compact Nikon Coolpix A900', 'nikon', 20.3, 35, 4, 3, 'grey', 278.5, './images/camera7.png'),
 ('8', 'Compact Sony Cyber-shot DSC W800', 'sony', 20.1, 5, 10, 2.7, 'grey', 105, './images/camera6.png');
 
-INSERT INTO `users` (`firstname`, `lastname`, `email`, `tel`, `addr`, `postcode`, `psw`) VALUES
-('John', 'Smith', 'example@yahoo.gr', '6949402542', 'Athinon 2', '13234', '$2y$10$BQ3K/nyFeVvpGxJ1DicHtuEBIdjEM2HshLjwCaQ4EH4'); -- 098765

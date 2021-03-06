@@ -12,6 +12,7 @@
     
         if ($result)
         {
+            /*
             $arr = $result->fetch_array();
             $_SESSION['firstname']=$arr[0];
             $_SESSION['lastname']=$arr[1];
@@ -21,8 +22,7 @@
             $_SESSION['postcode']=$arr[5];
             $_SESSION['password']=$arr[6];
             header('Location: index.php');
-            mysqli_close($conn);
-
+            mysqli_close($conn);*/
         }
         else
         {
