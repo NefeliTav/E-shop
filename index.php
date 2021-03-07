@@ -21,22 +21,14 @@
                 $arr = $result->fetch_array();
                 if ($arr)
                 {
-                    /*$_SESSION['id']=$arr[0];*/
+                    //$_SESSION['id']=$arr[0];
                     $_SESSION['firstname']=$arr[0];
                     $_SESSION['lastname']=$arr[1];
                     $_SESSION['email']=$arr[2];
-<<<<<<< HEAD
-                    $_SESSION['id']=$arr[3];
-                    $_SESSION['tel']=$arr[4];
-                    $_SESSION['address']=$arr[5];
-                    $_SESSION['postcode']=$arr[6];
-                    $_SESSION['password']=$arr[7];
-=======
                     $_SESSION['tel']=$arr[3];
                     $_SESSION['address']=$arr[4];
                     $_SESSION['postcode']=$arr[5];
                     $_SESSION['password']=$arr[6];
->>>>>>> 58a537a20619f23b4677d5603e0ce046387deb87
                 }
                 else
                 {
@@ -105,7 +97,7 @@
 		$result = mysqli_query($conn,$query);
         if ($result)
         {
-            /*$_SESSION['id']=$arr[0];*/
+            //$_SESSION['id']=$arr[0];
             $_SESSION['firstname']=$firstname;
             $_SESSION['lastname']=$lastname;
             $_SESSION['email']=$email;
@@ -214,7 +206,17 @@
                                         document.getElementById("profile").style.display = "none";
                                     </script>
                             <?php
-                                }
+
+                            if (isset($_SESSION['email']))
+                            {
+                                ?>
+                                <script>
+                                    document.getElementById("login").style.display = "none";
+                                    document.getElementById("profile").style.display = "block";
+                                </script>
+                                <?php 
+                            }
+                        }
                             unset($_SESSION['failure']);
                             
                         ?>
