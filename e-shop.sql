@@ -30,8 +30,11 @@ CREATE TABLE `users` (
 
 ALTER TABLE `users`
 /*  ADD PRIMARY KEY (`id`);*/
-  ADD PRIMARY KEY (`email`,`psw`); 
+  ADD PRIMARY KEY (`email`); 
 COMMIT;
+
+INSERT INTO `users` (`firstname`, `lastname`, `email`, `tel`, `addr`, `postcode`, `psw`) VALUES
+('Nefeli', 'Tav', 'example@yahoo.gr', '6912345678', 'Athina 1', '12345', '$2y$10$nG9wCrV2XPjv4oevycsTDOlbFshakUd9NcWP4hKtkL3Nqgo2e7p2e');
 
 
 
@@ -79,4 +82,4 @@ CREATE TABLE `wishlist` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `wishlist` (`email`, `id`) VALUES
-('test@email.com', '0');
+('example@yahoo.gr', '0');

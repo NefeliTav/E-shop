@@ -27,10 +27,6 @@
                     $_SESSION['address']=$arr[4];
                     $_SESSION['postcode']=$arr[5];
                     $_SESSION['password']=$arr[6];
-                    $_SESSION['birthday']=$arr[7];
-                    $_SESSION['terms']=$arr[8];
-                    $_SESSION['newsletter']=$arr[9];
-
                 }
                 else
                 {
@@ -194,7 +190,7 @@
                                 if (isset($_SESSION['failure']) && ($_SESSION['failure']!="")) {?>
                                     <div class="failure" style="margin-bottom: 10px;font-size: 18px;color: red;"><?php echo $_SESSION['failure']; ?></div>
                             <?php }
-                                else if($_SESSION['email']!="")
+                                else if( isset($_SESSION['failure']) && $_SESSION['email']!="")
                                 { ?>
                                     <script>
                                         document.getElementById("login").style.display = "none";
