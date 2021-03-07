@@ -16,10 +16,10 @@ INSERT INTO `messages` (`email`, `text`, `newsletter`) VALUES
 ('example@gmail.com', 'I want to ask something about polaroid cameras.', 1);
 
 CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
   `firstname` varchar(20) NOT NULL,
   `lastname` varchar(20) NOT NULL,
   `email` varchar(20) NOT NULL,
-  `id` bigint(20) UNSIGNED NOT NULL,
   `tel` varchar(10) NOT NULL,
   `addr` varchar(30) NOT NULL,
   `postcode` varchar(10) NOT NULL,
