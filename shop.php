@@ -286,6 +286,8 @@
             echo 'Failed';
         }
     }
+    if(isset($_POST['price']) )
+        $_SESSION['price'] = $_POST['price'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -461,15 +463,15 @@
         style="margin:30px;border-radius:30px;outline:none;background-color: rgb(0, 0, 48);color:white;"
         onclick="closeFilters()">Close
         Filters</button>
-    <!--
-    <div style="width: 400px;">
-        <form id="sort" action="sort.php" method="post">
+    
+    <div>
+        <form id="sort" action="" method="post">
             <p style=" font-size:18px;">Sort by</p>
             <input type="radio" name="price" value="asc" onclick="submit()"> Increasing Price<br>
             <input type="radio" name="price" value="dec" onclick="submit()"> Decreasing Price
         </form>
     </div>
-    -->
+    
 
     <div class="row">
 
@@ -586,8 +588,34 @@
                         $query = "SELECT COUNT(*) FROM ($q) AS subquery ";
                         $result = mysqli_query($conn,$query);
                         $total_rows = mysqli_fetch_array($result)[0];
+       
+                        if ($total_rows == 0){
+                            ?><div id="noresults"><p style="font-size:40px;text-align:center;margin-left:600px;margin-top:400px;">No results</p></div><?php
+                        }else 
+                        {
+                            ?>
+                             <script>
+                                document.getElementById("noresults").style.display = "none";
+                            </script>
+                            <?php
+                        }
                         $total_pages = ceil($total_rows / $no_of_records_per_page);
-                        $sql = "SELECT * FROM ($q) AS subquery LIMIT $offset, $no_of_records_per_page";
+                        if (isset($_SESSION['price']) && !empty($_SESSION['price']))
+                        {
+                            $price = $_SESSION['price'];
+                            if ($price == "asc") 
+                            {
+                                $sql = "SELECT * FROM ($q) AS subquery ORDER BY price ASC LIMIT $offset, $no_of_records_per_page ";
+                            }
+                            else
+                            {
+                                $sql = "SELECT * FROM ($q) AS subquery ORDER BY price DESC LIMIT $offset, $no_of_records_per_page ";
+                            }   
+                        }
+                        else
+                        {
+                            $sql = "SELECT * FROM ($q) AS subquery LIMIT $offset, $no_of_records_per_page ";
+                        }
                     }
                     else
                     {
@@ -595,8 +623,25 @@
                         $result = mysqli_query($conn,$query);
                         $total_rows = mysqli_fetch_array($result)[0];
                         $total_pages = ceil($total_rows / $no_of_records_per_page);
-                        $sql = "SELECT * FROM `products` LIMIT $offset, $no_of_records_per_page";
+                        if (isset($_SESSION['price']) && !empty($_SESSION['price']))
+                        {
+                            $price = $_SESSION['price'];
+                            if ($price == "asc") 
+                            {
+                                $sql = "SELECT * FROM `products`  AS subquery ORDER BY price ASC  LIMIT $offset, $no_of_records_per_page ";
+                            }
+                            else
+                            {
+                                $sql = "SELECT * FROM `products` AS subquery ORDER BY price DESC LIMIT $offset, $no_of_records_per_page ";
+                            }   
+                        }
+                        else
+                        {
+                            $sql = "SELECT * FROM `products` AS subquery LIMIT $offset, $no_of_records_per_page ";
+                        }
                     }
+                    
+
                     
 
                     $res_data = mysqli_query($conn,$sql);
@@ -625,11 +670,10 @@
                                 </div>
                             </div> 
                         </div>   
-            <?php $i++; }
+            <?php $i++;  } 
 
-                //unset($_SESSION['filters']);
-                mysqli_close($conn); 
             ?>
+
         </div>
 
     </div>
@@ -640,7 +684,8 @@
         </li>
         <li><a href="?pageno=1">1</a></li>
 
-        <li><a href="?pageno=<?php echo $total_pages; ?>">2</a></li>
+        <li class="<?php if($total_pages == 0){ echo 'disabled'; } ?>"><a href="?pageno=<?php echo $total_pages; ?>">2</a></li>
+        </li>
         <li class="<?php if($pageno >= $total_pages){ echo 'disabled'; } ?>">
             <a href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?>">Next</a>
         </li>
