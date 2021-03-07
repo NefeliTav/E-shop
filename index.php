@@ -1,8 +1,6 @@
 <?php
     session_start();
     require_once 'connect.php';
-    unset($_SESSION['filters']);
-    unset($_SESSION['price']);
 
     if(isset($_POST['submit']))
     {
@@ -22,21 +20,14 @@
                 if ($arr)
                 {
                     /*$_SESSION['id']=$arr[0];*/
-                    $_SESSION['firstname']=$arr[0];
-                    $_SESSION['lastname']=$arr[1];
-                    $_SESSION['email']=$arr[2];
-<<<<<<< HEAD
-                    $_SESSION['id']=$arr[3];
+                    $_SESSION['id']=$arr[0];
+                    $_SESSION['firstname']=$arr[1];
+                    $_SESSION['lastname']=$arr[2];
+                    $_SESSION['email']=$arr[3];
                     $_SESSION['tel']=$arr[4];
                     $_SESSION['address']=$arr[5];
                     $_SESSION['postcode']=$arr[6];
                     $_SESSION['password']=$arr[7];
-=======
-                    $_SESSION['tel']=$arr[3];
-                    $_SESSION['address']=$arr[4];
-                    $_SESSION['postcode']=$arr[5];
-                    $_SESSION['password']=$arr[6];
->>>>>>> 58a537a20619f23b4677d5603e0ce046387deb87
                 }
                 else
                 {
@@ -170,7 +161,7 @@
                 <a class="btn"><i class="fa fa-search"></i></a>
             </form>
         </div>
-        <a href="#" role="button" title="login" id="login" style="color:black;font-size:20px;width:75px;height:45px;"
+        <a href="javascript:void(0)" role="button" title="login" id="login" style="color:black;font-size:20px;width:75px;height:45px;"
             class="btn btn-success btn-lg">
             log in
         </a>
