@@ -1,10 +1,31 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: Mar 07, 2021 at 11:11 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.2
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-DROP DATABASE `e-shop`;
-CREATE DATABASE `e-shop`;
 
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `e-shop`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `messages`
+--
 
 CREATE TABLE `messages` (
   `email` varchar(20) NOT NULL,
@@ -12,28 +33,18 @@ CREATE TABLE `messages` (
   `newsletter` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `messages`
+--
+
 INSERT INTO `messages` (`email`, `text`, `newsletter`) VALUES
 ('example@gmail.com', 'I want to ask something about polaroid cameras.', 1);
 
+-- --------------------------------------------------------
 
-CREATE TABLE `users` (
-/*  `id` varchar(10) NOT NULL,*/
-  `firstname` varchar(20) NOT NULL,
-  `lastname` varchar(20) NOT NULL,
-  `email` varchar(20) NOT NULL,
-  `tel` varchar(10) NOT NULL,
-  `addr` varchar(30) NOT NULL,
-  `postcode` varchar(10) NOT NULL,
-  `psw` varchar(70) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
-ALTER TABLE `users`
-/*  ADD PRIMARY KEY (`id`);*/
-  ADD PRIMARY KEY (`email`,`psw`); 
-COMMIT;
-
-
+--
+-- Table structure for table `products`
+--
 
 CREATE TABLE `products` (
   `id` varchar(10) NOT NULL,
@@ -45,13 +56,12 @@ CREATE TABLE `products` (
   `screen` float NOT NULL,
   `color` varchar(20) NOT NULL,
   `price` float NOT NULL,
-  `image` varchar(30) NOT NULL
+  `image` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`);
-COMMIT;
-
+--
+-- Dumping data for table `products`
+--
 
 INSERT INTO `products` (`id`, `name`, `brand`, `mp`, `optical`, `digital`, `screen`, `color`, `price`, `image`) VALUES
 ('0', 'Canon Powershot SX530 HS', 'canon', 16, 50, 4, 3, 'black', 269, './images/camera.png'),
@@ -62,14 +72,66 @@ INSERT INTO `products` (`id`, `name`, `brand`, `mp`, `optical`, `digital`, `scre
 ('5', 'Compact Waterproof Leica X-U (Typ 113)', 'leica', 16.2, 0, 0, 3, 'black', 2725.5, './images/camera3.png'),
 ('6', 'Compact Camera Canon PowerShot G3X', 'canon', 20.2, 25, 0, 3, 'black', 749.5, './images/camera4.png'),
 ('7', 'Compact Nikon Coolpix A900', 'nikon', 20.3, 35, 4, 3, 'grey', 278.5, './images/camera7.png'),
-('8', 'Compact Sony Cyber-shot DSC W800', 'sony', 20.1, 5, 10, 2.7, 'grey', 105, './images/camera6.png'),
-('9', 'Compact Camera Canon PowerShot G5X Mark II ', 'canon', 20.1, 5, 4, 3, 'black', 929, './images/camera18.png'),
-('10', 'Compact Nikon Coolpix B600', 'nikon', 16, 60, 0, 3, 'black', 299, './images/camera10.png'),
-('11', 'Compact Camera Canon PowerShot G7X II - Vlogging kit', 'canon', 20.1, 4.2, 0, 3, 'black', 574, './images/camera11.png'),
-('12', 'Sony Cyber-shot DSC-RX100', 'sony', 20.2, 3.6, 0, 3, 'black', 349, './images/camera12.png'),
-('13', 'Sony Cyber-shot DSC-HX60', 'sony', 20.4, 30, 120, 3, 'black', 279, './images/camera13.png'),
-('14', 'Compact Sony DSC - HX80B', 'sony', 20.1, 30, 120, 3, 'black', 349, './images/camera14.png'),
-('15', 'Compact Camera Canon PowerShot G7X II ', 'canon', 20.1, 4.2, 0, 3, 'black', 529, './images/camera15.png'),
-('16', 'Panasonic Lumix Waterpoof DC-FT7EG', 'panasonic', 20.4, 4.6, 6.4, 3, 'red', 299.48, './images/camera16.png'),
-('17', 'Nikon Coolpix P1000', 'nikon', 16, 125, 250, 3.2, 'black', 990, './images/camera17.png');
+('8', 'Compact Sony Cyber-shot DSC W800', 'sony', 20.1, 5, 10, 2.7, 'grey', 105, './images/camera6.png');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `firstname` varchar(20) NOT NULL,
+  `lastname` varchar(20) NOT NULL,
+  `email` varchar(20) NOT NULL,
+  `tel` varchar(10) NOT NULL,
+  `addr` varchar(30) NOT NULL,
+  `postcode` varchar(10) NOT NULL,
+  `psw` varchar(70) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`firstname`, `lastname`, `email`, `tel`, `addr`, `postcode`, `psw`) VALUES
+('Fname', 'Lname', 'test@email.com', '2109898598', 'Test St. 68', '12345', '12345');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `whishlist`
+--
+
+CREATE TABLE `whishlist` (
+  `email` varchar(20) NOT NULL,
+  `id` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `whishlist`
+--
+
+INSERT INTO `whishlist` (`email`, `id`) VALUES
+('test@email.com', '0');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`email`,`psw`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
