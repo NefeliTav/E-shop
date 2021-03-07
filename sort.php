@@ -30,13 +30,11 @@
                 */
                 echo $row['price']; 
             }
-			header('Location: shop.php');
             mysqli_close($conn); 
         }
         else
         {
             echo 'Failed';
-			header('Location: shop.php');
             mysqli_close($conn);
         }
 		
