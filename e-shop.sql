@@ -73,3 +73,10 @@ INSERT INTO `products` (`id`, `name`, `brand`, `mp`, `optical`, `digital`, `scre
 ('16', 'Panasonic Lumix Waterpoof DC-FT7EG', 'panasonic', 20.4, 4.6, 6.4, 3, 'red', 299.48, './images/camera16.png'),
 ('17', 'Nikon Coolpix P1000', 'nikon', 16, 125, 250, 3.2, 'black', 990, './images/camera17.png');
 
+CREATE TABLE `whishlist` (
+  `email` varchar(20) NOT NULL,
+  `id` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `whishlist` (`email`, `id`) VALUES
+('test@email.com', '0');
