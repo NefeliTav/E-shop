@@ -191,15 +191,6 @@ session_start();
                 </div>
                 <div class="rowProfile">
                     <div class="col-25Profile">
-                        <label class="callendarBirth" for="birth">Date of Birth</label>
-                    </div>
-                    <div class="col-75Profile">
-                        <input type="date" id="start" name="trip-start" value="<?php echo $_SESSION['birthday']; ?>" min="1900-01-01"
-                            max="2002-01-01">
-                    </div>
-                </div>
-                <div class="rowProfile">
-                    <div class="col-25Profile">
                         <label for="email">Email Address</label>
                     </div>
                     <div class="col-75Profile">
