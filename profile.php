@@ -1,5 +1,6 @@
 <?php 
-    session_start();
+require_once 'connect.php';
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -169,7 +170,7 @@
                         <label for="fname">First Name</label>
                     </div>
                     <div class="col-75Profile">
-                        <input type="text" id="fname" name="firstname" placeholder="Enter first name">
+                        <input type="text" id="fname" name="firstname" placeholder="<?php echo $_SESSION['firstname']; ?>">
                     </div>
                 </div>
                 <div class="rowProfile">
@@ -177,7 +178,7 @@
                         <label for="lname">Last Name</label>
                     </div>
                     <div class="col-75Profile">
-                        <input type="text" id="lname" name="lastname" placeholder="Enter last name">
+                        <input type="text" id="lname" name="lastname" placeholder="<?php echo $_SESSION['lastname']; ?>">
                     </div>
                 </div>
                 <div class="rowProfile">
@@ -185,7 +186,7 @@
                         <label for="lname">Address</label>
                     </div>
                     <div class="col-75Profile">
-                        <input type="text" id="address" name="address" placeholder="Enter address">
+                        <input type="text" id="address" name="address" placeholder="<?php echo $_SESSION['address']; ?>">
                     </div>
                 </div>
                 <div class="rowProfile">
@@ -193,7 +194,7 @@
                         <label class="callendarBirth" for="birth">Date of Birth</label>
                     </div>
                     <div class="col-75Profile">
-                        <input type="date" id="start" name="trip-start" value="2002-01-01" min="1900-01-01"
+                        <input type="date" id="start" name="trip-start" value="<?php echo $_SESSION['birthday']; ?>" min="1900-01-01"
                             max="2002-01-01">
                     </div>
                 </div>
@@ -202,7 +203,7 @@
                         <label for="email">Email Address</label>
                     </div>
                     <div class="col-75Profile">
-                        <input type="email" id="email" name="email" placeholder="example@email.com">
+                        <input type="email" id="email" name="email" placeholder="<?php echo $_SESSION['email']; ?>">
                     </div>
                 </div>
                 <div class="rowProfile">
@@ -210,7 +211,7 @@
                         <label for="lname">Post Code</label>
                     </div>
                     <div class="col-75Profile">
-                        <input type="text" id="formPostcode" name="formPostcode" placeholder="postcode_1">
+                        <input type="text" id="formPostcode" name="formPostcode" placeholder="<?php echo $_SESSION['postcode']; ?>">
                     </div>
                 </div>
                 <div class="rowProfile">
@@ -218,7 +219,7 @@
                         <label for="lname">Phone Number</label>
                     </div>
                     <div class="col-75Profile">
-                        <input type="text" id="formPhone" name="formPhone" placeholder="2109839560">
+                        <input type="text" id="formPhone" name="formPhone" placeholder="<?php echo $_SESSION['tel']; ?>">
                     </div>
                 </div>
                 <div class="rowProfile">
@@ -241,7 +242,7 @@
                         <label class="checkboxContainer" for="terms">
                             <a href="./documents/terms-and-conditions.pdf" target="_blank" rel="noopener noreferrer"> I
                                 have read and accept the Terms and Conditions</a>
-                            <input type="checkbox" id="terms" name="terms">
+                            <input type="checkbox" id="terms" name="terms" <?php if($_SESSION['terms']==1){echo 'checked="checked"' ;} ?>>
                             <span class="checkmark"></span>
                         </label>
 
@@ -254,7 +255,7 @@
                     <div style="padding-top: 0px; padding-bottom: 10px;" class="col-75Profile">
                         <label class="checkboxContainer" for="newsletter">
                             <p> I want to be notified regarding new offers and sales.</p>
-                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <input type="checkbox" id="newsletter" name="newsletter" <?php if($_SESSION['newsletter']==1){echo 'checked="checked"' ;} ?>>
                             <span class="checkmark"></span>
                         </label>
 
