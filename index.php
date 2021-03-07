@@ -1,6 +1,8 @@
 <?php
     session_start();
     require_once 'connect.php';
+    unset($_SESSION['filters']);
+
 
     if(isset($_POST['submit']))
     {

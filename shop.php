@@ -476,7 +476,7 @@
         <div class="side">
             <h2 style="text-align: center;">Choose filters</h2>
             <h4 style="text-align: center;">Brands</h4>
-            <form action="#" method="post">
+            <form action="?pageno=1" method="post">
 
             <div class="vertical-menu">
 
@@ -572,17 +572,37 @@
     <div class="main">
         <div class="row">
             <?php
+                    if (isset($_GET['pageno'])) {
+                        $pageno = $_GET['pageno'];
+                    } else {
+                        $pageno = 1;
+                    }
+                    $no_of_records_per_page = 9;
+                    $offset = ($pageno-1) * $no_of_records_per_page;
+                  
                     if (isset($_SESSION['filters']) && !empty($_SESSION['filters']))
                     {
-                        $query = $_SESSION['filters'];
+                        $q = $_SESSION['filters'] ;
+                        $query = "SELECT COUNT(*) FROM ($q) AS subquery ";
+                        $result = mysqli_query($conn,$query);
+                        $total_rows = mysqli_fetch_array($result)[0];
+                        $total_pages = ceil($total_rows / $no_of_records_per_page);
+                        $sql = "SELECT * FROM ($q) AS subquery LIMIT $offset, $no_of_records_per_page";
                     }
                     else
                     {
-                        $query = "SELECT * FROM products";
+                        $query = "SELECT COUNT(*) FROM `products`";
+                        $result = mysqli_query($conn,$query);
+                        $total_rows = mysqli_fetch_array($result)[0];
+                        $total_pages = ceil($total_rows / $no_of_records_per_page);
+                        $sql = "SELECT * FROM `products` LIMIT $offset, $no_of_records_per_page";
                     }
-                    $result = mysqli_query($conn,$query);
-                    while($row = mysqli_fetch_array($result)) 
-                    {?>
+                    
+
+                    $res_data = mysqli_query($conn,$sql);
+                    $i = 0;
+                    while($row = mysqli_fetch_array($res_data) and $i<9) 
+                    { ?>
                         <div class="column">
                             <div class="card" id="<?php echo $row[0];?>">
                                 <nav>
@@ -605,9 +625,9 @@
                                 </div>
                             </div> 
                         </div>   
-            <?php }
+            <?php $i++; }
 
-                unset($_SESSION['filters']);
+                //unset($_SESSION['filters']);
                 mysqli_close($conn); 
             ?>
         </div>
@@ -615,11 +635,16 @@
     </div>
     <div>
         <ul class="pagination " style="width: 400px;">
-            <li class=" page-item"><a style="color:black;" class="page-link" href="javascript:void(0);">Previous</a>
-            </li>
-            <li class="page-item"><a style="color:black;" class="page-link" href="javascript:void(0);">1</a></li>
-            <li class="page-item"><a style="color:black;" class="page-link" href="javascript:void(0);">2</a></li>
-            <li class="page-item"><a style="color:black;" class="page-link" href="javascript:void(0);">Next</a></li>
+        <li class="<?php if($pageno <= 1){ echo 'disabled'; } ?>">
+            <a href="<?php if($pageno <= 1){ echo '#'; } else { echo "?pageno=".($pageno - 1); } ?>">Prev</a>
+        </li>
+        <li><a href="?pageno=1">1</a></li>
+
+        <li><a href="?pageno=<?php echo $total_pages; ?>">2</a></li>
+        <li class="<?php if($pageno >= $total_pages){ echo 'disabled'; } ?>">
+            <a href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?>">Next</a>
+        </li>
+
         </ul>
     </div>
     <hr> <!-- thematic break -->
