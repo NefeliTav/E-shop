@@ -37,8 +37,11 @@ COMMIT;
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
-INSERT INTO `users` (`firstname`, `lastname`, `email`, `id`, `tel`, `addr`, `postcode`, `psw`) VALUES
-('Nefeli', 'Tavoulari', 'test@email.com', 1, '2109898598', 'Test St. 76', '12345', '123456');
+
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `tel`, `addr`, `postcode`, `psw`) VALUES
+(1, 'Giorgos', 'Nikolaou', 'example@yahoo.gr', '6949123456', 'Peiraia', '12345', '$2y$10$7xMY2LxZgNfJeaZDBJgP4uv.elqLvWrOk8l1iZDJexTiEOf4J1FEi');
+
+/*psw = 123456*/
 
 
 CREATE TABLE `products` (

@@ -1,6 +1,8 @@
 <?php
     session_start();
     require_once 'connect.php';
+    unset($_SESSION['filters']);
+    unset($_SESSION['price']);
 
     if(isset($_POST['submit']))
     {
@@ -96,7 +98,6 @@
 		$result = mysqli_query($conn,$query);
         if ($result)
         {
-            //$_SESSION['id']=$arr[0];
             $_SESSION['firstname']=$firstname;
             $_SESSION['lastname']=$lastname;
             $_SESSION['email']=$email;
@@ -185,10 +186,10 @@
                 <hr>
                 <div class="form-popup">
 
-                    <form action="" method="post" class="form-container">
+                    <form action="" method="post" class="form-container" id="modalForm">
                         
                             <?php 
-                                if (isset($_SESSION['failure']) && ($_SESSION['failure']!="")) {?>
+                                if (isset($_SESSION['failure']) && ($_SESSION['failure']!="")) {?>                               
                                     <div class="failure" style="margin-bottom: 10px;font-size: 18px;color: red;"><?php echo $_SESSION['failure']; ?></div>
                             <?php }
                                 else if( isset($_SESSION['failure']) && $_SESSION['email']!="")
@@ -205,7 +206,7 @@
                                         document.getElementById("profile").style.display = "none";
                                     </script>
                             <?php
-
+                            /*
                             if (isset($_SESSION['email']))
                             {
                                 ?>
@@ -214,7 +215,7 @@
                                     document.getElementById("profile").style.display = "block";
                                 </script>
                                 <?php 
-                            }
+                            }*/
                         }
                             unset($_SESSION['failure']);
                             
