@@ -287,8 +287,7 @@ function test_input($data)
     <div class="compareGrid">
         <?php
         require_once 'connect.php';
-        $_SESSION['email']="test@email.com";
-        $query = "SELECT * FROM products where id in (select id from wishlist where idUsr=" .$_SESSION['id']." )";
+        $query = "SELECT * FROM products where id in (select id from wishlist where idUsr= " .$_SESSION['id']." )";
         $result = mysqli_query($conn, $query);
         while ($row = mysqli_fetch_array($result)) { ?>
             <div class="compareGridItem">

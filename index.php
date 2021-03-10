@@ -166,9 +166,13 @@
             class="btn btn-success btn-lg">
             log in
         </a>
-        <a href="./profile.php" role="button" title="profile" id="profile" style="color:black;font-size:20px;padding-bottom:3.5rem;width:75px"
+        <a href="./profile.php" role="button" title="profile" id="profile" style="color:black;font-size:20px;padding-bottom:3.5rem;position:relative;left:-10px; width:75px"
             class="btn btn-success btn-lg">
             profile
+        </a>
+        <a href="./ds.php" role="button" title="ds" id="ds" style="color:black;font-size:20px;padding-bottom:3.5rem;width:75px; position:relative;"
+            class="btn btn-success btn-lg">
+            logout
         </a>
         <a href="" id="cart" title="shopping cart" class="btn btn-success btn-lg">
             <span class="glyphicon glyphicon-shopping-cart" style="color:black;"></span>
@@ -197,6 +201,7 @@
                                     <script>
                                         document.getElementById("login").style.display = "none";
                                         document.getElementById("profile").style.display = "block";
+                                        document.getElementById("ds").style.display = "block";
                                     </script>
                             <?php
                                 }else{
@@ -204,21 +209,21 @@
                                     <script>
                                         document.getElementById("login").style.display = "block";
                                         document.getElementById("profile").style.display = "none";
+                                        document.getElementById("ds").style.display = "none";
                                     </script>
                             <?php
-                            /*
-                            if (isset($_SESSION['email']))
+                        }
+                        if (isset($_SESSION['email']))
                             {
                                 ?>
                                 <script>
                                     document.getElementById("login").style.display = "none";
                                     document.getElementById("profile").style.display = "block";
+                                    document.getElementById("ds").style.display = "block";
                                 </script>
                                 <?php 
-                            }*/
-                        }
+                            }
                             unset($_SESSION['failure']);
-                            
                         ?>
                         
                         <label for="email" style="font-weight:normal;font-size:20px;">Email</label>

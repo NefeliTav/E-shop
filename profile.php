@@ -165,13 +165,17 @@ function test_input($data)
             </form>
         </div>
 
-        <a href="#" role="button" title="login" id="login" style="color:black;font-size:20px;width:75px"
+        <a href="javascript:void(0)" role="button" title="login" id="login" style="color:black;font-size:20px;width:75px;height:45px;"
             class="btn btn-success btn-lg">
             log in
         </a>
-        <a href="./profile.php" role="button" title="profile" id="profile" style="color:black;font-size:20px;padding-bottom:3.5rem;width:75px"
+        <a href="./profile.php" role="button" title="profile" id="profile" style="color:black;font-size:20px;padding-bottom:3.5rem;position:relative;left:-10px; width:75px"
             class="btn btn-success btn-lg">
             profile
+        </a>
+        <a href="./ds.php" role="button" title="ds" id="ds" style="color:black;font-size:20px;padding-bottom:3.5rem;width:75px; position:relative;"
+            class="btn btn-success btn-lg">
+            logout
         </a>
         <a href="" id="cart" title="shopping cart" class="btn btn-success btn-lg">
             <span class="glyphicon glyphicon-shopping-cart" style="color:black;"></span>
@@ -199,6 +203,7 @@ function test_input($data)
                                     <script>
                                         document.getElementById("login").style.display = "none";
                                         document.getElementById("profile").style.display = "block";
+                                        document.getElementById("ds").style.display = "block";
                                     </script>
                             <?php
                                 }else{
@@ -206,6 +211,7 @@ function test_input($data)
                                     <script>
                                         document.getElementById("login").style.display = "block";
                                         document.getElementById("profile").style.display = "none";
+                                        document.getElementById("ds").style.display = "ds";
                                     </script>
                             <?php
 
@@ -215,6 +221,7 @@ function test_input($data)
                                 <script>
                                     document.getElementById("login").style.display = "none";
                                     document.getElementById("profile").style.display = "block";
+                                    document.getElementById("ds").style.display = "block";
                                 </script>
                                 <?php 
                             }
