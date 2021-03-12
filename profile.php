@@ -109,6 +109,56 @@ if(isset($_POST['submit2']))
 
     
 }
+if(isset($_POST['update'])){
+    $firstname = test_input($_POST["firstnameForm"]);
+    if (!preg_match("/^[a-zA-Z-' ]*$/",$firstname) or $firstname=="") 
+    {
+        $firstname=$_SESSION['firstname'];
+    }
+    
+    $lastname = test_input($_POST["lastnameForm"]);
+    if (!preg_match("/^[a-zA-Z-' ]*$/",$lastname)or $lastname=="") 
+    {
+        $lastname=$_SESSION['lastname'];
+    }
+    
+    $email = test_input($_POST["emailForm"]);
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)or $email=="") 
+    {
+        $email=$_SESSION['email'];
+    }
+    
+    $tel = test_input($_POST["phoneForm"]);
+    if (!preg_match("/^[0-9]{9,11}$/", $tel)or $tel=="") 
+    {
+       $tel=$_SESSION['tel'];
+    }
+    
+    $address = test_input($_POST["addressForm"]);
+    if ($address=="") 
+    {
+        $address=$_SESSION['address'];
+    }
+    
+    $postcode = test_input($_POST["postcodeForm"]);
+    if (!preg_match("/^[0-9]{5,10}$/", $postcode)or $postcode=="") 
+    {
+        $postcode=$_SESSION['postcode'];
+    }
+    $query = "UPDATE users set firstname= '".$firstname."',lastname='".$lastname."',postcode= '".$postcode."',addr= '".$address."',tel= '".$tel."',email= '".$email."' where id= ".$_SESSION['id'] ;
+    $result = mysqli_query($conn,$query);
+    if ($result)
+    {
+        //$_SESSION['id']=$arr[0];
+        $_SESSION['firstname']=$firstname;
+        $_SESSION['lastname']=$lastname;
+        $_SESSION['email']=$email;
+        $_SESSION['tel']=$tel;
+        $_SESSION['address']=$address;
+        $_SESSION['postcode']=$postcode;
+    }
+    header('Location: profile.php');    
+}
 function test_input($data) 
 {
     $data = trim($data);
@@ -323,13 +373,13 @@ function test_input($data)
         <p style="font-size:18px; margin-right: 60px;">Here you can update your personal information, review
             our privacy policy and more.</p>
         <div class="containerProfile">
-            <form class="formProfile" action="/action_page.php">
+            <form class="formProfile" method="post" action="">
                 <div class="rowProfile">
                     <div class="col-25Profile">
                         <label for="fname">First Name</label>
                     </div>
                     <div class="col-75Profile">
-                        <input type="text" id="fname" name="firstname" placeholder="<?php echo $_SESSION['firstname']; ?>">
+                        <input type="text" id="fnameForm" name="firstnameForm" placeholder="<?php echo $_SESSION['firstname']; ?>">
                     </div>
                 </div>
                 <div class="rowProfile">
@@ -337,7 +387,7 @@ function test_input($data)
                         <label for="lname">Last Name</label>
                     </div>
                     <div class="col-75Profile">
-                        <input type="text" id="lname" name="lastname" placeholder="<?php echo $_SESSION['lastname']; ?>">
+                        <input type="text" id="lnameForm" name="lastnameForm" placeholder="<?php echo $_SESSION['lastname']; ?>">
                     </div>
                 </div>
                 <div class="rowProfile">
@@ -345,7 +395,7 @@ function test_input($data)
                         <label for="lname">Address</label>
                     </div>
                     <div class="col-75Profile">
-                        <input type="text" id="address" name="address" placeholder="<?php echo $_SESSION['address']; ?>">
+                        <input type="text" id="addressForm" name="addressForm" placeholder="<?php echo $_SESSION['address']; ?>">
                     </div>
                 </div>
                 <div class="rowProfile">
@@ -353,7 +403,7 @@ function test_input($data)
                         <label for="email">Email Address</label>
                     </div>
                     <div class="col-75Profile">
-                        <input type="email" id="email" name="email" placeholder="<?php echo $_SESSION['email']; ?>">
+                        <input type="email" id="emailForm" name="emailForm" placeholder="<?php echo $_SESSION['email']; ?>">
                     </div>
                 </div>
                 <div class="rowProfile">
@@ -361,7 +411,7 @@ function test_input($data)
                         <label for="lname">Post Code</label>
                     </div>
                     <div class="col-75Profile">
-                        <input type="text" id="formPostcode" name="formPostcode" placeholder="<?php echo $_SESSION['postcode']; ?>">
+                        <input type="text" id="postcodeForm" name="postcodeForm" placeholder="<?php echo $_SESSION['postcode']; ?>">
                     </div>
                 </div>
                 <div class="rowProfile">
@@ -369,19 +419,7 @@ function test_input($data)
                         <label for="lname">Phone Number</label>
                     </div>
                     <div class="col-75Profile">
-                        <input type="text" id="formPhone" name="formPhone" placeholder="<?php echo $_SESSION['tel']; ?>">
-                    </div>
-                </div>
-                <div class="rowProfile">
-                    <div class="col-25Profile">
-                        <label for="country">Country</label>
-                    </div>
-                    <div class="col-75Profile">
-                        <select id="country" name="country">
-                            <option value="australia">Australia</option>
-                            <option value="canada">Canada</option>
-                            <option value="usa">USA</option>
-                        </select>
+                        <input type="text" id="phoneForm" name="phoneForm" placeholder="<?php echo $_SESSION['tel']; ?>">
                     </div>
                 </div>
                 <div class="rowProfile">
@@ -392,7 +430,7 @@ function test_input($data)
                         <label class="checkboxContainer" for="terms">
                             <a href="./documents/terms-and-conditions.pdf" target="_blank" rel="noopener noreferrer"> I
                                 have read and accept the Terms and Conditions</a>
-                            <input type="checkbox" id="terms" name="terms" <?php if($_SESSION['terms']==1){echo 'checked="checked"' ;} ?>>
+                            <input type="checkbox" id="terms" name="terms" <?php if($_SESSION['terms']==1){echo 'checked="checked"' ;} ?>required>
                             <span class="checkmark"></span>
                         </label>
 
@@ -412,7 +450,7 @@ function test_input($data)
                     </div>
                 </div>
                 <div class="rowProfile">
-                    <input style="float: right; margin-top:5px;" type="button" class="buttonAB" value="Update Profile">
+                    <button style="float: right; margin-top:5px;" type="submit" class="buttonAB" name="update">Update Profile</button>
                     <input style="float: left; margin-top:5px; margin-left:6.3vw;" type="button" class="buttonAB"
                         value="Change Password">
                 </div>
