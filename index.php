@@ -21,7 +21,6 @@
                 $arr = $result->fetch_array();
                 if ($arr)
                 {
-                    /*$_SESSION['id']=$arr[0];*/
                     $_SESSION['id']=$arr[0];
                     $_SESSION['firstname']=$arr[1];
                     $_SESSION['lastname']=$arr[2];
@@ -436,7 +435,7 @@
 
             <div class="container" name="about" id="about" style="margin-top: 100px;margin-bottom: 100px;">
                 <div class="row">
-                    <div class="column-33" style="padding-left:10px !important;padding-top:0px">
+                    <div class="column-33" style="padding-left:10px !important;padding-top:0px;">
                         <h1 class="xlarge-font">About</h1>
                         <h1 class="medium-font" style="color:#010c27;">A lifetime of photography</h1>
                         <p style="font-size:18px;">In 1919, a small photography bussines operated out of Smyrna. Over a
@@ -445,9 +444,8 @@
                             proccess. Find more about our shop locations, schedule
                             and contact information bellow.</p>
                             <p style="font-size:20px;"><b>Watch this tutorial to get a taste of photography.</b></p>
-                        
                     </div>
-                    <div class=" column-66" id="video" >
+                    <div class=" column-66" id="video">
                         <div class="embed-responsive embed-responsive-16by9">
                             <iframe class="embed-responsive-item" width="600" height="450"
                                 src="https://www.youtube.com/embed/z_3ZyAX_3gY" frameborder="0" allowfullscreen
