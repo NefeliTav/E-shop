@@ -230,7 +230,7 @@ function test_input($data)
         <a href="" id="cart" title="shopping cart" class="btn btn-success btn-lg">
             <span class="glyphicon glyphicon-shopping-cart" style="color:black;"></span>
         </a>
-        <a href="" id="heart" title="wishlist" class="btn btn-success btn-lg">
+        <a href="compare.php" id="heart" title="wishlist" class="btn btn-success btn-lg">
             <span style="font-size:18px;background: none;" class="fa">&#xf004;</span>
         </a>
 
@@ -430,7 +430,7 @@ function test_input($data)
                         <label class="checkboxContainer" for="terms">
                             <a href="./documents/terms-and-conditions.pdf" target="_blank" rel="noopener noreferrer"> I
                                 have read and accept the Terms and Conditions</a>
-                            <input type="checkbox" id="terms" name="terms" <?php if($_SESSION['terms']==1){echo 'checked="checked"' ;} ?>required>
+                            <input type="checkbox" id="terms" name="terms" <?php /*if($_SESSION['terms']==1){echo 'checked="checked"' ;}*/ ?>>
                             <span class="checkmark"></span>
                         </label>
 
@@ -443,7 +443,7 @@ function test_input($data)
                     <div style="padding-top: 0px; padding-bottom: 10px;" class="col-75Profile">
                         <label class="checkboxContainer" for="newsletter">
                             <p> I want to be notified regarding new offers and sales.</p>
-                            <input type="checkbox" id="newsletter" name="newsletter" <?php if($_SESSION['newsletter']==1){echo 'checked="checked"' ;} ?>>
+                            <input type="checkbox" id="newsletter" name="newsletter" <?php /*if($_SESSION['newsletter']==1){echo 'checked="checked"' ;} */?>>
                             <span class="checkmark"></span>
                         </label>
 

@@ -462,7 +462,7 @@
         <a href="" id="cart" title="shopping cart" class="btn btn-success btn-lg">
             <span class="glyphicon glyphicon-shopping-cart" style="color:black;"></span>
         </a>
-        <a href="" id="heart" title="wishlist" class="btn btn-success btn-lg">
+        <a href="compare.php" id="heart" title="wishlist" class="btn btn-success btn-lg">
             <span style="font-size:18px;background: none;" class="fa">&#xf004;</span>
         </a>
 
