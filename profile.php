@@ -2,170 +2,6 @@
 require_once 'connect.php';
 session_start();
 
-
-
-if(isset($_POST['submit']))
-{
-    $_SESSION['failure'] ="";
-    $email = ($_POST['email']);
-    $password = ($_POST['password']);
-    $passwordHash = password_hash($password, PASSWORD_BCRYPT);
-
-    $result = mysqli_query($conn,"SELECT * FROM users WHERE email='$email'");
-
-    if ($result)
-    {
-
-        if(password_verify($password,$passwordHash)) 
-        {
-            $arr = $result->fetch_array();
-            if ($arr)
-            {
-                //$_SESSION['id']=$arr[0];
-                $_SESSION['firstname']=$arr[0];
-                $_SESSION['lastname']=$arr[1];
-                $_SESSION['email']=$arr[2];
-                $_SESSION['tel']=$arr[3];
-                $_SESSION['address']=$arr[4];
-                $_SESSION['postcode']=$arr[5];
-                $_SESSION['password']=$arr[6];
-            }
-            else
-            {
-                $_SESSION['failure'] = 'Wrong username or password.';
-            }
-        } 
-    }
-    else
-    {
-        $_SESSION['failure'] = 'Wrong username or password.';
-
-    }
-}
-
-$nameErr = $lastnameErr = $emailErr = $telErr = $postcodeErr = $passwordErr = "";
-
-if(isset($_POST['submit2']))
-{
-    
-    $firstname = test_input($_POST["firstname"]);
-    if (!preg_match("/^[a-zA-Z-' ]*$/",$firstname)) 
-    {
-        $nameErr = "Only letters and white space allowed\n";
-    }
-    
-    $lastname = test_input($_POST["lastname"]);
-    if (!preg_match("/^[a-zA-Z-' ]*$/",$lastname)) 
-    {
-        $lastnameErr = "Only letters and white space allowed\n";
-    }
-    
-    $email = test_input($_POST["email"]);
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
-    {
-        $emailErr = "Invalid email format\n";
-    }
-    
-    $tel = test_input($_POST["tel"]);
-    if (!preg_match("/^[0-9]{9,11}$/", $tel)) 
-    {
-        $telErr = "Invalid phone format\n";
-    }
-    
-    $address = test_input($_POST["address"]);
-    
-    $postcode = test_input($_POST["postcode"]);
-    if (!preg_match("/^[0-9]{5,10}$/", $postcode)) 
-    {
-        $postcodeErr = "Invalid postcode format\n";
-    }
-    
-    $password = test_input($_POST["password"]);
-    $password2 = test_input($_POST["password2"]);
-    
-    if ($password != $password2) 
-    {
-        $passwordErr = "The two passwords do not match\n";
-    }
-    
-    //echo $firstname,$lastname,$email,$tel,$address,$postcode,$password;
-    $passwordHash = password_hash($password, PASSWORD_BCRYPT);
-
-    echo $nameErr,$lastnameErr,$emailErr,$telErr,$postcodeErr,$passwordErr;
-
-    $query = "INSERT INTO users (firstname, lastname, email, tel, addr, postcode, psw) VALUES ('$firstname', '$lastname', '$email', '$tel', '$address', '$postcode', '$passwordHash')";
-    $result = mysqli_query($conn,$query);
-    if ($result)
-    {
-        //$_SESSION['id']=$arr[0];
-        $_SESSION['firstname']=$firstname;
-        $_SESSION['lastname']=$lastname;
-        $_SESSION['email']=$email;
-        $_SESSION['tel']=$tel;
-        $_SESSION['address']=$address;
-        $_SESSION['postcode']=$postcode;
-        $_SESSION['password']=$password;
-    }
-
-    
-}
-if(isset($_POST['update'])){
-    $firstname = test_input($_POST["firstnameForm"]);
-    if (!preg_match("/^[a-zA-Z-' ]*$/",$firstname) or $firstname=="") 
-    {
-        $firstname=$_SESSION['firstname'];
-    }
-    
-    $lastname = test_input($_POST["lastnameForm"]);
-    if (!preg_match("/^[a-zA-Z-' ]*$/",$lastname)or $lastname=="") 
-    {
-        $lastname=$_SESSION['lastname'];
-    }
-    
-    $email = test_input($_POST["emailForm"]);
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)or $email=="") 
-    {
-        $email=$_SESSION['email'];
-    }
-    
-    $tel = test_input($_POST["phoneForm"]);
-    if (!preg_match("/^[0-9]{9,11}$/", $tel)or $tel=="") 
-    {
-       $tel=$_SESSION['tel'];
-    }
-    
-    $address = test_input($_POST["addressForm"]);
-    if ($address=="") 
-    {
-        $address=$_SESSION['address'];
-    }
-    
-    $postcode = test_input($_POST["postcodeForm"]);
-    if (!preg_match("/^[0-9]{5,10}$/", $postcode)or $postcode=="") 
-    {
-        $postcode=$_SESSION['postcode'];
-    }
-    $query = "UPDATE users set firstname= '".$firstname."',lastname='".$lastname."',postcode= '".$postcode."',addr= '".$address."',tel= '".$tel."',email= '".$email."' where id= ".$_SESSION['id'] ;
-    $result = mysqli_query($conn,$query);
-    if ($result)
-    {
-        //$_SESSION['id']=$arr[0];
-        $_SESSION['firstname']=$firstname;
-        $_SESSION['lastname']=$lastname;
-        $_SESSION['email']=$email;
-        $_SESSION['tel']=$tel;
-        $_SESSION['address']=$address;
-        $_SESSION['postcode']=$postcode;
-    }
-    header('Location: profile.php');    
-}
-function test_input($data) 
-{
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -243,7 +79,7 @@ function test_input($data)
                 <hr>
                 <div class="form-popup">
 
-                    <form action="" method="post" class="form-container">
+                    <form action="./login.php" method="post" class="form-container">
                         <?php 
                                 if (isset($_SESSION['failure']) && ($_SESSION['failure']!="")) {?>
                                     <div class="failure" style="margin-bottom: 10px;font-size: 18px;color: red;"><?php echo $_SESSION['failure']; ?></div>
@@ -308,7 +144,7 @@ function test_input($data)
                 <h1 style="font-size:30px;text-align:center;">Sign up</h1>
                 <hr>
                 <div class="form-popup">
-                    <form action="" method="post" id="form-container2" class="form-container">
+                    <form action="./signup.php" method="post" id="form-container2" class="form-container">
 
                         <label for="firstname" style="font-weight:normal;font-size:20px;">First Name</label>
                         <label for="lastname" style="margin-left:41%;font-weight:normal;font-size:20px;">Last
@@ -433,7 +269,6 @@ function test_input($data)
                             <input type="checkbox" id="terms" name="terms" <?php /*if($_SESSION['terms']==1){echo 'checked="checked"' ;}*/ ?>>
                             <span class="checkmark"></span>
                         </label>
-
                     </div>
                 </div>
                 <div class="rowProfile">
@@ -451,8 +286,7 @@ function test_input($data)
                 </div>
                 <div class="rowProfile">
                     <button style="float: right; margin-top:5px;" type="submit" class="buttonAB" name="update">Update Profile</button>
-                    <input style="float: left; margin-top:5px; margin-left:6.3vw;" type="button" class="buttonAB"
-                        value="Change Password">
+                    <button style="float: left; margin-top:5px; " type="submit" class="buttonAB">Change Password</button>
                 </div>
             </form>
         </div>
@@ -502,7 +336,7 @@ function test_input($data)
     <div id="Reviews" class="tabcontent" style="align-items:center;">
         <h3>Reviews</h3>
         <p style="font-size:18px; margin-right: 60px;">Here you can view, delete and modify the reviews you
-            have submited for the products you own.</p>
+            have submitted for the products you own.</p>
         <table class="profileTable">
             <tr>
                 <th>Product</th>

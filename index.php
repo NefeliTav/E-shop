@@ -3,118 +3,6 @@
     require_once 'connect.php';
     unset($_SESSION['filters']);
     unset($_SESSION['price']);
-
-    if(isset($_POST['submit']))
-    {
-        $_SESSION['failure'] ="";
-        $email = ($_POST['email']);
-        $password = ($_POST['password']);
-        $passwordHash = password_hash($password, PASSWORD_BCRYPT);
-    
-        $result = mysqli_query($conn,"SELECT * FROM users WHERE email='$email'");
-    
-        if ($result)
-        {
-
-            if(password_verify($password,$passwordHash)) 
-            {
-                $arr = $result->fetch_array();
-                if ($arr)
-                {
-                    $_SESSION['id']=$arr[0];
-                    $_SESSION['firstname']=$arr[1];
-                    $_SESSION['lastname']=$arr[2];
-                    $_SESSION['email']=$arr[3];
-                    $_SESSION['tel']=$arr[4];
-                    $_SESSION['address']=$arr[5];
-                    $_SESSION['postcode']=$arr[6];
-                    $_SESSION['password']=$arr[7];
-                }
-                else
-                {
-                    $_SESSION['failure'] = 'Wrong username or password.';
-                }
-            } 
-        }
-        else
-        {
-            $_SESSION['failure'] = 'Wrong username or password.';
-
-        }
-    }
-
-    $nameErr = $lastnameErr = $emailErr = $telErr = $postcodeErr = $passwordErr = "";
-
-    if(isset($_POST['submit2']))
-	{
-		
-		$firstname = test_input($_POST["firstname"]);
-		if (!preg_match("/^[a-zA-Z-' ]*$/",$firstname)) 
-		{
-			$nameErr = "Only letters and white space allowed\n";
-		}
-		
-		$lastname = test_input($_POST["lastname"]);
-		if (!preg_match("/^[a-zA-Z-' ]*$/",$lastname)) 
-		{
-			$lastnameErr = "Only letters and white space allowed\n";
-		}
-		
-		$email = test_input($_POST["email"]);
-		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
-		{
-			$emailErr = "Invalid email format\n";
-		}
-		
-		$tel = test_input($_POST["tel"]);
-		if (!preg_match("/^[0-9]{9,11}$/", $tel)) 
-		{
-			$telErr = "Invalid phone format\n";
-		}
-		
-		$address = test_input($_POST["address"]);
-		
-		$postcode = test_input($_POST["postcode"]);
-		if (!preg_match("/^[0-9]{5,10}$/", $postcode)) 
-		{
-			$postcodeErr = "Invalid postcode format\n";
-		}
-		
-		$password = test_input($_POST["password"]);
-		$password2 = test_input($_POST["password2"]);
-		
-		if ($password != $password2) 
-		{
-			$passwordErr = "The two passwords do not match\n";
-		}
-		
-		//echo $firstname,$lastname,$email,$tel,$address,$postcode,$password;
-        $passwordHash = password_hash($password, PASSWORD_BCRYPT);
-
-		echo $nameErr,$lastnameErr,$emailErr,$telErr,$postcodeErr,$passwordErr;
-
-		$query = "INSERT INTO users (firstname, lastname, email, tel, addr, postcode, psw) VALUES ('$firstname', '$lastname', '$email', '$tel', '$address', '$postcode', '$passwordHash')";
-		$result = mysqli_query($conn,$query);
-        if ($result)
-        {
-            $_SESSION['firstname']=$firstname;
-            $_SESSION['lastname']=$lastname;
-            $_SESSION['email']=$email;
-            $_SESSION['tel']=$tel;
-            $_SESSION['address']=$address;
-            $_SESSION['postcode']=$postcode;
-            $_SESSION['password']=$password;
-        }
-
-		
-    }
-	function test_input($data) 
-	{
-		$data = trim($data);
-		$data = stripslashes($data);
-		$data = htmlspecialchars($data);
-		return $data;
-	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -187,7 +75,7 @@
                 <hr>
                 <div class="form-popup">
 
-                    <form action="" method="post" class="form-container" id="modalForm">
+                    <form action="./login.php" method="post" class="form-container" id="modalForm">
                         
                             <?php 
                                 if (isset($_SESSION['failure']) && ($_SESSION['failure']!="")) {?>                               
@@ -252,7 +140,7 @@
                 <h1 style="font-size:30px;text-align:center;">Sign up</h1>
                 <hr>
                 <div class="form-popup">
-                    <form action="" method="post" id="form-container2" class="form-container">
+                    <form action="./signup.php" method="post" id="form-container2" class="form-container">
 
                         <label for="firstname" style="font-weight:normal;font-size:20px;">First Name</label>
                         <label for="lastname" style="margin-left:41%;font-weight:normal;font-size:20px;">Last
