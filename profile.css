@@ -18,6 +18,7 @@
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
+    border-radius: 30px;
   }
 }
 
@@ -126,7 +127,6 @@ table.profileTable tr:nth-child(even) {
 
 /*Profile Form*/
 
-
 .formProfile ::placeholder {
   color: black;
   opacity: 1;
@@ -141,6 +141,8 @@ textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: vertical;
+  border-radius: 30px;
+  outline: none;
 }
 
 .formProfile input[type="email"],
@@ -151,16 +153,8 @@ textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: vertical;
-}
-
-.formProfile input[type="date"],
-select,
-textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
+  border-radius: 30px;
+  outline: none;
 }
 
 .formProfile label {
@@ -195,7 +189,7 @@ textarea {
   .containerProfile {
     position: relative;
     width: 650px;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #f2f2f2;
     padding: 20px;
   }
@@ -240,15 +234,6 @@ textarea {
   }
 }
 
-.callendarBirth label {
-  display: block;
-  font: 1em "Fira Sans", sans-serif;
-}
-
-.callendarBirth input,
-label {
-  margin: 0.4rem 0;
-}
 .checkboxContainer {
   display: block;
   position: relative;

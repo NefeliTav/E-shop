@@ -90,7 +90,7 @@ body .card .description button:hover {
   padding: 20px;
   margin-left: 1.75%;
   border-radius: 50px;
-  width: 20%;
+  width: 10%;
   height: 40%;
 }
 
@@ -178,19 +178,6 @@ body .card .description button:hover {
   display: none;
 }
 
-@media screen and (max-width: 600px) {
-  .side {
-    display: none;
-    background-color: #ffffff;
-  }
-  #filters {
-    display: block;
-  }
-  .card {
-    width: 50px;
-  }
-}
-
 .column {
   float: left;
   width: 33.33%;
@@ -201,24 +188,78 @@ body .card .description button:hover {
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
+  .side {
+    display: none;
+    background-color: #ffffff;
+  }
+  #filters {
+    display: block;
+  }
+}
+@media screen and (max-width: 850px) {
   .column {
     width: 100%;
     height: 100%;
   }
-  .pagination {
-    margin-left: 60%;
+  #page {
+    margin-left: 50%;
   }
   #sort {
-    margin-left: 60%;
+    float: right;
+    margin-right: 30px;
+  }
+
+  body .card {
+    width: 380px;
+    height: 422px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
-@media screen and (min-width: 600px) {
-  .pagination {
-    margin-left: 1600px;
+@media screen and (min-width: 850px) {
+  #page {
+    margin-left: 80%;
   }
   #sort {
-    margin-left: 1600px;
+    float: right;
+    margin-right: 10px;
+  }
+}
+
+@media screen and (min-width: 850px) and (max-width: 1600px) {
+  .column {
+    width: 50%;
+    height: 50%;
+  }
+  body .card {
+    width: 350px;
+    height: 459px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media screen and (min-width: 1000px) and (max-width: 1600px) {
+  .side {
+    -ms-flex: 30%;
+    flex: 20%;
+    width: 20%;
+  }
+
+  .main {
+    -ms-flex: 70%;
+    flex: 70%;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .column {
+    width: 33.3%;
+  }
+  body .card {
+    width: 440px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

@@ -2,408 +2,8 @@
 <?php
     session_start();
     require_once 'connect.php';
-
-
-    $query = $price = $red = $white = $blue = $green = $grey = $black = $canon = $nikon = $sony = "";
-    $fujifilm = $leica = $panasonic = $mp1 = $mp2 = $mp3 = $mp4 = $optical1 = $optical2 = "";
-    $optical3 = $optical4 = $digital1 = $digital2 = $digital3 = $digital4 = $screen1 = $screen2 = $screen3 = "";
-    $query2 = $query3 = $query4 = $query5 = $query6 = "";
-    if(isset($_POST['apply']))
-	{
-
-        if(isset($_POST['green'])) $green = "SELECT * FROM products WHERE color = 'green'";
-        if(isset($_POST['blue'])) $blue = "SELECT * FROM products WHERE color = 'blue'";
-        if(isset($_POST['red'])) $red = "SELECT * FROM products WHERE color = 'red'";
-        if(isset($_POST['white'])) $white = "SELECT * FROM products WHERE color = 'white'";
-        if(isset($_POST['black'])) $black = "SELECT * FROM products WHERE color = 'black'";
-        if(isset($_POST['grey'])) $grey = "SELECT * FROM products WHERE color = 'grey'";
-        
-        if(isset($_POST['canon'])) $canon = "SELECT * FROM products WHERE brand = 'canon'";
-        if(isset($_POST['nikon'])) $nikon = "SELECT * FROM products WHERE brand = 'nikon'";
-        if(isset($_POST['sony'])) $sony = "SELECT * FROM products WHERE brand = 'sony'";
-        if(isset($_POST['fujifilm'])) $fujifilm = "SELECT * FROM products WHERE brand = 'fujifilm'";
-        if(isset($_POST['leica'])) $leica = "SELECT * FROM products WHERE brand = 'leica'";
-        if(isset($_POST['panasonic'])) $panasonic = "SELECT * FROM products WHERE brand = 'panasonic'";
-        
-        if(isset($_POST['mp1'])) $mp1 = "SELECT * FROM products WHERE mp <= 13" ;
-        if(isset($_POST['mp2'])) $mp2 = "SELECT * FROM products WHERE mp > 13 AND mp <= 19";
-        if(isset($_POST['mp3'])) $mp3 = "SELECT * FROM products WHERE mp = 16";
-        if(isset($_POST['mp4'])) $mp4 = "SELECT * FROM products WHERE mp >= 20";
-           
-        if(isset($_POST['optical1'])) $optical1 = "SELECT * FROM products WHERE optical <= 10" ;
-        if(isset($_POST['optical2'])) $optical2 = "SELECT * FROM products WHERE optical > 10 AND optical <= 30";
-        if(isset($_POST['optical3'])) $optical3 = "SELECT * FROM products WHERE optical > 30 AND optical <= 50";
-        if(isset($_POST['optical4'])) $optical4 = "SELECT * FROM products WHERE optical > 50 AND optical <= 70";  
-
-        if(isset($_POST['digital1'])) $digital1 = "SELECT * FROM products WHERE digital <= 10" ;
-        if(isset($_POST['digital2'])) $digital2 = "SELECT * FROM products WHERE digital > 10 AND digital <= 30";
-        if(isset($_POST['digital3'])) $digital3 = "SELECT * FROM products WHERE digital > 30 AND digital <= 50";
-        if(isset($_POST['digital4'])) $digital4 = "SELECT * FROM products WHERE digital > 50 AND digital <= 70";  
-
-        if(isset($_POST['screen1'])) $screen1 = "SELECT * FROM products WHERE screen <= 1.9" ;
-        if(isset($_POST['screen2'])) $screen2 = "SELECT * FROM products WHERE screen >= 2 AND screen <= 2.9";
-        if(isset($_POST['screen3'])) $screen3 = "SELECT * FROM products WHERE screen >= 3 AND screen <= 3.9";
-
-        if(isset($_POST['price'])) $price = "SELECT * FROM products WHERE price <= '".$_POST["price"]."'";
-
-        if ($green)
-        {
-            $query = "$green";
-        }
-        if ($blue)
-        {
-            if($query)
-                $query = "$blue UNION ALL $query";
-            else
-                $query = "$blue";
-        }
-        if ($red)
-        {
-            if($query)
-                $query = "$red UNION ALL $query";
-            else
-                $query = "$red";
-        }
-        if ($white)
-        {
-            if($query)
-                $query = "$white UNION ALL $query";
-            else
-                $query = "$white";
-        }
-        if ($black)
-        {
-            if($query)
-                $query = "$black UNION ALL $query";
-            else
-                $query = "$black";
-        }
-        if ($grey)
-        {
-            if($query)
-                $query = "$grey UNION ALL $query";
-            else
-                $query = "$grey";
-        }
-        /*--------------------------------------------------------*/
-        if ($mp1)
-        {
-            $query2 = "$mp1";
-        }
-        if ($mp2)
-        {
-            if($query2)
-                $query2 = "$mp2 UNION ALL $query2";
-            else
-                $query2 = "$mp2";
-        }
-        if ($mp3)
-        {
-            if($query2)
-                $query2 = "$mp3 UNION ALL $query2";
-            else
-                $query2 = "$mp3";
-        }
-        if ($mp4)
-        {
-            if($query2)
-                $query2 = "$mp4 UNION ALL $query2";
-            else
-                $query2 = "$mp4";
-        }
-        /*--------------------------------------------------------*/
-
-        if ($optical1)
-        { 
-            $query3 = "$optical1";
-        }
-        if ($optical2)
-        {
-            if($query3)
-                $query3 = "$optical2 UNION ALL $query3";
-            else
-                $query3 = "$optical2";
-        }
-        if ($optical3)
-        {
-            if($query3)
-                $query3 = "$optical3 UNION ALL $query3";
-            else
-                $query3 = "$optical3";
-        }
-        if ($optical4)
-        {
-            if($query3)
-                $query3 = "$optical4 UNION ALL $query3";
-            else
-                $query3 = "$optical4";
-        }
-        /*--------------------------------------------------------*/
-
-        if ($digital1)
-        {
-            $query4 = "$digital1";
-        }
-        if ($digital2)
-        {
-            if($query4)
-                $query4 = "$digital2 UNION ALL $query4";
-            else
-                $query4 = "$digital2";
-        }
-        if ($digital3)
-        {
-            if($query4)
-                $query4 = "$digital3 UNION ALL $query4";
-            else
-                $query4 = "$digital3";
-        }
-        if ($digital4)
-        {
-            if($query4)
-                $query4 = "$digital4 UNION ALL $query4";
-            else
-                $query4 = "$digital4";
-        }
-        /*--------------------------------------------------------*/
-
-        if ($screen1)
-        {
-            $query5 = "$screen1";
-        }
-        if ($screen2)
-        {
-            if($query5)
-                $query5 = "$screen2 UNION ALL $query5";
-            else
-                $query5 = "$screen2";
-        }
-        if ($screen3)
-        {
-            if($query5)
-                $query5 = "$screen3 UNION ALL $query5";
-            else
-                $query5 = "$screen3";
-        }
-        /*--------------------------------------------------------*/
-
-        if ($canon)
-        {
-            $query6 = "$canon";
-        }
-        if ($nikon)
-        {
-            if($query6)
-                $query6 = "$nikon UNION ALL $query6";
-            else
-                $query6 = "$nikon";
-        }
-        if ($sony)
-        {
-            if($query6)
-                $query6 = "$sony UNION ALL $query6";
-            else
-                $query6 = "$sony";
-        }
-        if ($fujifilm)
-        {
-            if($query6)
-                $query6 = "$fujifilm UNION ALL $query6";
-            else
-                $query6 = "$fujifilm";
-        }
-        if ($leica)
-        {
-            if($query6)
-                $query6 = "$leica UNION ALL $query6";
-            else
-                $query6 = "$leica";
-        }
-        if ($panasonic)
-        {
-            if($query6)
-                $query6 = "$panasonic UNION ALL $query6";
-            else
-                $query6 = "$panasonic";
-        }
-        /*--------------------------------------------------------*/
-
-        if ($price)
-        {
-            if($query)
-                $query = 
-                "SELECT DISTINCT first.id,first.name,first.brand,first.mp,first.optical,first.digital,first.screen,first.color,first.price,first.image 
-                FROM ($price) as first 
-                INNER JOIN ($query) as second 
-                    ON (first.color = second.color)
-                ";
-            else
-                $query = "$price";
-        }
-        if ($query2)
-        {
-            $query = "SELECT DISTINCT first.id,first.name,first.brand,first.mp,first.optical,first.digital,first.screen,first.color,first.price,first.image  
-            FROM ($query) as first 
-            INNER JOIN ($query2) as second 
-                ON (first.mp = second.mp)";
-        }
-        if ($query3)
-        {
-            $query = "SELECT DISTINCT first.id,first.name,first.brand,first.mp,first.optical,first.digital,first.screen,first.color,first.price,first.image  
-            FROM ($query) as first 
-            INNER JOIN ($query3) as second 
-                ON (first.optical = second.optical)";
-        }
-
-        if ($query4)
-        {
-            $query = "SELECT DISTINCT first.id,first.name,first.brand,first.mp,first.optical,first.digital,first.screen,first.color,first.price,first.image  
-            FROM ($query) as first 
-            INNER JOIN ($query4) as second 
-                ON (first.digital = second.digital)";
-        }
-        if ($query5)
-        {
-            $query = "SELECT DISTINCT first.id,first.name,first.brand,first.mp,first.optical,first.digital,first.screen,first.color,first.price,first.image  
-            FROM ($query) as first 
-            INNER JOIN ($query5) as second 
-                ON (first.screen = second.screen)";
-        }
-        if ($query6)
-        {
-            $query = "SELECT DISTINCT first.id,first.name,first.brand,first.mp,first.optical,first.digital,first.screen,first.color,first.price,first.image  
-            FROM ($query) as first 
-            INNER JOIN ($query6) as second 
-                ON (first.brand = second.brand)"; 
-        }
-
-
-        $result = mysqli_query($conn,$query);
-        if ($result)
-        {
-            $_SESSION['filters'] = $query;
-        }
-        else
-        {
-            echo 'Failed';
-        }
-    }
     if(isset($_POST['price']) )
         $_SESSION['price'] = $_POST['price'];
-
-    
-        if(isset($_POST['submit']))
-        {
-            $_SESSION['failure'] ="";
-            $email = ($_POST['email']);
-            $password = ($_POST['password']);
-            $passwordHash = password_hash($password, PASSWORD_BCRYPT);
-        
-            $result = mysqli_query($conn,"SELECT * FROM users WHERE email='$email'");
-        
-            if ($result)
-            {
-    
-                if(password_verify($password,$passwordHash)) 
-                {
-                    $arr = $result->fetch_array();
-                    if ($arr)
-                    {
-                        //$_SESSION['id']=$arr[0];
-                        $_SESSION['firstname']=$arr[0];
-                        $_SESSION['lastname']=$arr[1];
-                        $_SESSION['email']=$arr[2];
-                        $_SESSION['tel']=$arr[3];
-                        $_SESSION['address']=$arr[4];
-                        $_SESSION['postcode']=$arr[5];
-                        $_SESSION['password']=$arr[6];
-                    }
-                    else
-                    {
-                        $_SESSION['failure'] = 'Wrong username or password.';
-                    }
-                } 
-            }
-            else
-            {
-                $_SESSION['failure'] = 'Wrong username or password.';
-    
-            }
-        }
-    
-        $nameErr = $lastnameErr = $emailErr = $telErr = $postcodeErr = $passwordErr = "";
-    
-        if(isset($_POST['submit2']))
-        {
-            
-            $firstname = test_input($_POST["firstname"]);
-            if (!preg_match("/^[a-zA-Z-' ]*$/",$firstname)) 
-            {
-                $nameErr = "Only letters and white space allowed\n";
-            }
-            
-            $lastname = test_input($_POST["lastname"]);
-            if (!preg_match("/^[a-zA-Z-' ]*$/",$lastname)) 
-            {
-                $lastnameErr = "Only letters and white space allowed\n";
-            }
-            
-            $email = test_input($_POST["email"]);
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
-            {
-                $emailErr = "Invalid email format\n";
-            }
-            
-            $tel = test_input($_POST["tel"]);
-            if (!preg_match("/^[0-9]{9,11}$/", $tel)) 
-            {
-                $telErr = "Invalid phone format\n";
-            }
-            
-            $address = test_input($_POST["address"]);
-            
-            $postcode = test_input($_POST["postcode"]);
-            if (!preg_match("/^[0-9]{5,10}$/", $postcode)) 
-            {
-                $postcodeErr = "Invalid postcode format\n";
-            }
-            
-            $password = test_input($_POST["password"]);
-            $password2 = test_input($_POST["password2"]);
-            
-            if ($password != $password2) 
-            {
-                $passwordErr = "The two passwords do not match\n";
-            }
-            
-            //echo $firstname,$lastname,$email,$tel,$address,$postcode,$password;
-            $passwordHash = password_hash($password, PASSWORD_BCRYPT);
-    
-            echo $nameErr,$lastnameErr,$emailErr,$telErr,$postcodeErr,$passwordErr;
-    
-            $query = "INSERT INTO users (firstname, lastname, email, tel, addr, postcode, psw) VALUES ('$firstname', '$lastname', '$email', '$tel', '$address', '$postcode', '$passwordHash')";
-            $result = mysqli_query($conn,$query);
-            if ($result)
-            {
-                //$_SESSION['id']=$arr[0];
-                $_SESSION['firstname']=$firstname;
-                $_SESSION['lastname']=$lastname;
-                $_SESSION['email']=$email;
-                $_SESSION['tel']=$tel;
-                $_SESSION['address']=$address;
-                $_SESSION['postcode']=$postcode;
-                $_SESSION['password']=$password;
-            }
-    
-            
-        }
-        function test_input($data) 
-        {
-            $data = trim($data);
-            $data = stripslashes($data);
-            $data = htmlspecialchars($data);
-            return $data;
-        }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -475,7 +75,7 @@
                 <hr>
                 <div class="form-popup">
 
-                    <form action="" method="post" class="form-container">
+                    <form action="./login.php" method="post" class="form-container">
                         <?php 
                                 if (isset($_SESSION['failure']) && ($_SESSION['failure']!="")) {?>
                                     <div class="failure" style="margin-bottom: 10px;font-size: 18px;color: red;"><?php echo $_SESSION['failure']; ?></div>
@@ -539,7 +139,7 @@
                 <h1 style="font-size:30px;text-align:center;">Sign up</h1>
                 <hr>
                 <div class="form-popup">
-                    <form action="" method="post" id="form-container2" class="form-container">
+                    <form action="./signup.php" method="post" id="form-container2" class="form-container">
 
                         <label for="firstname" style="font-weight:normal;font-size:20px;">First Name</label>
                         <label for="lastname" style="margin-left:41%;font-weight:normal;font-size:20px;">Last
@@ -613,26 +213,25 @@
         </div>
 
     </div>
-    <button id="filters"
-        style="margin:30px;border-radius:30px;outline:none;background-color: rgb(0, 0, 48);color:white;"
-        onclick="openFilters()">Open
-        Filters</button>
-    <button id="filters2"
-        style="margin:30px;border-radius:30px;outline:none;background-color: rgb(0, 0, 48);color:white;"
-        onclick="closeFilters()">Close
-        Filters</button>
-    
-        <form id="sort" action="" method="post">
+    <div>
+        <button id="filters"
+            style="float:left;border-radius:30px;outline:none;background-color: rgb(0, 0, 48);color:white;margin-left:30px;"
+            onclick="openFilters()">Open Filters</button>
+        <button id="filters2"
+            style="float:left;border-radius:30px;outline:none;background-color: rgb(0, 0, 48);color:white;margin-left:30px;"
+            onclick="closeFilters()">Close Filters</button>
+        <form id="sort" action="" method="post" >
             <input type="radio" name="price" value="asc" onclick="submit()"> Increasing Price<br>
             <input type="radio" name="price" value="dec" onclick="submit()"> Decreasing Price
         </form>
-
+    </div>
+    <br><br><br>
     <div class="row">
 
         <div class="side">
             <h2 style="text-align: center;">Choose filters</h2>
             <h4 style="text-align: center;">Brands</h4>
-            <form action="?pageno=1" method="post">
+            <form action="filters.php" method="post">
 
             <div class="vertical-menu">
 
@@ -714,7 +313,7 @@
             </div>
             <h4 style="text-align: center; ">Price ($)</h4>
 
-                <div class="slidecontainer" style="width:300px;text-align: center;margin:auto;">
+                <div class="slidecontainer" style="width:200px;text-align: center;margin:auto;">
                     <input name="price" type="range" min="1" max="3000" value="500" onchange="detectChange(this.value)">
             <div class="range">
                 <output style="color:black;font-size:17px" id="output" name="result"></output>
@@ -827,19 +426,17 @@
         </div>
 
     </div>
-    <div>
-        <ul class="pagination " style="width: 400px;">
+    <div id ="page">
+        <ul class="pagination" >
         <li class="<?php if($pageno <= 1){ echo 'disabled'; } ?>">
             <a href="<?php if($pageno <= 1){ echo '#'; } else { echo "?pageno=".($pageno - 1); } ?>">Prev</a>
         </li>
         <li><a href="?pageno=1">1</a></li>
-
         <li class="<?php if($total_pages == 0){ echo 'disabled'; } ?>"><a href="?pageno=<?php echo $total_pages; ?>">2</a></li>
         </li>
         <li class="<?php if($pageno >= $total_pages){ echo 'disabled'; } ?>">
             <a href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?>">Next</a>
         </li>
-
         </ul>
     </div>
     <hr> <!-- thematic break -->
