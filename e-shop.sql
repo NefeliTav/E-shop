@@ -5,6 +5,18 @@ SET time_zone = "+00:00";
 DROP DATABASE `e-shop`;
 CREATE DATABASE `e-shop`;
 
+CREATE TABLE `cart` (
+  `idUsr` bigint(20) UNSIGNED NOT NULL,
+  `id` varchar(10) NOT NULL,
+  `amount` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+INSERT INTO `cart` (`idUsr`, `id`, `amount`) VALUES
+(1, '1', 2),
+(1, '2', 4),
+(1, '6', 3);
+
 
 CREATE TABLE `messages` (
   `email` varchar(20) NOT NULL,
