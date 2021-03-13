@@ -623,7 +623,6 @@
         Filters</button>
     
         <form id="sort" action="" method="post">
-            <p style=" font-size:18px;">Sort by</p>
             <input type="radio" name="price" value="asc" onclick="submit()"> Increasing Price<br>
             <input type="radio" name="price" value="dec" onclick="submit()"> Decreasing Price
         </form>

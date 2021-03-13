@@ -181,9 +181,7 @@
         </a>
 
         <div id="myModal"  class="modal">
-
-            <!-- Modal content -->
-            <div class="modal-content">
+            <div class="modal-content" >
                 <span class="close">&times;</span>
                 <h1 style="font-size:30px;text-align:center;">Log in</h1>
                 <hr>
@@ -229,10 +227,11 @@
                         <input type="text" placeholder="Enter Email" name="email" required>
                         <br>
                         <label for="psw" style="font-weight:normal;font-size:20px;">Password </label>
-                        <input style="width:20px;height:20px;margin-left: 15em;padding: 0 7em 2em 0;" type="checkbox"
+                        <div>
+                        <input type="checkbox"
                             onclick="show_password('myInput')">
                         Show Password
-
+                        </div>
                         <input type="password" id="myInput" placeholder="Enter Password" name="password" required>
                         <br>
 

@@ -24,11 +24,6 @@ body {
   border-radius: 50px;
   outline: none;
 }
-@media screen and (max-width: 1000px) {
-  .logo {
-    width: 140px;
-  }
-}
 
 hr {
   display: block;
@@ -54,8 +49,6 @@ hr {
   text-align: center;
 }
 
-/* social media icons */
-
 .fa {
   padding: 20px;
   font-size: 50px;
@@ -67,8 +60,6 @@ hr {
   color: black;
 }
 
-/* search bar */
-
 .search-box {
   padding: 10px;
   padding-left: 15px;
@@ -78,7 +69,6 @@ hr {
 .search-box:hover .txt {
   width: 140px;
   height: 40px;
-  /*padding: 0 20px;*/
   transition: all 0.5s;
   padding-left: 10px;
   padding-right: 10px;
@@ -97,7 +87,6 @@ hr {
   border: none;
   background: none;
   outline: none;
-  /*float: left;*/
   padding: 0;
   color: #07051a;
   font-size: 20px;
@@ -174,8 +163,6 @@ hr {
   background: none;
 }
 
-/* menu */
-
 .topnav {
   display: inline-block;
   margin-left: auto;
@@ -212,8 +199,6 @@ hr {
   background: none;
 }
 
-/* carousel */
-
 #carousel {
   max-height: 750px;
   overflow: hidden;
@@ -243,29 +228,18 @@ hr {
   opacity: 0;
 }
 
-/* modal pop up */
-
 .modal {
   display: none;
-  /* Hidden by default */
   position: fixed;
-  /* Stay in place */
-  z-index: 1;
-  /* Sit on top */
+  z-index: 2;
   padding-top: 100px;
-  /* Location of the box */
   left: 0;
   top: 0;
   width: 100%;
-  /* Full width */
   height: 100%;
-  /* Full height */
   overflow: auto;
-  /* Enable scroll if needed */
   background-color: rgb(0, 0, 0);
-  /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4);
-  /* Black w/ opacity */
 }
 
 .modal-content {
@@ -363,8 +337,6 @@ hr {
   opacity: 1;
 }
 
-/* password strength meter */
-
 .password-field:after {
   content: "";
   display: block;
@@ -394,6 +366,9 @@ hr {
 }
 
 @media only screen and (max-width: 1000px) {
+  .logo {
+    width: 140px;
+  }
   #login {
     left: 80%;
   }
@@ -411,9 +386,10 @@ hr {
     height: 55%;
   }
   #modal-content2 {
-    width: 99%;
+    width: 85%;
     height: 90%;
   }
+
   #carousel {
     margin-left: 0;
     margin-right: 0;
@@ -427,43 +403,26 @@ hr {
   }
 }
 
-/* The Overlay (background) */
-
 .overlay {
-  /* Height & width depends on how you want to reveal the overlay (see JS below) */
   height: 100%;
   width: 0;
   position: fixed;
-  /* Stay in place */
   z-index: 2;
-  /* Sit on top */
   left: 0;
   top: 0;
   background-color: rgb(0, 0, 0);
-  /* Black fallback color */
   background-color: rgba(0, 0, 0, 0.9);
-  /* Black w/opacity */
   overflow-x: hidden;
-  /* Disable horizontal scroll */
   transition: 0.5s;
-  /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }
-
-/* Position the content inside the overlay */
 
 .overlay-content {
   position: relative;
   top: 25%;
-  /* 25% from the top */
   width: 100%;
-  /* 100% width */
   text-align: center;
-  /* Centered text/links */
   margin-top: 30px;
-  /* 30px top margin to avoid conflict with the close button on smaller screens */
 }
-
-/* The navigation links inside the overlay */
 
 .overlay a {
   padding: 8px;
@@ -471,38 +430,19 @@ hr {
   font-size: 36px;
   color: #818181;
   display: block;
-  /* Display block instead of inline */
   transition: 0.3s;
-  /* Transition effects on hover (color) */
 }
-
-/* When you mouse over the navigation links, change their color */
 
 .overlay a:hover,
 .overlay a:focus {
   color: #f1f1f1;
 }
 
-/* Position the close button (top right corner) */
-
 .overlay .closebtn {
   position: absolute;
   top: 20px;
   right: 45px;
   font-size: 60px;
-}
-
-/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
-
-@media screen and (max-height: 1000px) {
-  .overlay a {
-    font-size: 20px;
-  }
-  .overlay .closebtn {
-    font-size: 40px;
-    top: 15px;
-    right: 35px;
-  }
 }
 
 .row:after {
@@ -515,16 +455,14 @@ hr {
   float: left;
   width: 40%;
   padding: 20px;
-
 }
 
 .column-33 {
   float: left;
-  width:60%;
+  width: 60%;
   padding-top: 20px;
   padding-left: 120px;
 }
-
 
 .medium-font {
   font-size: 35px;
@@ -543,6 +481,18 @@ img {
   height: auto;
   max-width: 100%;
 }
+@media screen and (max-width: 1300px) and (min-width: 700px) {
+  .modal-content {
+    width: 40%;
+    height: 55%;
+  }
+}
+@media screen and (min-width: 1000px) {
+  #modal-content2 {
+    width: 39%;
+    height: 85%;
+  }
+}
 
 @media screen and (max-width: 1200px) {
   .column-66,
@@ -550,7 +500,6 @@ img {
     width: 100%;
     text-align: center;
     padding-left: 0;
-
   }
   img {
     margin: auto;
@@ -573,38 +522,21 @@ img {
     margin-top: 80px;
   }
 
-
   #sbmt {
     display: block;
     margin-left: auto;
     margin-right: auto;
   }
   #video {
-    margin-left:10px;
-  }
-
-}
-@media screen and (max-width: 1200px) {
-  #contact {
-    width:100% !important;
-  }
-  iframe {
-    width: 100%;
-    height: 100%;
+    margin-left: 10px;
   }
 }
-
 
 @media screen and (min-width: 1200px) {
   #contact {
-    width:60% !important;
+    width: 60% !important;
   }
 }
-
-/*
-#contact {
-  width:60%;
-}*/
 
 .phone-class {
   position: relative;
@@ -634,7 +566,7 @@ img {
     background-color: transparent;
     padding: 5px;
     grid-auto-rows: 1fr 1fr 18px 13px;
-    height:650px !important;
+    height: 650px !important;
   }
   .categoryText {
     position: relative;
@@ -667,14 +599,13 @@ img {
   #prof {
     margin-left: 20px;
     margin-top: 25px;
-
   }
   .productButton {
     align-self: center;
   }
 }
 .grid-container {
-  height:480px;
+  height: 480px;
 }
 @media screen and (min-width: 640px) {
   .grid-container {
@@ -684,7 +615,7 @@ img {
     background-color: transparent;
     padding: 10px;
     grid-auto-rows: 1fr;
-    height:480px;
+    height: 480px;
   }
   .categoryText {
     position: relative;
