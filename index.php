@@ -68,15 +68,23 @@
             <span style="font-size:18px;background: none;" class="fa">&#xf004;</span>
         </a>
 
-        <div id="myModal"  class="modal">
+        <div id="myModal"  class="modal ">
+        
             <div class="modal-content" >
                 <span class="close">&times;</span>
                 <h1 style="font-size:30px;text-align:center;">Log in</h1>
                 <hr>
                 <div class="form-popup">
-
                     <form action="./login.php" method="post" class="form-container" id="modalForm">
-                        
+                    <?php if (isset($_SESSION['failure']) and isset($_SESSION['id'])==false) {
+                    echo '<script>
+                    var modal = document.getElementById("myModal");
+                     var btn = document.getElementById("login");
+                    var span = document.getElementsByClassName("close")[0];
+                    modal.style.display = "block";
+                    </script>';
+                    }
+                ?>
                             <?php 
                                 if (isset($_SESSION['failure']) && ($_SESSION['failure']!="")) {?>                               
                                     <div class="failure" style="margin-bottom: 10px;font-size: 18px;color: red;"><?php echo $_SESSION['failure']; ?></div>
@@ -199,7 +207,7 @@
     <br>
     <br>
     <br>
-
+                            
     <!-- The overlay -->
     <div id="myNav" class="overlay">
 
@@ -430,7 +438,7 @@
 
 
             </div>
-
+ 
 
 </body>
 
