@@ -1,4 +1,4 @@
-<?php
+<?php 
 session_start();
 require_once 'connect.php';
 
@@ -102,31 +102,27 @@ function test_input($data)
 <head>
     <title>E-Shop</title>
     <meta charset="utf-8">
-    <!-- responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
-    <!-- bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.5.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <!-- link to css -->
+    <link rel="stylesheet" type="text/css" href="profile.css">
     <link rel="stylesheet" type="text/css" href="index.css">
-    <link rel="stylesheet" type="text/css" href="compare.css">
+    <link rel="stylesheet" type="text/css" href="checkout.css">
     <link rel="stylesheet" type="text/css" href="cart.css">
-    <!-- social media icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- search bar -->
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
-
-
-    <!-- js functions -->
+    <script type="text/javascript" src="profile.js"></script>
     <script type="text/javascript" src="index.js"></script>
+
 
 </head>
 
@@ -134,10 +130,9 @@ function test_input($data)
     <div class="header">
         <a href="./index.php"><img src="./images/logo.jpg" class="logo"></a>
         <div class="topnav" id="topnav">
-            <a class="./index.php#active" href="">Home</a>
+            <a class="active" href="./index.php">Home</a>
             <a href="./index.php#products">Products</a>
             <a href="./index.php#about">About</a>
-            <a href="./index.php#photography">Introduction to Photography</a>
             <a href="./index.php#contact">Contact</a>
 
             <a href="#" class="icon" onclick="openSideNav();return false;">
@@ -151,13 +146,16 @@ function test_input($data)
             </form>
         </div>
 
-        <a href="#" role="button" title="login" id="login" style="color:black;font-size:20px;width:75px" class="btn btn-success btn-lg">
+        <a href="javascript:void(0)" role="button" title="login" id="login" style="color:black;font-size:20px;width:75px;height:45px;"
+            class="btn btn-success btn-lg">
             log in
         </a>
-        <a href="./profile.php" role="button" title="profile" id="profile" style="color:black;font-size:20px;padding-bottom:3.5rem;width:75px" class="btn btn-success btn-lg">
+        <a href="./profile.php" role="button" title="profile" id="profile" style="color:black;font-size:20px;padding-bottom:3.5rem;position:relative;left:-10px; width:75px"
+            class="btn btn-success btn-lg">
             profile
         </a>
-        <a href="./ds.php" role="button" title="ds" id="ds" style="color:black;font-size:20px;padding-bottom:3.5rem;width:75px; position:relative;" class="btn btn-success btn-lg">
+        <a href="./ds.php" role="button" title="ds" id="ds" style="color:black;font-size:20px;padding-bottom:3.5rem;width:75px; position:relative;"
+            class="btn btn-success btn-lg">
             logout
         </a>
         <a href="" id="cart" title="shopping cart" class="btn btn-success btn-lg">
@@ -176,44 +174,49 @@ function test_input($data)
                 <hr>
                 <div class="form-popup">
 
-                    <form action="" method="post" class="form-container">
-                        <?php
-                        if (isset($_SESSION['failure']) && ($_SESSION['failure'] != "")) { ?>
-                            <div class="failure" style="margin-bottom: 10px;font-size: 18px;color: red;"><?php echo $_SESSION['failure']; ?></div>
-                        <?php } else if (isset($_SESSION['failure']) && $_SESSION['email'] != "") { ?>
-                            <script>
-                                document.getElementById("login").style.display = "none";
-                                document.getElementById("profile").style.display = "block";
-                                document.getElementById("ds").style.display = "block";
-                            </script>
-                        <?php
-                        } else {
-                        ?>
-                            <script>
-                                document.getElementById("login").style.display = "block";
-                                document.getElementById("profile").style.display = "none";
-                            </script>
+                    <form action="./login.php" method="post" class="form-container">
+                        <?php 
+                                if (isset($_SESSION['failure']) && ($_SESSION['failure']!="")) {?>
+                                    <div class="failure" style="margin-bottom: 10px;font-size: 18px;color: red;"><?php echo $_SESSION['failure']; ?></div>
+                            <?php }
+                                else if( isset($_SESSION['failure']) && $_SESSION['email']!="")
+                                { ?>
+                                    <script>
+                                        document.getElementById("login").style.display = "none";
+                                        document.getElementById("profile").style.display = "block";
+                                        document.getElementById("ds").style.display = "block";
+                                    </script>
+                            <?php
+                                }else{
+                                    ?>
+                                    <script>
+                                        document.getElementById("login").style.display = "block";
+                                        document.getElementById("profile").style.display = "none";
+                                        document.getElementById("ds").style.display = "ds";
+                                    </script>
                             <?php
 
-                            if (isset($_SESSION['email'])) {
-                            ?>
+                            if (isset($_SESSION['email']))
+                            {
+                                ?>
                                 <script>
                                     document.getElementById("login").style.display = "none";
                                     document.getElementById("profile").style.display = "block";
                                     document.getElementById("ds").style.display = "block";
                                 </script>
-                        <?php
+                                <?php 
                             }
-                        }
-                        unset($_SESSION['failure']);
 
+                                }
+                            unset($_SESSION['failure']);
+                            
                         ?>
-
                         <label for="email" style="font-weight:normal;font-size:20px;">Email</label>
                         <input type="text" placeholder="Enter Email" name="email" required>
                         <br>
                         <label for="psw" style="font-weight:normal;font-size:20px;">Password </label>
-                        <input style="width:20px;height:20px;margin-left: 15em;padding: 0 7em 2em 0;" type="checkbox" onclick="show_password('myInput')">
+                        <input style="width:20px;height:20px;margin-left: 15em;padding: 0 7em 2em 0;" type="checkbox"
+                            onclick="show_password('myInput')">
                         Show Password
 
                         <input type="password" id="myInput" placeholder="Enter Password" name="password" required>
@@ -221,13 +224,15 @@ function test_input($data)
 
                         <button name="submit" type="submit" class="btn">Login</button>
 
-                        <p>Don’t have an account?<br><a style="color:black;" href="##" title="signup" id="signup"><u>Create
+                        <p>Don’t have an account?<br><a style="color:black;" href="##" title="signup"
+                                id="signup"><u>Create
                                     account</u></a></p>
                     </form>
                 </div>
             </div>
 
         </div>
+
         <div id="myModal2" class="modal">
             <div id="modal-content2" class="modal-content">
                 <span id="close" class="close">&times;</span>
@@ -241,7 +246,8 @@ function test_input($data)
                             Name</label>
                         <br>
                         <input type="text" placeholder="Enter first name" name="firstname" required>
-                        <input type="text" style="margin-left:20%;" placeholder="Enter last name" name="lastname" required>
+                        <input type="text" style="margin-left:20%;" placeholder="Enter last name" name="lastname"
+                            required>
                         <br>
                         <label for="email" style="font-weight:normal;font-size:20px;">Email</label>
                         <label for="tel" style="margin-left:48%;font-weight:normal;font-size:20px;">Phone number</label>
@@ -250,22 +256,29 @@ function test_input($data)
                         <input type="tel" style="margin-left:20%;" placeholder="e.g.6940234783" name="tel" required>
                         <br>
                         <label for="address" style="font-weight:normal;font-size:20px;">Address</label>
-                        <label for="postcode" style="margin-left:45%;font-weight:normal;font-size:20px;">Postcode</label>
+                        <label for="postcode"
+                            style="margin-left:45%;font-weight:normal;font-size:20px;">Postcode</label>
                         <br>
-                        <input type="text" placeholder="Enter Addess" name="address" required>
-                        <input type="text" style="margin-left:20%;" placeholder="Enter Postcode" name="postcode" required>
+                        <input type="text" placeholder="Enter Address" name="address" required>
+                        <input type="text" style="margin-left:20%;" placeholder="Enter Postcode" name="postcode"
+                            required>
                         <br>
                         <div class="password-field">
                             <label for="password" style="font-weight:normal;font-size:20px;">Password</label>
-                            <label for="password" style="margin-left:44%;font-weight:normal;font-size:20px;">Confirm</label>
+                            <label for="password"
+                                style="margin-left:44%;font-weight:normal;font-size:20px;">Confirm</label>
                             <br>
-                            <input id="myInput1" class="password-field" type="password" placeholder="Enter Password" name="password" required />
-                            <input type="password" style="margin-left:20%;" id="myInput2" placeholder="Confirm Password" onkeyup='check_match();' name="password2" required>
+                            <input id="myInput1" class="password-field" type="password" placeholder="Enter Password"
+                                name="password" required />
+                            <input type="password" style="margin-left:20%;" id="myInput2" placeholder="Confirm Password"
+                                onkeyup='check_match();' name="password2" required>
                         </div>
                         <span id='message'></span>
 
 
-                        <input type="checkbox" style="margin-left: 60%;padding: 0 7em 2em 0;font-size:10px;width:15px;height:15px;" onclick="show_password('myInput1', 'myInput2')">
+                        <input type="checkbox"
+                            style="margin-left: 60%;padding: 0 7em 2em 0;font-size:10px;width:15px;height:15px;"
+                            onclick="show_password('myInput1', 'myInput2')">
                         Show Password
                         <br>
                         <input type="checkbox" style="font-size:20px;width:20px;height:20px;" required> I have read and
@@ -280,66 +293,156 @@ function test_input($data)
             </div>
         </div>
     </div>
+    <div class="checkoutGrid" >
+    <div class="checkoutGridItem">
+        <h3>Order Information</h3>
+        <p style="font-size:18px; margin-right: 60px;">Fill in the delivery information for your order.</p>
+        <div class="containerProfile" >
+            <form class="formProfile" method="post" action="">
+                <div class="rowProfile">
+                    <div class="col-25Profile">
+                        <label for="fname">First Name</label>
+                    </div>
+                    <div class="col-75Profile">
+                        <input type="text" id="fnameForm" name="firstnameForm" placeholder="<?php echo $_SESSION['firstname']; ?>">
+                    </div>
+                </div>
+                <div class="rowProfile">
+                    <div class="col-25Profile">
+                        <label for="lname">Last Name</label>
+                    </div>
+                    <div class="col-75Profile">
+                        <input type="text" id="lnameForm" name="lastnameForm" placeholder="<?php echo $_SESSION['lastname']; ?>">
+                    </div>
+                </div>
+                <div class="rowProfile">
+                    <div class="col-25Profile">
+                        <label for="lname">Address</label>
+                    </div>
+                    <div class="col-75Profile">
+                        <input type="text" id="addressForm" name="addressForm" placeholder="<?php echo $_SESSION['address']; ?>">
+                    </div>
+                </div>
+                <div class="rowProfile">
+                    <div class="col-25Profile">
+                        <label for="email">Email Address</label>
+                    </div>
+                    <div class="col-75Profile">
+                        <input type="email" id="emailForm" name="emailForm" placeholder="<?php echo $_SESSION['email']; ?>">
+                    </div>
+                </div>
+                <div class="rowProfile">
+                    <div class="col-25Profile">
+                        <label for="lname">Post Code</label>
+                    </div>
+                    <div class="col-75Profile">
+                        <input type="text" id="postcodeForm" name="postcodeForm" placeholder="<?php echo $_SESSION['postcode']; ?>">
+                    </div>
+                </div>
+                <div class="rowProfile">
+                    <div class="col-25Profile">
+                        <label for="lname">Phone Number</label>
+                    </div>
+                    <div class="col-75Profile">
+                        <input type="text" id="phoneForm" name="phoneForm" placeholder="<?php echo $_SESSION['tel']; ?>">
+                    </div>
+                </div>
+                <div class="rowProfile">
+                    <div class="col-25Profile">
+                        <label for="card">Credit Card</label>
+                    </div>
+                    <div class="col-75Profile">
+                        <input type="text" id="cardForm" name="cardForm" placeholder="Enter your Card Number">
+                    </div>
+                </div>
+                <div class="rowProfile">
+                    <div class="col-25Profile">
+                        <label for="terms">Terms and Conditions</label>
+                    </div>
+                    <div style="padding-top: 0px; padding-bottom: 10px;" class="col-75Profile">
+                        <label class="checkboxContainer" for="terms">
+                            <a href="./documents/terms-and-conditions.pdf" target="_blank" rel="noopener noreferrer"> I
+                                have read and accept the Terms and Conditions</a>
+                            <input type="checkbox" id="terms" name="terms" <?php /*if($_SESSION['terms']==1){echo 'checked="checked"' ;}*/ ?>>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="rowProfile">
+                    <div class="col-25Profile">
+                        <label for="newsletter">Newsletter</label>
+                    </div>
+                    <div style="padding-top: 0px; padding-bottom: 10px;" class="col-75Profile">
+                        <label class="checkboxContainer" for="newsletter">
+                            <p> I want to be notified regarding new offers and sales.</p>
+                            <input type="checkbox" id="newsletter" name="newsletter" <?php /*if($_SESSION['newsletter']==1){echo 'checked="checked"' ;} */?>>
+                            <span class="checkmark"></span>
+                        </label>
 
-    <div class="cartGrid">
+                    </div>
+                </div>
+                <div class="rowProfile">
+                    <button style="float: right; margin-top:5px;" type="submit" class="buttonAB" name="update">Update Profile</button>
+                    <button style="float: left; margin-top:5px; " type="submit" class="buttonAB">Change Password</button>
+                </div>
+            </form>
+        </div>
+        </div>
+        <div class="checkoutGridItem">
+        <div class="cartGrid">
         <?php
         require_once 'connect.php';
         $query = "SELECT * FROM (SELECT id, image, name, price FROM products where id in (select id from cart where idUsr= " . $_SESSION['id'] . " )) t1 INNER JOIN (SELECT id, amount FROM cart WHERE idUsr= " . $_SESSION['id'] . " ) t2 ON t1.id = t2.id";
         $result = mysqli_query($conn, $query);
         while ($row = mysqli_fetch_array($result)) { ?>
             <div class="cartGridItem">
-                <div class="card">
-                    <div class="lineGrid">
-                        <img class="productPhoto" src='<?php echo $row[1]; ?>' alt='<?php echo $row[2]; ?>' style="width:120px; max-height: 120px;">
+                <div class="card" style="width:50vw;">
+                    <div class="lineGrid" style="position:relative; top:10px;" >
+                        <img class="productPhoto" src='<?php echo $row[1]; ?>' alt='<?php echo $row[2]; ?>' style="width:80px; max-height: 80px; position:relative; top:10px;">
 
                         <div class="lineGridItem" >
-                            <p style="font-size=5px;" class="cartText"><?php echo $row[2]; ?></p>
+                            <p class="cartText" style="font-size:17px;"><?php echo $row[2]; ?></p>
                         </div>
                         <div class="lineGridItem">
-                            <p class="price"><?php echo $row[3]; ?>$</p>
+                            <p class="price" style="font-size:17px;"><?php echo $row[3]; ?>$</p>
                         </div>
                         <div class="lineGridItem">
-                            <p class="cartText">Amount: <?php echo $row[5]; ?></p>
+                            <p class="cartText" style="font-size:17px;">Amount: <?php echo $row[5]; ?></p>
                         </div>
                         <div class="lineGridItem">
-                            <p class="cartText">Total: <?php echo $row[5] * $row[3]; ?></p>
+                            <p class="cartText" style="font-size:17px;">Total: <?php echo $row[5] * $row[3]; ?></p>
                         </div>
-                        <div class="lineGridItem">
+                        <div class="lineGridItem" style="font-size:17px;">
                         </div>
                     </div>
-                    <a href="#" style="position:relative; left:90%; top:-65px; font-size:25px;">Remove</a>
+                    <a href="#" style="position:relative; left:90%; top:-65px; font-size:18px;">Remove</a>
                 </div>
             </div>
         <?php }
         ?>
     </div>
-    <input style="position:relative; left:80%; margin-top:50px; margin-left:6.3vw; font-size:25px;" type="button" class="buttonAB" value="Checkout">
+        </div>
+        </div>
+         
+    <br> <!-- temporary : should change -->
+    <br> <!-- temporary : should change -->
+    <br> <!-- temporary : should change -->
 
-
-
-
-
-
-    <br>
-    <br>
-    <br>
     <!-- The overlay -->
     <div id="myNav" class="overlay">
-
         <!-- Button to close the overlay navigation -->
         <a href="javascript:void(0)" class="closebtn" onclick="closeSideNav()">&times;</a>
 
         <!-- Overlay content -->
         <div class="overlay-content">
-            <a href="#home" onclick=" closeSideNav()">Home</a>
-            <a href=" #products" onclick="closeSideNav()">Products</a>
-            <a href="#about" onclick="closeSideNav()">About</a>
-            <a href="#photography" onclick="closeSideNav()">Introduction to Photography</a>
-            <a href="#contact" onclick="closeSideNav()">Contact</a>
-
+            <a href="./index.php#home" onclick=" closeSideNav()">Home</a>
+            <a href=" ./index.php#products" onclick="closeSideNav()">Products</a>
+            <a href="./index.php#about" onclick="closeSideNav()">About</a>
+            <a href="./index.php#contact" onclick="closeSideNav()">Contact</a>
         </div>
 
     </div>
+
     <hr> <!-- thematic break -->
     <div class=" footer">
         <a href="https://www.facebook.com/" title="facebook" class="fa fa-facebook"></a>
@@ -352,10 +455,7 @@ function test_input($data)
         <br>
         <br>
         <p style="font-size:15px;">&copy; 2021 G&N , All rights reserved</p>
-
-
     </div>
-
 
 </body>
 

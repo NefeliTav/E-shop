@@ -55,6 +55,25 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `tel`, `addr`, `pos
 
 /*psw = 123456*/
 
+CREATE TABLE `purchase` (
+  `idUsr` bigint(20) UNSIGNED NOT NULL,
+  `id` varchar(20) NOT NULL,
+  `itemIndex` bigint(20) UNSIGNED NOT NULL,
+  `orderIndex` int(11) NOT NULL,
+  `First_Name` varchar(40) NOT NULL,
+  `Last_Name` varchar(40) NOT NULL,
+  `tel` varchar(10) NOT NULL,
+  `addr` varchar(50) NOT NULL,
+  `email` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `purchase` (`idUsr`, `id`, `itemIndex`, `orderIndex`, `First_Name`, `Last_Name`, `tel`, `addr`, `email`) VALUES
+(1, '1', 1, 1, '', '', '', '', ''),
+(1, '2', 2, 1, '', '', '', '', ''),
+(1, '6', 3, 1, '', '', '', '', ''),
+(1, '1', 4, 2, '', '', '', '', ''),
+(1, '2', 5, 2, '', '', '', '', ''),
+(1, '6', 6, 2, '', '', '', '', '');
 
 CREATE TABLE `products` (
   `id` varchar(10) NOT NULL,
