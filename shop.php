@@ -74,7 +74,16 @@
                 <h1 style="font-size:30px;text-align:center;">Log in</h1>
                 <hr>
                 <div class="form-popup">
-
+                <form action="./login.php" method="post" class="form-container" id="modalForm">
+                    <?php if (isset($_SESSION['failure']) and isset($_SESSION['id'])==false) {
+                    echo '<script>
+                    var modal = document.getElementById("myModal");
+                     var btn = document.getElementById("login");
+                    var span = document.getElementsByClassName("close")[0];
+                    modal.style.display = "block";
+                    </script>';
+                    }
+                ?>
                     <form action="./login.php" method="post" class="form-container">
                         <?php 
                                 if (isset($_SESSION['failure']) && ($_SESSION['failure']!="")) {?>
