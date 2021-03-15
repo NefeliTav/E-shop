@@ -6,5 +6,4 @@ Home Page
 Shop Page
 ![home page mobile](https://github.com/NefeliTav/e-shop/blob/main/images/third.png?raw=true)
 
-Home Page - mobile
 ![shop page](https://github.com/NefeliTav/e-shop/blob/main/images/second.png?raw=true)
