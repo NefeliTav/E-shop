@@ -63,6 +63,10 @@
             $_SESSION['postcode']=$postcode;
             $_SESSION['password']=$password;
         }
+		else
+		{
+			$_SESSION['failure'] = 'Wrong...';
+		}
         $referer = $_SERVER['HTTP_REFERER'];
         header("Location: $referer");
 		

@@ -148,7 +148,48 @@
                 <hr>
                 <div class="form-popup">
                     <form action="./signup.php" method="post" id="form-container2" class="form-container">
-
+                    <?php if (isset($_SESSION['failure']) and isset($_SESSION['id'])==false) {
+                    echo '<script>
+                    var modal = document.getElementById("myModal");
+                     var btn = document.getElementById("login");
+                    var span = document.getElementsByClassName("close")[0];
+                    modal.style.display = "block";
+                    </script>';
+                    }
+                ?>
+                            <?php 
+                                if (isset($_SESSION['failure']) && ($_SESSION['failure']!="")) {?>                               
+                                    <div class="failure" style="margin-bottom: 10px;font-size: 18px;color: red;"><?php echo $_SESSION['failure']; ?></div>
+                            <?php }
+                                else if( isset($_SESSION['failure']) && $_SESSION['email']!="")
+                                { ?>
+                                    <script>
+                                        document.getElementById("login").style.display = "none";
+                                        document.getElementById("profile").style.display = "block";
+                                        document.getElementById("disconnect").style.display = "block";
+                                    </script>
+                            <?php
+                                }else{
+                                    ?>
+                                    <script>
+                                        document.getElementById("login").style.display = "block";
+                                        document.getElementById("profile").style.display = "none";
+                                        document.getElementById("disconnect").style.display = "none";
+                                    </script>
+                            <?php
+                        }
+                        if (isset($_SESSION['email']))
+                            {
+                                ?>
+                                <script>
+                                    document.getElementById("login").style.display = "none";
+                                    document.getElementById("profile").style.display = "block";
+                                    document.getElementById("disconnect").style.display = "block";
+                                </script>
+                                <?php 
+                            }
+                            unset($_SESSION['failure']);
+                        ?>
                         <label for="firstname" style="font-weight:normal;font-size:20px;">First Name</label>
                         <label for="lastname" style="margin-left:41%;font-weight:normal;font-size:20px;">Last
                             Name</label>
