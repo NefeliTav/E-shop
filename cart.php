@@ -293,8 +293,12 @@ function test_input($data)
     <div class="cartGrid">
         <?php
         require_once 'connect.php';
+        if(isset($_SESSION['id'])){
         $query = "SELECT * FROM (SELECT id, image, name, price FROM products where id in (select id from cart where idUsr= " . $_SESSION['id'] . " )) t1 INNER JOIN (SELECT id, amount FROM cart WHERE idUsr= " . $_SESSION['id'] . " ) t2 ON t1.id = t2.id";
-        $result = mysqli_query($conn, $query);
+        $result = mysqli_query($conn, $query);}else{
+            $result=NULL;
+        }
+        if(isset($_SESSION['id'])){
         while ($row = mysqli_fetch_array($result)) { ?>
             <div class="cartGridItem">
                 <div class="card">
@@ -323,7 +327,8 @@ function test_input($data)
         ?>
     </div>
     <input style="position:relative; left:80%; margin-top:50px; margin-left:6.3vw; font-size:25px;" type="button" class="buttonAB" value="Checkout">
-
+    <?php }
+        ?>
 
 
 

@@ -158,7 +158,7 @@ function test_input($data)
             class="btn btn-success btn-lg">
             logout
         </a>
-        <a href="" id="cart" title="shopping cart" class="btn btn-success btn-lg">
+        <a href="./cart.php" id="cart" title="shopping cart" class="btn btn-success btn-lg">
             <span class="glyphicon glyphicon-shopping-cart" style="color:black;"></span>
         </a>
         <a href="compare.php" id="heart" title="wishlist" class="btn btn-success btn-lg">
