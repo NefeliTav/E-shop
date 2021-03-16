@@ -31,7 +31,7 @@
     <div class="header">
         <a href="./index.php"><img src="./images/logo.jpg" class="logo"></a>
         <div class="topnav" id="topnav">
-            <a class="active" href="./index.php">Home</a>
+            <a href="./index.php">Home</a>
             <a href="./index.php#products">Products</a>
             <a href="./index.php#about">About</a>
             <a href="./index.php#contact">Contact</a>
@@ -55,7 +55,7 @@
             class="btn btn-success btn-lg">
             profile
         </a>
-        <a href="./ds.php" role="button" title="ds" id="ds" style="color:black;font-size:20px;padding-bottom:3.5rem;width:75px; position:relative;"
+        <a href="./disconnect.php" role="button" title="disconnect" id="disconnect" style="color:black;font-size:20px;padding-bottom:3.5rem;width:75px; position:relative;"
             class="btn btn-success btn-lg">
             logout
         </a>
@@ -84,7 +84,6 @@
                     </script>';
                     }
                 ?>
-                    <form action="./login.php" method="post" class="form-container">
                         <?php 
                                 if (isset($_SESSION['failure']) && ($_SESSION['failure']!="")) {?>
                                     <div class="failure" style="margin-bottom: 10px;font-size: 18px;color: red;"><?php echo $_SESSION['failure']; ?></div>
@@ -94,7 +93,7 @@
                                     <script>
                                         document.getElementById("login").style.display = "none";
                                         document.getElementById("profile").style.display = "block";
-                                        document.getElementById("ds").style.display = "block";
+                                        document.getElementById("disconnect").style.display = "block";
                                     </script>
                             <?php
                                 }else{
@@ -111,7 +110,7 @@
                                 <script>
                                     document.getElementById("login").style.display = "none";
                                     document.getElementById("profile").style.display = "block";
-                                    document.getElementById("ds").style.display = "block";
+                                    document.getElementById("disconnect").style.display = "block";
                                 </script>
                                 <?php 
                             }
@@ -456,7 +455,7 @@
         <br>
         <a href="" style="color:black">Privacy Policy</a>
         |
-        <a href="" style="color:black">Terms of Use</a>
+        <a href="./documents/terms-and-conditions.pdf" style="color:black">Terms of Use</a>
         <br>
         <br>
         <p style="font-size:15px;">&copy; 2021 G&N , All rights reserved</p>

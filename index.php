@@ -57,7 +57,7 @@
             class="btn btn-success btn-lg">
             profile
         </a>
-        <a href="./ds.php" role="button" title="ds" id="ds" style="color:black;font-size:20px;padding-bottom:3.5rem;width:75px; position:relative;"
+        <a href="./disconnect.php" role="button" title="disconnect" id="disconnect" style="color:black;font-size:20px;padding-bottom:3.5rem;width:75px; position:relative;"
             class="btn btn-success btn-lg">
             logout
         </a>
@@ -94,7 +94,7 @@
                                     <script>
                                         document.getElementById("login").style.display = "none";
                                         document.getElementById("profile").style.display = "block";
-                                        document.getElementById("ds").style.display = "block";
+                                        document.getElementById("disconnect").style.display = "block";
                                     </script>
                             <?php
                                 }else{
@@ -102,7 +102,7 @@
                                     <script>
                                         document.getElementById("login").style.display = "block";
                                         document.getElementById("profile").style.display = "none";
-                                        document.getElementById("ds").style.display = "none";
+                                        document.getElementById("disconnect").style.display = "none";
                                     </script>
                             <?php
                         }
@@ -112,7 +112,7 @@
                                 <script>
                                     document.getElementById("login").style.display = "none";
                                     document.getElementById("profile").style.display = "block";
-                                    document.getElementById("ds").style.display = "block";
+                                    document.getElementById("disconnect").style.display = "block";
                                 </script>
                                 <?php 
                             }
@@ -403,10 +403,10 @@
 
                         <ul id="menu-centered" style="font-size:18px;">
                             <li><span>Monday : 9am - 5pm</span></li>
-                            <li><span>Tuesday :9am - 5pm</span></li>
-                            <li><span>Wednesday :9am - 5pm</span></li>
-                            <li><span>Thursday :9am - 5pm</span></li>
-                            <li><span>Friday :9am - 5pm</span></li>
+                            <li><span>Tuesday : 9am - 5pm</span></li>
+                            <li><span>Wednesday : 9am - 5pm</span></li>
+                            <li><span>Thursday : 9am - 5pm</span></li>
+                            <li><span>Friday : 9am - 5pm</span></li>
                             <li><span>Saturday : Closed</span></li>
                             <li><span>Sunday : Closed</span></li>
                         </ul>
@@ -431,7 +431,7 @@
                 <br>
                 <a href="" style="color:black">Privacy Policy</a>
                 |
-                <a href="" style="color:black">Terms of Use</a>
+                <a href="./documents/terms-and-conditions.pdf" style="color:black">Terms of Use</a>
                 <br>
                 <br>
                 <p style="font-size:15px;">&copy; 2021 G&N , All rights reserved</p>

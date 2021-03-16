@@ -2,5 +2,6 @@
     session_start();
     require_once 'connect.php';
     session_destroy();
-    header("Location: index.php");
+    $referer = $_SERVER['HTTP_REFERER'];
+    header("Location: $referer");
 ?>

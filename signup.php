@@ -63,7 +63,8 @@
             $_SESSION['postcode']=$postcode;
             $_SESSION['password']=$password;
         }
-        header("Location: index.php");
+        $referer = $_SERVER['HTTP_REFERER'];
+        header("Location: $referer");
 		
     }
 	function test_input($data) 

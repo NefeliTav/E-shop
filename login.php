@@ -27,19 +27,22 @@
                     $_SESSION['address']=$arr[5];
                     $_SESSION['postcode']=$arr[6];
                     $_SESSION['password']=$arr[7];
-                    header("Location: index.php");  
+                    $referer = $_SERVER['HTTP_REFERER'];
+                    header("Location: $referer");
                 }
                 else
                 {
                     $_SESSION['failure'] = 'Wrong username or password.';
-                    header("Location: index.php");  
+                    $referer = $_SERVER['HTTP_REFERER'];
+                    header("Location: $referer");
                 }
             } 
         }
         else
         {
             $_SESSION['failure'] = 'Wrong username or password.';
-            header("Location: index.php");  
+            $referer = $_SERVER['HTTP_REFERER'];
+            header("Location: $referer");
         }
     }
 ?>

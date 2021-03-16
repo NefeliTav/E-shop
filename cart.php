@@ -134,7 +134,7 @@ function test_input($data)
 <div class="header">
         <a href="./index.php"><img src="./images/logo.jpg" class="logo"></a>
         <div class="topnav" id="topnav">
-            <a class="active" href="./index.php">Home</a>
+            <a href="./index.php">Home</a>
             <a href="./index.php#products">Products</a>
             <a href="./index.php#about">About</a>
             <a href="./index.php#contact">Contact</a>
@@ -158,7 +158,7 @@ function test_input($data)
             class="btn btn-success btn-lg">
             profile
         </a>
-        <a href="./ds.php" role="button" title="ds" id="ds" style="color:black;font-size:20px;padding-bottom:3.5rem;width:75px; position:relative;"
+        <a href="./disconnect.php" role="button" title="disconnect" id="disconnect" style="color:black;font-size:20px;padding-bottom:3.5rem;width:75px; position:relative;"
             class="btn btn-success btn-lg">
             logout
         </a>
@@ -177,17 +177,16 @@ function test_input($data)
                 <h1 style="font-size:30px;text-align:center;">Log in</h1>
                 <hr>
                 <div class="form-popup">
-                <form action="./login.php" method="post" class="form-container" id="modalForm">
-                    <?php if (isset($_SESSION['failure']) and isset($_SESSION['id'])==false) {
-                    echo '<script>
-                    var modal = document.getElementById("myModal");
-                     var btn = document.getElementById("login");
-                    var span = document.getElementsByClassName("close")[0];
-                    modal.style.display = "block";
-                    </script>';
-                    }
-                ?>
-                    <form action="./login.php" method="post" class="form-container">
+                    <form action="./login.php" method="post" class="form-container" id="modalForm">
+                        <?php if (isset($_SESSION['failure']) and isset($_SESSION['id'])==false) {
+                            echo '<script>
+                            var modal = document.getElementById("myModal");
+                            var btn = document.getElementById("login");
+                            var span = document.getElementsByClassName("close")[0];
+                            modal.style.display = "block";
+                            </script>';
+                            }
+                        ?>
                         <?php 
                                 if (isset($_SESSION['failure']) && ($_SESSION['failure']!="")) {?>
                                     <div class="failure" style="margin-bottom: 10px;font-size: 18px;color: red;"><?php echo $_SESSION['failure']; ?></div>
@@ -197,7 +196,7 @@ function test_input($data)
                                     <script>
                                         document.getElementById("login").style.display = "none";
                                         document.getElementById("profile").style.display = "block";
-                                        document.getElementById("ds").style.display = "block";
+                                        document.getElementById("disconnect").style.display = "block";
                                     </script>
                             <?php
                                 }else{
@@ -205,7 +204,6 @@ function test_input($data)
                                     <script>
                                         document.getElementById("login").style.display = "block";
                                         document.getElementById("profile").style.display = "none";
-                                        document.getElementById("ds").style.display = "ds";
                                     </script>
                             <?php
 
@@ -215,7 +213,7 @@ function test_input($data)
                                 <script>
                                     document.getElementById("login").style.display = "none";
                                     document.getElementById("profile").style.display = "block";
-                                    document.getElementById("ds").style.display = "block";
+                                    document.getElementById("disconnect").style.display = "block";
                                 </script>
                                 <?php 
                             }
@@ -365,7 +363,6 @@ function test_input($data)
             <a href="#home" onclick=" closeSideNav()">Home</a>
             <a href=" #products" onclick="closeSideNav()">Products</a>
             <a href="#about" onclick="closeSideNav()">About</a>
-            <a href="#photography" onclick="closeSideNav()">Introduction to Photography</a>
             <a href="#contact" onclick="closeSideNav()">Contact</a>
 
         </div>
@@ -379,7 +376,7 @@ function test_input($data)
         <br>
         <a href="" style="color:black">Privacy Policy</a>
         |
-        <a href="" style="color:black">Terms of Use</a>
+        <a href="./documents/terms-and-conditions.pdf" style="color:black">Terms of Use</a>
         <br>
         <br>
         <p style="font-size:15px;">&copy; 2021 G&N , All rights reserved</p>
