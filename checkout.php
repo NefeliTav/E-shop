@@ -1,100 +1,6 @@
 <?php 
 session_start();
 require_once 'connect.php';
-
-if (isset($_POST['submit'])) {
-    $_SESSION['failure'] = "";
-    $email = ($_POST['email']);
-    $password = ($_POST['password']);
-    $passwordHash = password_hash($password, PASSWORD_BCRYPT);
-
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE email='$email'");
-
-    if ($result) {
-
-        if (password_verify($password, $passwordHash)) {
-            $arr = $result->fetch_array();
-            if ($arr) {
-                /*$_SESSION['id']=$arr[0];*/
-                $_SESSION['firstname'] = $arr[0];
-                $_SESSION['lastname'] = $arr[1];
-                $_SESSION['email'] = $arr[2];
-                $_SESSION['tel'] = $arr[3];
-                $_SESSION['address'] = $arr[4];
-                $_SESSION['postcode'] = $arr[5];
-                $_SESSION['password'] = $arr[6];
-            } else {
-                $_SESSION['failure'] = 'Wrong username or password.';
-            }
-        }
-    } else {
-        $_SESSION['failure'] = 'Wrong username or password.';
-    }
-}
-
-$nameErr = $lastnameErr = $emailErr = $telErr = $postcodeErr = $passwordErr = "";
-
-if (isset($_POST['submit2'])) {
-
-    $firstname = test_input($_POST["firstname"]);
-    if (!preg_match("/^[a-zA-Z-' ]*$/", $firstname)) {
-        $nameErr = "Only letters and white space allowed\n";
-    }
-
-    $lastname = test_input($_POST["lastname"]);
-    if (!preg_match("/^[a-zA-Z-' ]*$/", $lastname)) {
-        $lastnameErr = "Only letters and white space allowed\n";
-    }
-
-    $email = test_input($_POST["email"]);
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $emailErr = "Invalid email format\n";
-    }
-
-    $tel = test_input($_POST["tel"]);
-    if (!preg_match("/^[0-9]{9,11}$/", $tel)) {
-        $telErr = "Invalid phone format\n";
-    }
-
-    $address = test_input($_POST["address"]);
-
-    $postcode = test_input($_POST["postcode"]);
-    if (!preg_match("/^[0-9]{5,10}$/", $postcode)) {
-        $postcodeErr = "Invalid postcode format\n";
-    }
-
-    $password = test_input($_POST["password"]);
-    $password2 = test_input($_POST["password2"]);
-
-    if ($password != $password2) {
-        $passwordErr = "The two passwords do not match\n";
-    }
-
-    //echo $firstname,$lastname,$email,$tel,$address,$postcode,$password;
-    $passwordHash = password_hash($password, PASSWORD_BCRYPT);
-
-    echo $nameErr, $lastnameErr, $emailErr, $telErr, $postcodeErr, $passwordErr;
-
-    $query = "INSERT INTO users (firstname, lastname, email, tel, addr, postcode, psw) VALUES ('$firstname', '$lastname', '$email', '$tel', '$address', '$postcode', '$passwordHash')";
-    $result = mysqli_query($conn, $query);
-    if ($result) {
-        /*$_SESSION['id']=$arr[0];*/
-        $_SESSION['firstname'] = $firstname;
-        $_SESSION['lastname'] = $lastname;
-        $_SESSION['email'] = $email;
-        $_SESSION['tel'] = $tel;
-        $_SESSION['address'] = $address;
-        $_SESSION['postcode'] = $postcode;
-        $_SESSION['password'] = $password;
-    }
-}
-function test_input($data)
-{
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -154,7 +60,7 @@ function test_input($data)
             class="btn btn-success btn-lg">
             profile
         </a>
-        <a href="./ds.php" role="button" title="ds" id="ds" style="color:black;font-size:20px;padding-bottom:3.5rem;width:75px; position:relative;"
+        <a href="./disconnect.php" role="button" title="disconnect" id="disconnect" style="color:black;font-size:20px;padding-bottom:3.5rem;width:75px; position:relative;"
             class="btn btn-success btn-lg">
             logout
         </a>
@@ -183,7 +89,6 @@ function test_input($data)
                     </script>';
                     }
                 ?>
-                    <form action="./login.php" method="post" class="form-container">
                         <?php 
                                 if (isset($_SESSION['failure']) && ($_SESSION['failure']!="")) {?>
                                     <div class="failure" style="margin-bottom: 10px;font-size: 18px;color: red;"><?php echo $_SESSION['failure']; ?></div>
@@ -193,7 +98,7 @@ function test_input($data)
                                     <script>
                                         document.getElementById("login").style.display = "none";
                                         document.getElementById("profile").style.display = "block";
-                                        document.getElementById("ds").style.display = "block";
+                                        document.getElementById("disconnect").style.display = "block";
                                     </script>
                             <?php
                                 }else{
@@ -201,7 +106,7 @@ function test_input($data)
                                     <script>
                                         document.getElementById("login").style.display = "block";
                                         document.getElementById("profile").style.display = "none";
-                                        document.getElementById("ds").style.display = "ds";
+                                        document.getElementById("disconnect").style.display = "none";
                                     </script>
                             <?php
 
@@ -211,7 +116,7 @@ function test_input($data)
                                 <script>
                                     document.getElementById("login").style.display = "none";
                                     document.getElementById("profile").style.display = "block";
-                                    document.getElementById("ds").style.display = "block";
+                                    document.getElementById("disconnect").style.display = "block";
                                 </script>
                                 <?php 
                             }
@@ -224,9 +129,9 @@ function test_input($data)
                         <input type="text" placeholder="Enter Email" name="email" required>
                         <br>
                         <label for="psw" style="font-weight:normal;font-size:20px;">Password </label>
-                        <input style="width:20px;height:20px;margin-left: 15em;padding: 0 7em 2em 0;" type="checkbox"
-                            onclick="show_password('myInput')">
-                        Show Password
+                        <div>
+                            <input type="checkbox" onclick="show_password('myInput')">Show Password
+                        </div>
 
                         <input type="password" id="myInput" placeholder="Enter Password" name="password" required>
                         <br>
@@ -460,7 +365,7 @@ function test_input($data)
         <br>
         <a href="" style="color:black">Privacy Policy</a>
         |
-        <a href="" style="color:black">Terms of Use</a>
+        <a href="./documents/terms-and-conditions.pdf" style="color:black">Terms of Use</a>
         <br>
         <br>
         <p style="font-size:15px;">&copy; 2021 G&N , All rights reserved</p>
