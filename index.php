@@ -124,9 +124,7 @@
                         <br>
                         <label for="psw" style="font-weight:normal;font-size:20px;">Password </label>
                         <div>
-                        <input type="checkbox"
-                            onclick="show_password('myInput')">
-                        Show Password
+                            <input type="checkbox" onclick="show_password('myInput')">Show Password
                         </div>
                         <input type="password" id="myInput" placeholder="Enter Password" name="password" required>
                         <br>
@@ -403,6 +401,11 @@
                     <div class="column-33" id="column-cnt">
                         <p><span style="font-size:22px;">We are here to answer your questions.</span></p>
                         <br><br>
+                        <?php
+                            if (isset($_SESSION['failed']) && $_SESSION['failed']!=""){?>                               
+                                <div class="failure" style="margin-bottom: 10px;font-size: 18px;color: red;"><?php echo $_SESSION['failed']; ?></div>
+                        <?php unset($_SESSION['failed']);}
+                        ?>
                         <form action="contact.php" method="post">
                             <label for="email" style="font-size:18px;font-weight:normal;">Email:</label><br>
                             <input
@@ -416,7 +419,7 @@
                             <div id="charNum"></div>
                             <span id='message2'></span>
                             <br>
-                            <input type="checkbox" id="checkbox" name="checkbox">
+                            <input type="checkbox" id="checkbox" name="checkbox" value=0>
                             <label for="checkbox" style="font-weight:normal;font-size:17px;">Subscribe to our
                                 Newsletter</label>
                             <br>
