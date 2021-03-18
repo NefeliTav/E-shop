@@ -1,6 +1,6 @@
 <?php    
     session_start();
-    require_once 'connect.php';
+    require_once './db_operations/connect.php';
 
     $query = $price = $red = $white = $blue = $green = $grey = $black = $canon = $nikon = $sony = "";
     $fujifilm = $leica = $panasonic = $mp1 = $mp2 = $mp3 = $mp4 = $optical1 = $optical2 = "";
@@ -285,7 +285,7 @@
         {
             echo 'Failed';
         }
-        header("Location: shop.php?pageno=1");  
+        header("Location: ../shop.php?pageno=1");  
 
     }
 ?>

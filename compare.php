@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once 'connect.php';
+    require_once './db_operations/connect.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,29 +8,21 @@
 <head>
     <title>E-Shop</title>
     <meta charset="utf-8">
-    <!-- responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
-    <!-- bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.5.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <!-- link to css -->
-    <link rel="stylesheet" type="text/css" href="index.css">
-    <link rel="stylesheet" type="text/css" href="compare.css">
-    <!-- social media icons -->
+    <link rel="stylesheet" type="text/css" href="./styling/index.css">
+    <link rel="stylesheet" type="text/css" href="./styling/compare.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- search bar -->
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
-
-
-    <!-- js functions -->
     <script type="text/javascript" src="index.js"></script>
 
 </head>
@@ -62,7 +54,7 @@
             class="btn btn-success btn-lg">
             profile
         </a>
-        <a href="./disconnect.php" role="button" title="disconnect" id="disconnect" style="color:black;font-size:20px;padding-bottom:3.5rem;width:75px; position:relative;"
+        <a href="./db_operations/disconnect.php" role="button" title="disconnect" id="disconnect" style="color:black;font-size:20px;padding-bottom:3.5rem;width:75px; position:relative;"
             class="btn btn-success btn-lg">
             logout
         </a>
@@ -81,7 +73,7 @@
                 <h1 style="font-size:30px;text-align:center;">Log in</h1>
                 <hr>
                 <div class="form-popup">
-                <form action="./login.php" method="post" class="form-container" id="modalForm">
+                <form action="./db_operations/login.php" method="post" class="form-container" id="modalForm">
                         <?php if (isset($_SESSION['failure']) and isset($_SESSION['id'])==false) {
                             echo '<script>
                             var modal = document.getElementById("myModal");
@@ -154,7 +146,7 @@
                 <h1 style="font-size:30px;text-align:center;">Sign up</h1>
                 <hr>
                 <div class="form-popup">
-                    <form action="./signup.php" method="post" id="form-container2" class="form-container">
+                    <form action="./db_operations/signup.php" method="post" id="form-container2" class="form-container">
 
                         <label for="firstname" style="font-weight:normal;font-size:20px;">First Name</label>
                         <label for="lastname" style="margin-left:41%;font-weight:normal;font-size:20px;">Last
@@ -203,7 +195,7 @@
 
     <div class="compareGrid">
         <?php
-        require_once 'connect.php';
+        require_once './db_operations/connect.php';
         $query = "SELECT * FROM products where id in (select id from wishlist where idUsr= " .$_SESSION['id']." )";
         $result = mysqli_query($conn, $query);
         while ($row = mysqli_fetch_array($result)) { ?>

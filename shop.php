@@ -1,7 +1,7 @@
 
 <?php
     session_start();
-    require_once 'connect.php';
+    require_once './db_operations/connect.php';
     if(isset($_POST['price']) )
         $_SESSION['price'] = $_POST['price'];
 ?>
@@ -14,16 +14,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="index.css">
-    <link rel="stylesheet" type="text/css" href="shop.css">
+    <link rel="stylesheet" type="text/css" href="./styling/index.css">
+    <link rel="stylesheet" type="text/css" href="./styling/shop.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.5.js"></script>
-    <script type="text/javascript" src="index.js"></script>
-    <script type="text/javascript" src="shop.js"></script>
+    <script type="text/javascript" src="./javascript/index.js"></script>
+    <script type="text/javascript" src="./javascript/shop.js"></script>
 
 </head>
 
@@ -55,7 +55,7 @@
             class="btn btn-success btn-lg">
             profile
         </a>
-        <a href="./disconnect.php" role="button" title="disconnect" id="disconnect" style="color:black;font-size:20px;padding-bottom:3.5rem;width:75px; position:relative;"
+        <a href="./db_operations/disconnect.php" role="button" title="disconnect" id="disconnect" style="color:black;font-size:20px;padding-bottom:3.5rem;width:75px; position:relative;"
             class="btn btn-success btn-lg">
             logout
         </a>
@@ -74,7 +74,7 @@
                 <h1 style="font-size:30px;text-align:center;">Log in</h1>
                 <hr>
                 <div class="form-popup">
-                <form action="./login.php" method="post" class="form-container" id="modalForm">
+                <form action="./db_operations/login.php" method="post" class="form-container" id="modalForm">
                     <?php if (isset($_SESSION['failure']) and isset($_SESSION['id'])==false) {
                     echo '<script>
                     var modal = document.getElementById("myModal");
@@ -147,7 +147,7 @@
                 <h1 style="font-size:30px;text-align:center;">Sign up</h1>
                 <hr>
                 <div class="form-popup">
-                    <form action="./signup.php" method="post" id="form-container2" class="form-container">
+                    <form action="./db_operations/signup.php" method="post" id="form-container2" class="form-container">
                     <?php if (isset($_SESSION['failure']) and isset($_SESSION['id'])==false) {
                     echo '<script>
                     var modal = document.getElementById("myModal");
@@ -280,7 +280,7 @@
         <div class="side">
             <h2 style="text-align: center;">Choose filters</h2>
             <h4 style="text-align: center;">Brands</h4>
-            <form action="filters.php" method="post">
+            <form action="./db_operations/filters.php" method="post">
 
             <div class="vertical-menu">
 

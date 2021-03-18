@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once 'connect.php';
+    require_once './db_operations/connect.php';
     unset($_SESSION['filters']);
     unset($_SESSION['price']);
 ?>
@@ -17,7 +17,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.5.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="./styling/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -26,7 +26,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
 
-    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="./javascript/index.js"></script>
 
 </head>
 
@@ -57,7 +57,7 @@
             class="btn btn-success btn-lg">
             profile
         </a>
-        <a href="./disconnect.php" role="button" title="disconnect" id="disconnect" style="color:black;font-size:20px;padding-bottom:3.5rem;width:75px; position:relative;"
+        <a href="./db_operations/disconnect.php" role="button" title="disconnect" id="disconnect" style="color:black;font-size:20px;padding-bottom:3.5rem;width:75px; position:relative;"
             class="btn btn-success btn-lg">
             logout
         </a>
@@ -75,7 +75,7 @@
                 <h1 style="font-size:30px;text-align:center;">Log in</h1>
                 <hr>
                 <div class="form-popup">
-                    <form action="./login.php" method="post" class="form-container" id="modalForm">
+                    <form action="./db_operations/login.php" method="post" class="form-container" id="modalForm">
                     <?php if (isset($_SESSION['failure']) and isset($_SESSION['id'])==false) {
                     echo '<script>
                     var modal = document.getElementById("myModal");
@@ -146,7 +146,7 @@
                 <h1 style="font-size:30px;text-align:center;">Sign up</h1>
                 <hr>
                 <div class="form-popup">
-                    <form action="./signup.php" method="post" id="form-container2" class="form-container">
+                    <form action="./db_operations/signup.php" method="post" id="form-container2" class="form-container">
                     <?php if (isset($_SESSION['failure']) and isset($_SESSION['id'])==false) {
                     echo '<script>
                     var modal = document.getElementById("myModal");
@@ -406,7 +406,7 @@
                                 <div class="failure" style="margin-bottom: 10px;font-size: 18px;color: red;"><?php echo $_SESSION['failed']; ?></div>
                         <?php unset($_SESSION['failed']);}
                         ?>
-                        <form action="contact.php" method="post">
+                        <form action="./db_operations/contact.php" method="post">
                             <label for="email" style="font-size:18px;font-weight:normal;">Email:</label><br>
                             <input
                                 style="background-color:#f1f1f1;border:none;text-align:center;font-size:18px;border-radius:30px;width:270px;height:40px;outline:none;"

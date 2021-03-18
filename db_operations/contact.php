@@ -1,5 +1,5 @@
 <?php
-    require_once 'connect.php';
+    require_once './db_operations/connect.php';
 
 	$emailErr = "";
 
@@ -23,13 +23,13 @@
 		$result = mysqli_query($conn,$query);
         if ($result)
         {
-            header('Location: index.php');
+            header('Location: ../index.php');
 			mysqli_close($conn);
         }
 		else
 		{
 			echo 'Failed';
-			header('Location: index.php');
+			header('Location: ../index.php');
 			mysqli_close($conn);
 		}
 		

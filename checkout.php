@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require_once 'connect.php';
+require_once './db_operations/connect.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,10 +15,10 @@ require_once 'connect.php';
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.5.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="profile.css">
-    <link rel="stylesheet" type="text/css" href="index.css">
-    <link rel="stylesheet" type="text/css" href="checkout.css">
-    <link rel="stylesheet" type="text/css" href="cart.css">
+    <link rel="stylesheet" type="text/css" href="./styling/profile.css">
+    <link rel="stylesheet" type="text/css" href="./styling/index.css">
+    <link rel="stylesheet" type="text/css" href="./styling/checkout.css">
+    <link rel="stylesheet" type="text/css" href="./styling/cart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -60,7 +60,7 @@ require_once 'connect.php';
             class="btn btn-success btn-lg">
             profile
         </a>
-        <a href="./disconnect.php" role="button" title="disconnect" id="disconnect" style="color:black;font-size:20px;padding-bottom:3.5rem;width:75px; position:relative;"
+        <a href="./db_operations/disconnect.php" role="button" title="disconnect" id="disconnect" style="color:black;font-size:20px;padding-bottom:3.5rem;width:75px; position:relative;"
             class="btn btn-success btn-lg">
             logout
         </a>
@@ -79,7 +79,7 @@ require_once 'connect.php';
                 <h1 style="font-size:30px;text-align:center;">Log in</h1>
                 <hr>
                 <div class="form-popup">
-                <form action="./login.php" method="post" class="form-container" id="modalForm">
+                <form action="./db_operations/login.php" method="post" class="form-container" id="modalForm">
                     <?php if (isset($_SESSION['failure']) and isset($_SESSION['id'])==false) {
                     echo '<script>
                     var modal = document.getElementById("myModal");
@@ -153,7 +153,7 @@ require_once 'connect.php';
                 <h1 style="font-size:30px;text-align:center;">Sign up</h1>
                 <hr>
                 <div class="form-popup">
-                    <form action="./signup.php" method="post" id="form-container2" class="form-container">
+                    <form action="./db_operations/signup.php" method="post" id="form-container2" class="form-container">
 
                         <label for="firstname" style="font-weight:normal;font-size:20px;">First Name</label>
                         <label for="lastname" style="margin-left:41%;font-weight:normal;font-size:20px;">Last
@@ -305,7 +305,7 @@ require_once 'connect.php';
         <div class="checkoutGridItem">
         <div class="cartGrid">
         <?php
-        require_once 'connect.php';
+        require_once './db_operations/connect.php';
         $query = "SELECT * FROM (SELECT id, image, name, price FROM products where id in (select id from cart where idUsr= " . $_SESSION['id'] . " )) t1 INNER JOIN (SELECT id, amount FROM cart WHERE idUsr= " . $_SESSION['id'] . " ) t2 ON t1.id = t2.id";
         $result = mysqli_query($conn, $query);
         while ($row = mysqli_fetch_array($result)) { ?>
