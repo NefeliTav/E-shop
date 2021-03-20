@@ -7,6 +7,7 @@
 ### Shop Page
 ![shop page](https://github.com/NefeliTav/e-shop/blob/main/images/second.png?raw=true)
 
+### Login Form
 ![login](https://github.com/NefeliTav/e-shop/blob/main/images/seventh.png?raw=true)
 
 ### Sign Up - Possibility to show password , see password strength, see whether passwords match.
@@ -14,8 +15,10 @@
 
 ![home page mobile](https://github.com/NefeliTav/e-shop/blob/main/images/third.png?raw=true)
 
+### Contact Form - Subscribe to Newsletter - Character Limit (Twitter-like)
 ![contact form](https://github.com/NefeliTav/e-shop/blob/main/images/fourth.png?raw=true)
 
+### Possibility to update personal info
 ![profile](https://github.com/NefeliTav/e-shop/blob/main/images/sixth.png?raw=true)
 
 
