@@ -1,4 +1,4 @@
-# A responsive,minimalistic e-commerce website ,using html, css/bootstrap, php ,javascript/jquery and MySQL database.
+## A responsive,minimalistic e-commerce website ,using html, css/bootstrap, php ,javascript/jquery and MySQL database.
 
 Home Page
 ![home page](https://github.com/NefeliTav/e-shop/blob/main/images/first.png?raw=true)
