@@ -1,9 +1,9 @@
 ## A responsive,minimalistic e-commerce website ,using html, css/bootstrap, php ,javascript/jquery and MySQL database.
 
-git clone https://github.com/NefeliTav/e-shop.git
-docker build -t eshop .
-docker-compose up
-then,go to http://localhost:8080 on your browser.
+git clone https://github.com/NefeliTav/e-shop.git \
+docker build -t eshop . \
+docker-compose up \
+then,go to http://localhost:8080 on your browser. \
 
 ### Home Page
 ![home page](https://github.com/NefeliTav/e-shop/blob/main/images/first.png?raw=true)
