@@ -3,7 +3,7 @@
 git clone https://github.com/NefeliTav/e-shop.git \
 docker build -t eshop . \
 docker-compose up \
-then,go to http://localhost:8080 on your browser. \
+then,go to http://localhost:8080 on your browser. 
 
 ### Home Page
 ![home page](https://github.com/NefeliTav/e-shop/blob/main/images/first.png?raw=true)
