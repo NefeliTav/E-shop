@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once './db_operations/connect.php';
+    require_once './connect.php';
     $nameErr = $lastnameErr = $emailErr = $telErr = $postcodeErr = $passwordErr = "";
 
     if(isset($_POST['submit2']))

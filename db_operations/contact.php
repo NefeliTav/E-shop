@@ -1,5 +1,5 @@
 <?php
-    require_once './db_operations/connect.php';
+    require_once './connect.php';
 
 	$emailErr = "";
 
