@@ -1,8 +1,3 @@
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-DROP DATABASE `e-shop`;
 CREATE DATABASE `e-shop`;
 
 CREATE TABLE `cart` (
@@ -77,7 +72,7 @@ INSERT INTO `purchase` (`idUsr`, `id`, `itemIndex`, `orderIndex`, `First_Name`, 
 
 CREATE TABLE `products` (
   `id` varchar(10) NOT NULL,
-  `name` varchar(40) NOT NULL,
+  `name` varchar(100) NOT NULL,
   `brand` varchar(10) NOT NULL,
   `mp` float NOT NULL,
   `optical` float NOT NULL,

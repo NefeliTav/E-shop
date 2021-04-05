@@ -2,24 +2,23 @@ version: '3.8'
 
 services:
   eshop:
-    # image: nefeli/eshop:test
-    build: .
+    image: eshop:latest
+    # build: .
     depends_on:
       - db
     ports:
       - 8000:80
+    restart: always
   db:
-    image: mysql:8.0
-    # command: --init-file /docker-entrypoint-initdb.d/1.sql
+    image: my-mysql:latest
     command: ['--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci','--default-authentication-plugin=mysql_native_password']
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: test_db
-      MYSQL_USER: devuser
-      MYSQL_PASSWORD: devpass
+      MYSQL_ROOT_PASSWORD: root
     ports:
-      - 6033:3306
+      - 3306:3306
+    expose:
+      - 3306
     volumes:
       - "./mysql-data:/var/lib/mysql"
-      - "./e-shop.sql:/docker-entrypoint-initdb.d/1.sql"

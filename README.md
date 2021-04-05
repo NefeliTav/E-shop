@@ -2,7 +2,7 @@
 
 git clone https://github.com/NefeliTav/e-shop.git \
 docker build -t eshop . \
-docker-compose up \
+docker build -t my-mysql -f Dockerfile.db . && sudo rm -rf mysql-data/* && docker-compose down && docker-compose up \
 then,go to http://localhost:8000 on your browser. 
 
 ### Home Page
@@ -26,5 +26,6 @@ then,go to http://localhost:8000 on your browser.
 
 ### Possibility to update personal info.
 ![profile](https://github.com/NefeliTav/e-shop/blob/main/images/sixth.png?raw=true)
+
 
 

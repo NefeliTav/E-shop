@@ -1,0 +1,5 @@
+FROM mysql:8.0
+
+COPY e-shop.sql /docker-entrypoint-initdb.d/e-shop.sql
+
+RUN chmod -R 765 /docker-entrypoint-initdb.d/e-shop.sql
