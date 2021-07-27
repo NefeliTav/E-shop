@@ -1,9 +1,15 @@
-## A responsive,minimalistic e-commerce website ,using html, css/bootstrap, php ,javascript/jquery and MySQL database.
+<p align="center">
+    <a href="https://www.php.net/"><img alt="php" src="https://img.shields.io/badge/-php-blueviolet?logo=php&labelColor=gray"></a>
+    <a href="https://www.mysql.com/"><img alt="mysql" src="https://img.shields.io/badge/-MySQL-blue?logo=mysql&labelColor=gray"></a>
+</p>
 
-git clone https://github.com/NefeliTav/e-shop.git \
-docker build -t eshop . \
-docker build -t my-mysql -f Dockerfile.db . && sudo rm -rf mysql-data/* && docker-compose down && docker-compose up \
-then,go to http://localhost:8000 on your browser. 
+## A responsive, minimalistic e-commerce website ,using html, css/bootstrap, php ,javascript/jquery and MySQL database.
+
+```
+docker build -t eshop .
+docker build -t my-mysql -f Dockerfile.db . && sudo rm -rf mysql-data/* && docker-compose down && docker-compose up
+```
+Then, go to http://localhost:8000 on your browser. 
 
 ### Home Page
 ![home page](https://github.com/NefeliTav/e-shop/blob/main/images/first.png?raw=true)
