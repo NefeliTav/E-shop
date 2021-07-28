@@ -297,20 +297,17 @@
                     <label style="font-size:17px;" > Panasonic</label><br><br>
             </div>
             <h4 style="text-align: center;">Megapixels</h4>
-
             <div class="vertical-menu">
 
                     <input type="checkbox" name="mp1"  />
-                    <label style="font-size:17px;"> -13 MP</label><br>
+                    <label style="font-size:17px;"> 0 - 13 MP</label><br>
                     <input type="checkbox" name="mp2"  />
-                    <label style="font-size:17px;" > 14-19 MP</label><br>
+                    <label style="font-size:17px;" > 14 - 19 MP</label><br>
                     <input type="checkbox" name="mp3"  />
                     <label style="font-size:17px;" > 16 MP</label><br>
                     <input type="checkbox" name="mp4"  />
                     <label style="font-size:17px;" > 20+ MP</label><br>
-
             </div>
-
             <h4 style="text-align: center;">Optical Zoom</h4>
             <div class="vertical-menu">
                     <input type="checkbox" name="optical1" />
@@ -341,7 +338,6 @@
                     <label style="font-size:17px;" > 2'' - 2.9''</label><br>
                     <input type="checkbox"  name="screen3"/>
                     <label style="font-size:17px;" > 3'' - 3.9''</label><br>
-
             </div>
             <h4 style="text-align: center;">Color</h4>
             <div class="vertical-menu" >
@@ -357,7 +353,6 @@
                     <label style="font-size:17px;color:black;" > Black</label><br>
                     <input type="checkbox"  name="grey"/>
                     <label style="font-size:17px;color:grey;" > Grey</label><br>
-
             </div>
             <h4 style="text-align: center; ">Price ($)</h4>
 
@@ -455,9 +450,9 @@
                                         alt="camera" src='<?php  echo $row[9]; ?>'>
                                 </div>
                                 <div class="description">
-                                    <h4>Megapixels :<b> <?php echo $row[3].'MP';?></b></h4>
-                                    <h4>Optical Zoom :<b><?php echo $row[4].'x';?></b></h4>
-                                    <h4>Digital Zoom :<b><?php echo $row[5].'x';?></b></h4>
+                                    <h4>Megapixels : <b><?php echo $row[3].'MP';?></b></h4>
+                                    <h4>Optical Zoom : <b><?php echo $row[4].'x';?></b></h4>
+                                    <h4>Digital Zoom : <b><?php echo $row[5].'x';?></b></h4>
                                     <h4>Screen : <b><?php echo $row[6].'"';?></b></h4>
                                     <h4>Color : <b><?php echo $row[7];?></b></h4>
                                     <h4>Price : <b><?php echo $row[8].' $';?></b></h4>

@@ -4,6 +4,7 @@
     unset($_SESSION['filters']);
     unset($_SESSION['price']);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -327,18 +328,23 @@
             <p><span style="font-size:25px">From the experienced professional to the aspiring hobbyist, our curated
                     selection of cameras offers something for everyone</span> </p>
             <br>
+                <a role="button" title="shop" id="shop-btn" style="border-radius:50px;background-color:#010c27;color:white;font-size:20px;width:120px;height:45px;border: none;"
+                class="btn" href="./shop.php">
+                Shop now
+                </a>
 
+            
             <div class="grid-container" >
-                <div class="productButton" id="catalog"><a class="productLink" href="./shop.php"><img src="./images/catalog.png"
+                <div class="productButton" id="catalog"><a class="productLink" ><img src="./images/catalog.png"
                             alt="catalog" width="180" height="180"></a>
                 </div>
-                <div class="productButton" id="hob"><a class="productLink" href="#"><img src="./images/photo1.png" alt="hobbyist"
+                <div class="productButton" id="hob"><a class="productLink" ><img src="./images/photo1.png" alt="hobbyist"
                             width="335" height="471"></a>
                 </div>
-                <div class="productButton" id="adv"><a class="productLink" href="#"><img src="./images/photo2.png" alt="advanced"
+                <div class="productButton" id="adv"><a class="productLink" ><img src="./images/photo2.png" alt="advanced"
                             width="300" height="471"></a>
                 </div>
-                <div class="productButton" id="prof"><a class="productLink" href="#"><img src="./images/photo3.png"
+                <div class="productButton" id="prof"><a class="productLink" ><img src="./images/photo3.png"
                             alt="professional" width="335" height="471"></a>
                 </div>
 
@@ -414,7 +420,7 @@
                             <label for="textarea" style="font-size:18px;font-weight:normal;">Ask us
                                 anything:</label><br>
                             <textarea name="text" 
-                                style="background-color:#f1f1f1;padding:1rem;font-size:24px;border-radius:30px;border:none;width:280px;height:300px;outline:none;"
+                                style="resize: none;background-color:#f1f1f1;padding:1rem;font-size:24px;border-radius:30px;border:none;width:280px;height:300px;outline:none;"
                                 id="field" onkeyup="countChar(this)" required></textarea>
                             <div id="charNum"></div>
                             <span id='message2'></span>

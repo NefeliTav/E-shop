@@ -100,7 +100,7 @@ INSERT INTO `products` (`id`, `name`, `brand`, `mp`, `optical`, `digital`, `scre
 ('8', 'Compact Sony Cyber-shot DSC W800', 'sony', 20.1, 5, 10, 2.7, 'grey', 105, './images/camera6.png'),
 ('9', 'Compact Camera Canon PowerShot G5X', 'canon', 20.1, 5, 4, 3, 'black', 929, './images/camera18.png'),
 ('10', 'Compact Nikon Coolpix B600', 'nikon', 16, 60, 0, 3, 'black', 299, './images/camera10.png'),
-('11', 'Compact Camera Canon PowerShot G7X II - Vlogging kit', 'canon', 20.1, 4.2, 0, 3, 'black', 574, './images/camera11.png'),
+('11', 'Compact Camera Canon PowerShot G7X II', 'canon', 20.1, 4.2, 0, 3, 'black', 574, './images/camera11.png'),
 ('12', 'Sony Cyber-shot DSC-RX100', 'sony', 20.2, 3.6, 0, 3, 'black', 349, './images/camera12.png'),
 ('13', 'Sony Cyber-shot DSC-HX60', 'sony', 20.4, 30, 120, 3, 'black', 279, './images/camera13.png'),
 ('14', 'Compact Sony DSC - HX80B', 'sony', 20.1, 30, 120, 3, 'black', 349, './images/camera14.png'),

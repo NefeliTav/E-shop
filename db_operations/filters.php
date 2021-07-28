@@ -1,4 +1,5 @@
 <?php    
+    ob_start();
     session_start();
     require_once './connect.php';
 
@@ -288,4 +289,5 @@
         header("Location: ../shop.php?pageno=1");  
 
     }
+    ob_end_flush();
 ?>

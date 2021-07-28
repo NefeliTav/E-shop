@@ -130,7 +130,16 @@ hr {
   cursor: pointer;
   border-radius: 50px;
 }
-
+#shop-btn {
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  padding: 10px;
+  background: none;
+  border-color: black;
+  cursor: pointer;
+  border-radius: 50px;
+}
 #profile {
   width: 40px;
   height: 40px;
@@ -371,6 +380,10 @@ hr {
   }
   #login {
     left: 80%;
+  }
+  #shop-btn {
+    margin-left: auto;
+    margin-right: auto;
   }
   #profile {
     left: 80%;
