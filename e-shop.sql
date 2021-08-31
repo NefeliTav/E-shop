@@ -1,6 +1,5 @@
 CREATE DATABASE `e-shop`;
 USE `e-shop`;
-
 CREATE TABLE `cart` (
   `userId` bigint(20) UNSIGNED NOT NULL,
   `id` bigint(20) NOT NULL,

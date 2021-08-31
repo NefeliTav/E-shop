@@ -28,7 +28,6 @@
 </head>
 
 <body>
-
 <?php
 	include './html/header.html';
 ?>
