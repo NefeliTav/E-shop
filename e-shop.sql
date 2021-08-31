@@ -1,5 +1,5 @@
 CREATE DATABASE `e-shop`;
-
+USE `e-shop`;
 CREATE TABLE `cart` (
   `idUsr` bigint(20) UNSIGNED NOT NULL,
   `id` varchar(10) NOT NULL,
