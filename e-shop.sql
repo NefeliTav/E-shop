@@ -1,17 +1,10 @@
 CREATE DATABASE `e-shop`;
+USE `e-shop`;
 
 CREATE TABLE `cart` (
-  `idUsr` bigint(20) UNSIGNED NOT NULL,
-  `id` varchar(10) NOT NULL,
-  `amount` int(11) NOT NULL
+  `userId` bigint(20) UNSIGNED NOT NULL,
+  `id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
-INSERT INTO `cart` (`idUsr`, `id`, `amount`) VALUES
-(1, '1', 2),
-(1, '2', 4),
-(1, '6', 3);
-
 
 CREATE TABLE `messages` (
   `email` varchar(20) NOT NULL,
@@ -23,27 +16,18 @@ INSERT INTO `messages` (`email`, `text`, `newsletter`) VALUES
 ('example@gmail.com', 'I want to ask something about polaroid cameras.', 1);
 
 CREATE TABLE `users` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `firstname` varchar(20) NOT NULL,
   `lastname` varchar(20) NOT NULL,
   `email` varchar(20) NOT NULL,
   `tel` varchar(10) NOT NULL,
   `addr` varchar(30) NOT NULL,
   `postcode` varchar(10) NOT NULL,
-  `psw` varchar(70) NOT NULL
+  `psw` varchar(70) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
-
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`email`),
-  ADD UNIQUE KEY `id` (`id`),
-  ADD UNIQUE KEY `id_2` (`id`);
-COMMIT;
-
-ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-COMMIT;
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `tel`, `addr`, `postcode`, `psw`) VALUES
 (1, 'Giorgos', 'Nikolaou', 'example@yahoo.gr', '6949123456', 'Peiraia', '12345', '$2y$10$7xMY2LxZgNfJeaZDBJgP4uv.elqLvWrOk8l1iZDJexTiEOf4J1FEi');
@@ -51,7 +35,7 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `tel`, `addr`, `pos
 /*psw = 123456*/
 
 CREATE TABLE `purchase` (
-  `idUsr` bigint(20) UNSIGNED NOT NULL,
+  `userId` bigint(20) UNSIGNED NOT NULL,
   `id` varchar(20) NOT NULL,
   `itemIndex` bigint(20) UNSIGNED NOT NULL,
   `orderIndex` int(11) NOT NULL,
@@ -62,16 +46,8 @@ CREATE TABLE `purchase` (
   `email` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `purchase` (`idUsr`, `id`, `itemIndex`, `orderIndex`, `First_Name`, `Last_Name`, `tel`, `addr`, `email`) VALUES
-(1, '1', 1, 1, '', '', '', '', ''),
-(1, '2', 2, 1, '', '', '', '', ''),
-(1, '6', 3, 1, '', '', '', '', ''),
-(1, '1', 4, 2, '', '', '', '', ''),
-(1, '2', 5, 2, '', '', '', '', ''),
-(1, '6', 6, 2, '', '', '', '', '');
-
 CREATE TABLE `products` (
-  `id` varchar(10) NOT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `brand` varchar(10) NOT NULL,
   `mp` float NOT NULL,
@@ -80,12 +56,9 @@ CREATE TABLE `products` (
   `screen` float NOT NULL,
   `color` varchar(20) NOT NULL,
   `price` float NOT NULL,
-  `image` varchar(30) NOT NULL
+  `image` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`);
-COMMIT;
 
 
 INSERT INTO `products` (`id`, `name`, `brand`, `mp`, `optical`, `digital`, `screen`, `color`, `price`, `image`) VALUES
@@ -109,10 +82,7 @@ INSERT INTO `products` (`id`, `name`, `brand`, `mp`, `optical`, `digital`, `scre
 ('17', 'Nikon Coolpix P1000', 'nikon', 16, 125, 250, 3.2, 'black', 990, './images/camera17.png');
 
 CREATE TABLE `wishlist` (
-  `idUsr` bigint(20) UNSIGNED NOT NULL,
-  `id` varchar(10) NOT NULL
+  `userId` bigint(20) UNSIGNED NOT NULL,
+  `id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-
-INSERT INTO `wishlist` (`idUsr`, `id`) VALUES
-(1, '1');
