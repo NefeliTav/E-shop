@@ -27,6 +27,7 @@
                     $_SESSION['address']=$arr[5];
                     $_SESSION['postcode']=$arr[6];
                     $_SESSION['password']=$arr[7];
+
                     $referer = $_SERVER['HTTP_REFERER'];
                     header("Location: $referer");
                 }
