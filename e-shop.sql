@@ -1,8 +1,15 @@
 CREATE DATABASE `e-shop`;
 USE `e-shop`;
+
 CREATE TABLE `cart` (
   `userId` bigint(20) UNSIGNED NOT NULL,
   `id` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `messages` (
+  `email` varchar(20) NOT NULL,
+  `text` text NOT NULL,
+  `newsletter` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `messages` (`email`, `text`, `newsletter`) VALUES

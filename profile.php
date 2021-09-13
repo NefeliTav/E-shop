@@ -44,14 +44,14 @@ session_start();
     <div style="display: block" id="Personal Information" class="tabcontent">
         <h3>Personal Information</h3>
         <p style="font-size:18px; margin-right: 60px;">Here you can update your personal information.</p>
-        <div class="containerProfile">
-            <form class="formProfile" method="post" action="">
+        <div class="containerProfile" style="margin-bottom:70px;">
+            <form class="formProfile" method="post" action="./db_operations/update.php">
                 <div class="rowProfile">
                     <div class="col-25Profile">
                         <label for="fname">First Name</label>
                     </div>
                     <div class="col-75Profile">
-                        <input type="text" id="fnameForm" name="firstnameForm" placeholder="<?php echo $_SESSION['firstname']; ?>">
+                        <input type="text" id="fnameForm" name="firstname" value="<?php echo $_SESSION['firstname']; ?>" placeholder="<?php echo $_SESSION['firstname']; ?>">
                     </div>
                 </div>
                 <div class="rowProfile">
@@ -59,7 +59,7 @@ session_start();
                         <label for="lname">Last Name</label>
                     </div>
                     <div class="col-75Profile">
-                        <input type="text" id="lnameForm" name="lastnameForm" placeholder="<?php echo $_SESSION['lastname']; ?>">
+                        <input type="text" id="lnameForm" name="lastname" value="<?php echo $_SESSION['lastname']; ?>" placeholder="<?php echo $_SESSION['lastname']; ?>">
                     </div>
                 </div>
                 <div class="rowProfile">
@@ -67,7 +67,7 @@ session_start();
                         <label for="lname">Address</label>
                     </div>
                     <div class="col-75Profile">
-                        <input type="text" id="addressForm" name="addressForm" placeholder="<?php echo $_SESSION['address']; ?>">
+                        <input type="text" id="addressForm" name="address" value="<?php echo $_SESSION['address']; ?>" placeholder="<?php echo $_SESSION['address']; ?>">
                     </div>
                 </div>
                 <div class="rowProfile">
@@ -75,7 +75,7 @@ session_start();
                         <label for="email">Email Address</label>
                     </div>
                     <div class="col-75Profile">
-                        <input type="email" id="emailForm" name="emailForm" placeholder="<?php echo $_SESSION['email']; ?>">
+                        <input type="email" id="emailForm" name="email" value="<?php echo $_SESSION['email']; ?>" placeholder="<?php echo $_SESSION['email']; ?>">
                     </div>
                 </div>
                 <div class="rowProfile">
@@ -83,7 +83,7 @@ session_start();
                         <label for="lname">Post Code</label>
                     </div>
                     <div class="col-75Profile">
-                        <input type="text" id="postcodeForm" name="postcodeForm" placeholder="<?php echo $_SESSION['postcode']; ?>">
+                        <input type="text" id="postcodeForm" name="postcode" value="<?php echo $_SESSION['postcode']; ?>" placeholder="<?php echo $_SESSION['postcode']; ?>">
                     </div>
                 </div>
                 <div class="rowProfile">
@@ -91,19 +91,18 @@ session_start();
                         <label for="lname">Phone Number</label>
                     </div>
                     <div class="col-75Profile">
-                        <input type="text" id="phoneForm" name="phoneForm" placeholder="<?php echo $_SESSION['tel']; ?>">
+                        <input type="text" id="phoneForm" name="tel" value="<?php echo $_SESSION['tel']; ?>" placeholder="<?php echo $_SESSION['tel']; ?>">
                     </div>
                 </div>
                 <div class="rowProfile">
-                    <button style="float: right; margin-top:5px;" type="submit" class="buttonAB" name="update">Update Profile</button>
-                    <button style="float: left; margin-top:5px; " type="submit" class="buttonAB">Change Password</button>
+                    <button style="float: right; margin-top:5px;" type="submit" class="buttonAB" name="submit3">Update Profile</button>
                 </div>
             </form>
         </div>
 
     </div>
 
-    <div id="Orders" class="tabcontent" style="align-items:center;">
+    <div id="Orders" class="tabcontent" style="align-items:center;margin-bottom:70px;">
         <h3>Orders</h3>
         <p style="font-size:18px; margin-right: 60px;">Here you can review information regarding your pending
             and completed orders.</p>
@@ -119,7 +118,7 @@ session_start();
         </table>
     </div>
 
-    <div id="Reviews" class="tabcontent" style="align-items:center;">
+    <div id="Reviews" class="tabcontent" style="align-items:center;margin-bottom:70px;">
         <h3>Reviews</h3>
         <p style="font-size:18px; margin-right: 60px;">Here you can view, delete and modify the reviews you
             have submitted for the products you own.</p>

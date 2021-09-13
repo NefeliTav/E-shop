@@ -32,7 +32,7 @@
 <?php
 	include './html/header.html';
 ?>
-    <div class="compareGrid">
+    <div class="compareGrid"  style="margin-bottom:80px;">
         <?php
         require_once './db_operations/connect.php';
         $query = "SELECT * FROM products where id in (select id from wishlist where userId= " .$_SESSION['id']." )";
