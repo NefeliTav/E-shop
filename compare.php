@@ -1,4 +1,5 @@
 <?php
+    ob_start();
     session_start();
     require_once './db_operations/connect.php';
 ?>
@@ -48,8 +49,17 @@
                         <p>Optical Zoom: <?php echo $row[4]; ?></p>
                         <p>Digital Zoom: <?php echo $row[5]; ?></p>
                         <p>Screen: <?php echo $row[6]; ?> inch</p>
-                        <input style="margin-left: 10%; margin-right: auto;" type="button" class="buttonCompare" value="Remove">
-                        <input style="margin-left: 7% ; margin-right: auto; margin-top: 10px; margin-bottom: 10px;" type="button" class="buttonCompare" value="Purchase">
+                        <form method="post">
+                            <button  type="submit" id="<?php echo $row[0]; ?>" name="<?php echo $row[0]; ?>" style="position:relative; font-size:20px;" class="buttonAB">Remove</button>
+                            <?php
+                                if (isset($_POST[$row[0]])) 
+                                {
+                                    $query = mysqli_query($conn,"DELETE FROM wishlist WHERE userId={$_SESSION['id']} and id={$row[0]}");
+                                    unset($_POST[$row[0]]);
+                                    header("Refresh:0");
+                                }
+                            ?>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,7 @@
 <?php
+ob_start();
 session_start();
+
 require_once './db_operations/connect.php';
 
 if (isset($_POST['submit'])) {
@@ -140,7 +142,7 @@ function test_input($data)
         }
         if(isset($_SESSION['id'])){
         
-        while ($row = mysqli_fetch_array($result)) { ?>
+        while ($row = mysqli_fetch_array($result)) {?>
             <div class="cartGridItem"
             >
                 <div class="card">
@@ -155,14 +157,14 @@ function test_input($data)
                         </div>
                     </div>
                     <form method="post">
-                        <button style="position:relative; left:70%; top:-65px; weight:7px;font-size:20px;" class="buttonAB">Purchase</button>
-                        <button type="submit" id="<?php echo $row[0]; ?>" name="<?php echo $row[0]; ?>" style="position:relative; left:80%; top:-65px; weight:7px;font-size:20px;" class="buttonAB">Remove</button>
+                        <button  type="submit" id="<?php echo $row[0] ?>" name="<?php echo $row[0] ?>" style="position:relative; left:80%; top:-65px; weight:7px;font-size:20px;" class="buttonAB">Remove</button>
                         <?php
                             if (isset($_POST[$row[0]])) 
                             {
-                                $query = mysqli_query($conn,"DELETE FROM cart WHERE userId={$_SESSION['id']} and id={$row[0]}");
+                                $query = mysqli_query($conn,"DELETE FROM cart WHERE userId={$_SESSION['id']} and id={$row[0]} LIMIT 1");
+                                unset($_POST[$row[0]]);
+                                header("Refresh:0");
                             }
-                            unset($_POST[$row[0]]);
                         ?>
                     </form>
 

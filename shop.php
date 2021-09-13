@@ -28,6 +28,7 @@
 </head>
 
 <body>
+
 <?php
 	include './html/header.html';
 ?>
@@ -232,8 +233,7 @@
                                         <button type="submit" name="<?php echo $row[0];?>" style="border-radius: 70px;">Add to Cart</button>
                                         <?php
                                             if (isset($_POST[$row[0]])) {
-
-                                                $result = mysqli_query($conn,"INSERT INTO cart (userId, id, amount) (SELECT u.id, p.id, '1' FROM users u, products p WHERE u.id={$_SESSION['id']} and p.id={$row[0]})     ");
+                                                $result = mysqli_query($conn,"INSERT INTO cart (userId, id) (SELECT u.id, p.id FROM users u, products p WHERE u.id={$_SESSION['id']} and p.id={$row[0]})     ");
                                                 unset($_POST[$row[0]]);
                                             }
                                         ?>
