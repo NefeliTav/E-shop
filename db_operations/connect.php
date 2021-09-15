@@ -1,9 +1,10 @@
 <?php    
     $serverName='db';
 	$username='root';
-	$password='';
-	$database='e-shop';
-	$conn = mysqli_connect("localhost",$username,$password,$database);
+	$password='root';
+	$database='test_db';
+	$port=3306;
+	$conn = mysqli_connect($serverName,$username,$password,$database,$port);
 	if ($conn->connect_error) 
         die($conn->connect_error);
 ?>
