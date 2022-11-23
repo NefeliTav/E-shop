@@ -6,9 +6,6 @@
 ## A responsive e-commerce website ,using html, css/bootstrap, php ,javascript/jquery and MySQL database.
 
 ```
-$ docker build -t eshop .
-$ docker build -t my-mysql -f Dockerfile.db .
-$ sudo rm -rf mysql-data/* && docker-compose down
 $ docker-compose up
 ```
 

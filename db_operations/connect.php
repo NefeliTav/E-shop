@@ -1,5 +1,5 @@
 <?php    
-    $serverName='db';
+    $serverName='eshop-db';
 	$username='root';
 	$password='root';
 	$database='test_db';
